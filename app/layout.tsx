@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="italivo-legacy">
       <body className={`${playfair.variable} ${inter.variable} antialiased`}>
-        <Script src="/legacy-italivo.js" strategy="lazyOnload" />
+        <Script src="/legacy-italivo.js" strategy="afterInteractive" />
         {/* <!-- Navigation --> */}
         <nav className="navbar">
           <div className="container nav-container">
