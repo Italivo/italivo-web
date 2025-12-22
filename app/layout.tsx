@@ -1,11 +1,11 @@
+import { Footer } from "@/components/layout/footer";
+import { Navbar } from "@/components/layout/navbar";
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
-import Script from "next/script";
-// import "./globals.css";
-import "./italivo-legacy.css";
+import { Inter, Libre_Baskerville } from "next/font/google";
+import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const libreBaskerville = Libre_Baskerville({
+  variable: "--font-libre-baskerville",
   subsets: ["latin"],
   weight: ["400", "700"],
   style: ["normal", "italic"],
@@ -29,90 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="italivo-legacy">
-      <body className={`${playfair.variable} ${inter.variable} antialiased`}>
-        <Script src="/legacy-italivo.js" strategy="afterInteractive" />
-        {/* <!-- Navigation --> */}
-        <nav className="navbar">
-          <div className="container nav-container">
-            <a href="#" className="logo">
-              Italivo
-            </a>
-            <ul className="nav-links">
-              <li>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <a href="#method">Method</a>
-              </li>
-              <li>
-                <a href="#packages">Packages</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
-              </li>
-            </ul>
-            <a href="#contact" className="btn btn-primary nav-cta">
-              Book your free trial lesson
-            </a>
-            <button className="mobile-menu-btn" aria-label="Toggle menu">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
-        </nav>
-
+      <body
+        className={`${libreBaskerville.variable} ${inter.variable} antialiased`}
+      >
+        <Navbar />
         {children}
-
         {/* <!-- Footer --> */}
-        <footer className="footer">
-          <div className="container footer-container">
-            <div className="footer-brand">
-              <a href="#" className="logo">
-                Italivo
-              </a>
-              <p>Learn Italian by living it.</p>
-            </div>
-            <div className="footer-links">
-              <div className="footer-column">
-                <h4>Navigation</h4>
-                <ul>
-                  <li>
-                    <a href="#about">About</a>
-                  </li>
-                  <li>
-                    <a href="#method">Method</a>
-                  </li>
-                  <li>
-                    <a href="#packages">Packages</a>
-                  </li>
-                  <li>
-                    <a href="#contact">Contact</a>
-                  </li>
-                </ul>
-              </div>
-              <div className="footer-column">
-                <h4>Connect</h4>
-                <ul>
-                  <li>
-                    <a href="#">Instagram</a>
-                  </li>
-                  <li>
-                    <a href="#">LinkedIn</a>
-                  </li>
-                  <li>
-                    <a href="mailto:hello@italivo.com">hello@italivo.com</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <div className="container">
-              <p>&copy; 2024 Italivo. All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );

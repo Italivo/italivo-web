@@ -1,45 +1,13 @@
+import { About } from "@/components/blocks/about";
+import { Hero } from "@/components/blocks/hero";
+import { LearningPaths } from "@/components/blocks/learning-paths";
+import { Testimonials } from "@/components/blocks/testimonials";
+
 export default function Home() {
   return (
     <main>
-      {/* <!-- Mobile Menu --> */}
-      <div className="mobile-menu">
-        <div className="mobile-menu-content">
-          <a href="#about">About</a>
-          <a href="#method">Method</a>
-          <a href="#packages">Packages</a>
-          <a href="#contact">Contact</a>
-          <a href="#contact" className="btn btn-primary">
-            Book your free trial lesson
-          </a>
-        </div>
-      </div>
-
-      {/* <!-- Hero Section --> */}
-      <header className="hero">
-        <div className="container hero-container">
-          <div className="hero-content">
-            <h1>
-              Learn Italian
-              <br />
-              with passion
-            </h1>
-            <p className="hero-subtitle">
-              Courses for all levels, from complete beginners to advanced
-              speakers
-            </p>
-            <a href="#contact" className="btn btn-primary btn-large">
-              Book your free trial lesson
-            </a>
-          </div>
-          <div className="hero-image">
-            <img
-              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=700&fit=crop&crop=face"
-              alt="Happy Italian student"
-            />
-          </div>
-        </div>
-      </header>
-
+      <Hero />
+      <LearningPaths />
       {/* <!-- About Section --> */}
       <section id="about" className="about">
         <div className="container about-container">
@@ -64,6 +32,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <About />
 
       {/* <!-- Method Section --> */}
       <section id="method" className="method">
@@ -104,188 +73,6 @@ export default function Home() {
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=face"
               alt="Italian teacher in session"
             />
-          </div>
-        </div>
-      </section>
-
-      {/* <!-- Paths Section --> */}
-      <section className="paths">
-        <div className="container">
-          <h2>Find the right path for you</h2>
-          <div className="paths-grid">
-            <div className="path-card">
-              <div className="path-icon">
-                <svg
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M24 4C12.954 4 4 12.954 4 24s8.954 20 20 20 20-8.954 20-20S35.046 4 24 4z"
-                    fill="#2D5A4A"
-                  />
-                  <path
-                    d="M18 20c0-3.314 2.686-6 6-6s6 2.686 6 6"
-                    stroke="#C25B3F"
-                    strokeWidth="2"
-                  />
-                  <circle cx="24" cy="28" r="4" fill="#C25B3F" />
-                </svg>
-              </div>
-              <h3>Italian Survival</h3>
-              <p>Essential phrases and functions for basic interactions</p>
-            </div>
-            <div className="path-card">
-              <div className="path-icon">
-                <svg
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M24 8l4 8 8 2-6 6 2 8-8-4-8 4 2-8-6-6 8-2z"
-                    fill="#C25B3F"
-                  />
-                  <circle
-                    cx="24"
-                    cy="24"
-                    r="16"
-                    stroke="#2D5A4A"
-                    strokeWidth="2"
-                    fill="none"
-                  />
-                </svg>
-              </div>
-              <h3>Italian for Art & Culture</h3>
-              <p>Explore Italy through art, history and traditions</p>
-            </div>
-            <div className="path-card">
-              <div className="path-icon">
-                <svg
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="8"
-                    y="12"
-                    width="32"
-                    height="24"
-                    rx="2"
-                    fill="#E8B84A"
-                  />
-                  <line
-                    x1="8"
-                    y1="20"
-                    x2="40"
-                    y2="20"
-                    stroke="#2D5A4A"
-                    strokeWidth="2"
-                  />
-                  <line
-                    x1="8"
-                    y1="28"
-                    x2="40"
-                    y2="28"
-                    stroke="#2D5A4A"
-                    strokeWidth="2"
-                  />
-                </svg>
-              </div>
-              <h3>Fast Conversation Italian</h3>
-              <p>Unlock your ability to converse naturally</p>
-            </div>
-            <div className="path-card">
-              <div className="path-icon">
-                <svg
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="10"
-                    y="8"
-                    width="28"
-                    height="32"
-                    rx="2"
-                    fill="#F5E6D3"
-                  />
-                  <path
-                    d="M16 16h16M16 24h16M16 32h10"
-                    stroke="#C25B3F"
-                    strokeWidth="2"
-                  />
-                </svg>
-              </div>
-              <h3>Italian for Storytellers</h3>
-              <p>Small steps lead to big dreams</p>
-            </div>
-            <div className="path-card">
-              <div className="path-icon">
-                <svg
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="24" cy="16" r="8" fill="#C25B3F" />
-                  <path
-                    d="M12 40c0-6.627 5.373-12 12-12s12 5.373 12 12"
-                    fill="#2D5A4A"
-                  />
-                </svg>
-              </div>
-              <h3>Italian for Medical & Nursing</h3>
-              <p>Terminology and communication for healthcare professionals</p>
-            </div>
-            <div className="path-card">
-              <div className="path-icon">
-                <svg
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="20" cy="20" r="8" fill="#C25B3F" />
-                  <circle cx="28" cy="28" r="8" fill="#2D5A4A" />
-                </svg>
-              </div>
-              <h3>Italian for Work & Business</h3>
-              <p>Professional communication and business Italian</p>
-            </div>
-            <div className="path-card">
-              <div className="path-icon">
-                <svg
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M24 8l8 16H16l8-16z" fill="#2D5A4A" />
-                  <path d="M16 28l8 12 8-12H16z" fill="#C25B3F" />
-                </svg>
-              </div>
-              <h3>Exam Preparation</h3>
-              <p>CILS, CELI, PLIDA and other official certifications</p>
-            </div>
-            <div className="path-card">
-              <div className="path-icon">
-                <svg
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="8"
-                    y="16"
-                    width="32"
-                    height="20"
-                    rx="2"
-                    fill="#C25B3F"
-                  />
-                  <circle cx="24" cy="26" r="6" fill="#F5E6D3" />
-                </svg>
-              </div>
-              <h3>Erasmus Preparation</h3>
-              <p>Get ready for your Italian adventure</p>
-            </div>
           </div>
         </div>
       </section>
@@ -436,62 +223,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <!-- Testimonials Section --> */}
-      <section className="testimonials">
-        <div className="container">
-          <h2>Our students say it best</h2>
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <p>
-                &lquot;Le lezioni con Italivo hanno trasformato il mio italiano.
-                Finalmente parlo con sicurezza!&rquot;
-              </p>
-              <div className="testimonial-author">
-                <img
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop&crop=face"
-                  alt="Sarah"
-                />
-                <div>
-                  <strong>Sarah M.</strong>
-                  <span>Premium Student</span>
-                </div>
-              </div>
-            </div>
-            <div className="testimonial-card">
-              <p>
-                &lquot;Il metodo comunicativo funziona davvero. Ho fatto più
-                progressi in 3 mesi che in anni di studio tradizionale.&rquot;
-              </p>
-              <div className="testimonial-author">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face"
-                  alt="James"
-                />
-                <div>
-                  <strong>James T.</strong>
-                  <span>VIP Intensive</span>
-                </div>
-              </div>
-            </div>
-            <div className="testimonial-card">
-              <p>
-                &lquot;I docenti sono fantastici e il supporto tra le lezioni fa
-                la differenza. Consigliatissimo!&rquot;
-              </p>
-              <div className="testimonial-author">
-                <img
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face"
-                  alt="Emma"
-                />
-                <div>
-                  <strong>Emma K.</strong>
-                  <span>Light Student</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
       {/* <!-- CTA Section --> */}
       <section id="contact" className="cta">
