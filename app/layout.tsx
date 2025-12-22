@@ -1,7 +1,7 @@
-import { Footer } from "@/componenst/layout/footer";
+import { Footer } from "@/components/layout/footer";
+import { Navbar } from "@/components/layout/navbar";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -30,40 +30,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="italivo-legacy">
       <body className={`${playfair.variable} ${inter.variable} antialiased`}>
-        <Script src="/legacy-italivo.js" strategy="afterInteractive" />
-        {/* <!-- Navigation --> */}
-        <nav className="navbar">
-          <div className="container nav-container">
-            <a href="#" className="logo">
-              Italivo
-            </a>
-            <ul className="nav-links">
-              <li>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <a href="#method">Method</a>
-              </li>
-              <li>
-                <a href="#packages">Packages</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
-              </li>
-            </ul>
-            <a href="#contact" className="btn btn-primary nav-cta">
-              Book your free trial lesson
-            </a>
-            <button className="mobile-menu-btn" aria-label="Toggle menu">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
-        </nav>
-
-        {children}
-
+        <Navbar />
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

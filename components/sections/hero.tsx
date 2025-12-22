@@ -3,7 +3,7 @@ import { typography } from "@/lib/variants";
 
 export function Hero() {
   return (
-    <header className="relative w-full h-screen bg-[url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=700&fit=crop&crop=face')] bg-cover bg-center">
+    <header className="relative w-full h-screen bg-[url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=700&fit=crop&crop=face')] bg-cover bg-top">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center text-background">
           <h1 className={cn(typography({ variant: "display" }))}>
