@@ -1,8 +1,8 @@
+import { Footer } from "@/componenst/layout/footer";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
-// import "./globals.css";
-import "./italivo-legacy.css";
+import "./globals.css";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -64,55 +64,7 @@ export default function RootLayout({
 
         {children}
 
-        {/* <!-- Footer --> */}
-        <footer className="footer">
-          <div className="container footer-container">
-            <div className="footer-brand">
-              <a href="#" className="logo">
-                Italivo
-              </a>
-              <p>Learn Italian by living it.</p>
-            </div>
-            <div className="footer-links">
-              <div className="footer-column">
-                <h4>Navigation</h4>
-                <ul>
-                  <li>
-                    <a href="#about">About</a>
-                  </li>
-                  <li>
-                    <a href="#method">Method</a>
-                  </li>
-                  <li>
-                    <a href="#packages">Packages</a>
-                  </li>
-                  <li>
-                    <a href="#contact">Contact</a>
-                  </li>
-                </ul>
-              </div>
-              <div className="footer-column">
-                <h4>Connect</h4>
-                <ul>
-                  <li>
-                    <a href="#">Instagram</a>
-                  </li>
-                  <li>
-                    <a href="#">LinkedIn</a>
-                  </li>
-                  <li>
-                    <a href="mailto:hello@italivo.com">hello@italivo.com</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <div className="container">
-              <p>&copy; 2024 Italivo. All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
