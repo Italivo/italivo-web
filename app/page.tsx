@@ -1,16 +1,19 @@
-import { AboutSection } from "@/components/sections/about";
-import { CTASection } from "@/components/sections/cta-section";
-import { FeatureSection } from "@/components/sections/features";
-import { Hero } from "@/components/sections/hero";
-import { LearningPaths } from "@/components/sections/learning-paths";
-import { MethodSection } from "@/components/sections/method";
-import { Packages } from "@/components/sections/packages";
-import { Testimonials } from "@/components/sections/testimonials";
+import { AboutSection } from "@/components/blocks/about";
+import { BlocksRenderer } from "@/components/blocks/blocks-renderer";
+import { CTASection } from "@/components/blocks/cta-section";
+import { FeatureSection } from "@/components/blocks/features";
+import { LearningPaths } from "@/components/blocks/learning-paths";
+import { MethodSection } from "@/components/blocks/method";
+import { Packages } from "@/components/blocks/packages";
+import { Testimonials } from "@/components/blocks/testimonials";
+import { getHomepageData } from "@/lib/strapi/queries";
 
-export default function Home() {
+export default async function Home() {
+  const { data, error } = await getHomepageData();
+
   return (
     <>
-      <Hero />
+      <BlocksRenderer blocks={data?.data.blocks ?? []} />
       <AboutSection />
       <MethodSection />
       <LearningPaths />
