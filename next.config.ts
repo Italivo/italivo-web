@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  images: {
+    dangerouslyAllowLocalIP: process.env.NODE_ENV === "development",
+    remotePatterns: [new URL(`${env.STRAPI_MEDIA_URL}/**`)],
+  },
   async headers() {
     return [
       {

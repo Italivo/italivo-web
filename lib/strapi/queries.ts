@@ -8,13 +8,22 @@ export async function getHomepageData() {
         populate: {
           //@ts-expect-error Strapi typing mismatch for blocks.populate
           blocks: {
-            populate: "*",
             on: {
               "blocks.hero": {
                 populate: {
                   backgroundImage: true,
                   cta: {
                     populate: {
+                      link: true,
+                    },
+                  },
+                },
+              },
+              "blocks.icon-cards": {
+                populate: {
+                  iconCards: {
+                    populate: {
+                      icon: true,
                       link: true,
                     },
                   },

@@ -144,6 +144,12 @@
   --sidebar-accent-foreground: var(--color-black);
   --sidebar-border: var(--color-beige-300);
   --sidebar-ring: var(--color-olive-400);
+
+  /* custom property to handle section spacing */
+  --section-padding: 3rem 1.5rem;
+  @media (width >= 48rem /* md = 768px */) {
+    --section-padding: 4rem 3rem;
+  }
 }
 
 .dark {
@@ -190,6 +196,10 @@
 }
 
 @layer utilities {
+  .container-fluid {
+    @apply w-full max-w-7xl;
+  }
+
   .list-style-checkmark {
     list-style: none;
   }

@@ -532,7 +532,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2025-12-23T15:06:53.228Z
+                             * @default 2026-01-04T18:12:13.532Z
                              */
                             publishedAt: string;
                             /** @description A dynamic zone field */
@@ -595,7 +595,7 @@ export interface operations {
                     data: {
                         /**
                          * @description A datetime field
-                         * @default 2025-12-23T15:06:53.231Z
+                         * @default 2026-01-04T18:12:13.536Z
                          */
                         publishedAt?: string;
                         /** @description A dynamic zone field */
@@ -625,7 +625,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2025-12-23T15:06:53.232Z
+                             * @default 2026-01-04T18:12:13.537Z
                              */
                             publishedAt: string;
                             /** @description A dynamic zone field */
@@ -704,7 +704,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2025-12-23T15:06:53.235Z
+                             * @default 2026-01-04T18:12:13.539Z
                              */
                             publishedAt: string;
                             /** @description A dynamic zone field */
@@ -810,7 +810,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2025-12-23T15:06:53.244Z
+                             * @default 2026-01-04T18:12:13.544Z
                              */
                             publishedAt: string;
                         }[];
@@ -875,7 +875,7 @@ export interface operations {
                         slug: string;
                         /**
                          * @description A datetime field
-                         * @default 2025-12-23T15:06:53.598Z
+                         * @default 2026-01-04T18:12:13.922Z
                          */
                         publishedAt: string;
                     };
@@ -907,7 +907,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2025-12-23T15:06:53.250Z
+                             * @default 2026-01-04T18:12:13.552Z
                              */
                             publishedAt: string;
                         };
@@ -998,7 +998,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2025-12-23T15:06:53.247Z
+                             * @default 2026-01-04T18:12:13.549Z
                              */
                             publishedAt: string;
                         };
@@ -1065,7 +1065,7 @@ export interface operations {
                         slug?: string;
                         /**
                          * @description A datetime field
-                         * @default 2025-12-23T15:06:53.252Z
+                         * @default 2026-01-04T18:12:13.554Z
                          */
                         publishedAt?: string;
                     };
@@ -1097,7 +1097,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2025-12-23T15:06:53.253Z
+                             * @default 2026-01-04T18:12:13.554Z
                              */
                             publishedAt: string;
                         };
@@ -1183,7 +1183,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2025-12-23T15:06:53.255Z
+                             * @default 2026-01-04T18:12:13.556Z
                              */
                             publishedAt: string;
                         };
