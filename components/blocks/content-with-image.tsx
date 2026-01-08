@@ -24,7 +24,7 @@ export function ContentWithImage({
 }: ContentWithImageProps) {
   return (
     <section className={cn(background === "secondary" && "bg-secondary")}>
-      <div className="container-fluid px-(--section-padding-x) py-(--section-padding-y)">
+      <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y)">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 md:gap-12">
           {/* Image */}
           <div
