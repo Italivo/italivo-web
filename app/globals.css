@@ -146,9 +146,11 @@
   --sidebar-ring: var(--color-olive-400);
 
   /* custom property to handle section spacing */
-  --section-padding: 3rem 1.5rem;
+  --section-padding-x: 1.5rem;
+  --section-padding-y: 3rem;
   @media (width >= 48rem /* md = 768px */) {
-    --section-padding: 4rem 3rem;
+    --section-padding-x: 3rem;
+    --section-padding-y: 4rem;
   }
 }
 

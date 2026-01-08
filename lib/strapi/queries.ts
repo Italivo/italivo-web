@@ -29,6 +29,11 @@ export async function getHomepageData() {
                   },
                 },
               },
+              "blocks.content-with-image": {
+                populate: {
+                  image: true,
+                },
+              },
             },
           },
         },

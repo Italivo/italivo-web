@@ -1,10 +1,12 @@
 import { Hero } from "@/components/blocks/hero";
+import { ContentWithImage } from "./content-with-image";
 import { IconCards } from "./icon-cards";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const componentsMap: Record<string, React.ComponentType<any>> = {
   "blocks.hero": Hero,
   "blocks.icon-cards": IconCards,
+  "blocks.content-with-image": ContentWithImage,
 };
 
 type BlockData = {

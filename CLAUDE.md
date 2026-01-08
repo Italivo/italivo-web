@@ -4,71 +4,103 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Italivo-web is an Italian language learning school website built with Next.js 16 (App Router), React 19, TypeScript, and Tailwind CSS 4. The site features a single-page marketing layout with sections for courses, packages, testimonials, and contact.
+Next.js 16 application using React 19 that integrates with a headless Strapi CMS. Frontend built with TypeScript, TailwindCSS v4, and openapi-fetch for type-safe API calls.
 
 ## Development Commands
 
 ```bash
-# Start development server (default: http://localhost:3000)
+# Start dev server (http://localhost:3000)
 npm run dev
 
-# Build for production
+# Production build
 npm run build
 
 # Start production server
 npm start
 
-# Run linter
+# Lint code
 npm run lint
+
+# Generate Strapi TypeScript types (requires Strapi running at localhost:1337)
+npm run strapi:types
 ```
+
+## Environment Variables
+
+Required env vars (see `.env.example`):
+- `STRAPI_URL` - Strapi backend URL
+- `STRAPI_MEDIA_URL` - Strapi media CDN URL
+- `PREVIEW_SECRET` - Secret token for draft preview mode
+
+Environment validation uses `@t3-oss/env-nextjs` with Zod schemas in `env.ts`.
 
 ## Architecture
 
-### Styling System
+### Strapi Integration
 
-The project uses a dual-styling approach:
+**Type Generation**: Run `npm run strapi:types` to generate TypeScript types from Strapi's OpenAPI spec at `lib/strapi/types.ts`.
 
-1. **Legacy CSS**: Currently active styling via `app/italivo-legacy.css` with custom classes (.navbar, .hero, .package-card, etc.). Applied through `italivo-legacy` class on `<html>` element. These styles will be migrated to Tailwind CSS.
+**API Client** (`lib/strapi/client.ts`):
+- Uses `openapi-fetch` for type-safe requests
+- Custom `qs` query serializer for Strapi's array format
+- Draft mode middleware: automatically adds `?status=draft` to requests when Next.js draft mode enabled
 
-2. **Tailwind CSS v5**: Configured but not actively used. When migrating, replace legacy CSS with Tailwind utilities. Import via `app/globals.css` which includes custom theme tokens and CSS variables for design system.
+**Data Fetching** (`lib/strapi/queries.ts`):
+- Server-only queries (uses `server-only` package)
+- Populate parameters must specify deeply nested relations
+- Complex populate params have TypeScript ignore comments due to OpenAPI/Strapi type mismatches
 
-### Layout Structure
+**Preview Mode** (`app/api/preview/route.ts`):
+- GET endpoint at `/api/preview?secret=XXX&url=/path&status=published|draft`
+- Enables/disables Next.js draft mode based on status param
+- Middleware in client automatically adds `?status=draft` query param for draft requests
 
-- **Root Layout** (`app/layout.tsx`): Contains static navigation and footer. Uses Google Fonts (Playfair Display for headings, Inter for body). Loads legacy JavaScript via Next.js Script component.
+### Dynamic Block System
 
-- **Page** (`app/page.tsx`): Single-page marketing site with sections: mobile menu, hero, about, method, paths (8 course types), features, packages (Light/Premium/VIP), testimonials, CTA.
+**Block Renderer** (`components/blocks/blocks-renderer.tsx`):
+- Maps Strapi `__component` strings to React components via `componentsMap`
+- Each block must be registered in `componentsMap` object
+- Validates blocks have `id` and `__component` properties
+- Falls back gracefully for unknown block types (dev warning only)
+
+**Adding New Blocks**:
+1. Create component in `components/blocks/`
+2. Register in `componentsMap` with Strapi component name (e.g., `"blocks.hero"`)
+3. Update populate params in `lib/strapi/queries.ts` for nested data
+4. Optionally add TypeScript types in `lib/strapi/block-types.ts`
+
+### Component Structure
+
+```
+components/
+  blocks/        - Page sections fetched from Strapi
+  layout/        - Navbar, Footer
+  shared/        - Reusable components (cta, link, icon-card)
+  ui/            - Base UI components (button, card) - shadcn/ui style
+```
+
+### Styling
+
+- TailwindCSS v4 with Tailwind Animate plugin
+- Utility classes use `tailwind-merge` via `lib/utils.ts` `cn()` helper
+- Component variants managed with `class-variance-authority` (see `lib/variants.ts`)
 
 ### Path Aliases
 
-TypeScript paths configured with `@/*` mapping to repository root. Import like:
+Uses `@/*` alias mapping to project root (configured in `tsconfig.json`).
 
-```typescript
-import { cn } from "@/lib/utils";
-```
+## Key Files
 
-### Utilities
+- `lib/strapi/client.ts` - API client with draft mode middleware
+- `lib/strapi/queries.ts` - Strapi data fetching functions
+- `lib/strapi/utils.ts` - `getStrapiMedia()` helper for absolute URLs
+- `components/blocks/blocks-renderer.tsx` - Dynamic block component mapper
+- `env.ts` - Environment variable validation
+- `next.config.ts` - Image config for Strapi media, CSP headers for preview
 
-`lib/utils.ts`: Contains `cn()` helper for merging Tailwind classes using clsx and tailwind-merge.
+## Notes
 
-## Key Dependencies
-
-- Next.js 16 with App Router
-- React 19
-- TypeScript 5
-- Tailwind CSS 4 with tw-animate-css
-- class-variance-authority, clsx, tailwind-merge for component variants
-- lucide-react for icons (not yet implemented in current markup)
-
-## Development Notes
-
-- Legacy JavaScript in `public/legacy-italivo.js` handles mobile menu interactions
-- ESLint configured with Next.js core-web-vitals and TypeScript presets
-- PostCSS Tailwind plugin currently commented out
-- No testing framework currently configured
-- No environment variables or API integrations yet
-
-## Detailed guidelines
-
-For detailed guidelines, see:
-
-- [Styling & Tailwind](docs/styling.md)
+- All Strapi queries use deeply nested populate params - shallow population doesn't work
+- Draft mode persists in cookies until explicitly disabled
+- Media URLs are transformed via `getStrapiMedia()` to handle relative/absolute/data URLs
+- TypeScript strict mode enabled

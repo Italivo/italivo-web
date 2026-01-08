@@ -11,7 +11,7 @@ type IconCardsProps = {
 export function IconCards({ title, iconCards, background }: IconCardsProps) {
   return (
     <section className={cn(background === "secondary" && "bg-secondary")}>
-      <div className="container-fluid mx-auto p-(--section-padding)">
+      <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y)">
         {title && (
           <h2 className={cn(typography({ variant: "h2" }), "text-center")}>
             {title}
