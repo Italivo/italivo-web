@@ -34,9 +34,20 @@ export async function getHomepageData() {
                   image: true,
                 },
               },
+              "blocks.testimonials": true,
             },
           },
         },
+      },
+    },
+  });
+}
+
+export async function getTestimonials() {
+  return await client.GET("/testimonials", {
+    params: {
+      query: {
+        populate: ["avatar"],
       },
     },
   });

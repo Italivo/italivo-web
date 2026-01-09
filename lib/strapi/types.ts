@@ -52,6 +52,38 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/testimonials": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["testimonial/get/testimonials"];
+        put?: never;
+        post: operations["testimonial/post/testimonials"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/testimonials/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["testimonial/get/testimonials_by_id"];
+        put: operations["testimonial/put/testimonials_by_id"];
+        post?: never;
+        delete: operations["testimonial/delete/testimonials_by_id"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/content-types": {
         parameters: {
             query?: never;
@@ -487,7 +519,54 @@ export interface paths {
 }
 export type webhooks = Record<string, never>;
 export interface components {
-    schemas: never;
+    schemas: {
+        PluginUploadFileDocument: {
+            /**
+             * Format: uuid
+             * @description The document ID, represented by a UUID
+             */
+            documentId: string;
+            id: string | number;
+            /** @description A string field */
+            name: string;
+            /** @description A text field */
+            alternativeText?: string;
+            /** @description A text field */
+            caption?: string;
+            /** @description An integer field */
+            width?: number;
+            /** @description An integer field */
+            height?: number;
+            /** @description A JSON field */
+            formats?: unknown;
+            /** @description A string field */
+            hash: string;
+            /** @description A string field */
+            ext?: string;
+            /** @description A string field */
+            mime: string;
+            /** @description A decimal field */
+            size: number;
+            /** @description A text field */
+            url: string;
+            /** @description A text field */
+            previewUrl?: string;
+            /** @description A string field */
+            provider: string;
+            /** @description A JSON field */
+            provider_metadata?: unknown;
+            /** @description A datetime field */
+            createdAt?: string;
+            /** @description A datetime field */
+            updatedAt?: string;
+            /**
+             * @description A datetime field
+             * @default 2026-01-09T16:25:59.653Z
+             */
+            publishedAt: string;
+            related: unknown;
+        };
+    };
     responses: never;
     parameters: never;
     requestBodies: never;
@@ -532,7 +611,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2026-01-08T15:35:31.445Z
+                             * @default 2026-01-09T16:25:59.620Z
                              */
                             publishedAt: string;
                             /** @description A dynamic zone field */
@@ -595,7 +674,7 @@ export interface operations {
                     data: {
                         /**
                          * @description A datetime field
-                         * @default 2026-01-08T15:35:31.449Z
+                         * @default 2026-01-09T16:25:59.624Z
                          */
                         publishedAt?: string;
                         /** @description A dynamic zone field */
@@ -625,7 +704,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2026-01-08T15:35:31.450Z
+                             * @default 2026-01-09T16:25:59.625Z
                              */
                             publishedAt: string;
                             /** @description A dynamic zone field */
@@ -704,7 +783,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2026-01-08T15:35:31.452Z
+                             * @default 2026-01-09T16:25:59.627Z
                              */
                             publishedAt: string;
                             /** @description A dynamic zone field */
@@ -810,7 +889,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2026-01-08T15:35:31.462Z
+                             * @default 2026-01-09T16:25:59.632Z
                              */
                             publishedAt: string;
                         }[];
@@ -875,7 +954,7 @@ export interface operations {
                         slug: string;
                         /**
                          * @description A datetime field
-                         * @default 2026-01-08T15:35:31.837Z
+                         * @default 2026-01-09T16:26:00.026Z
                          */
                         publishedAt: string;
                     };
@@ -907,7 +986,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2026-01-08T15:35:31.468Z
+                             * @default 2026-01-09T16:25:59.638Z
                              */
                             publishedAt: string;
                         };
@@ -998,7 +1077,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2026-01-08T15:35:31.465Z
+                             * @default 2026-01-09T16:25:59.635Z
                              */
                             publishedAt: string;
                         };
@@ -1065,7 +1144,7 @@ export interface operations {
                         slug?: string;
                         /**
                          * @description A datetime field
-                         * @default 2026-01-08T15:35:31.470Z
+                         * @default 2026-01-09T16:25:59.639Z
                          */
                         publishedAt?: string;
                     };
@@ -1097,7 +1176,7 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2026-01-08T15:35:31.471Z
+                             * @default 2026-01-09T16:25:59.640Z
                              */
                             publishedAt: string;
                         };
@@ -1183,9 +1262,514 @@ export interface operations {
                             updatedAt?: string;
                             /**
                              * @description A datetime field
-                             * @default 2026-01-08T15:35:31.473Z
+                             * @default 2026-01-09T16:25:59.642Z
                              */
                             publishedAt: string;
+                        };
+                    };
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "testimonial/get/testimonials": {
+        parameters: {
+            query?: {
+                fields?: ("name" | "role" | "quote" | "createdAt" | "updatedAt" | "publishedAt")[];
+                filters?: {
+                    [key: string]: unknown;
+                };
+                _q?: string;
+                pagination?: {
+                    /** @description Include total count in response */
+                    withCount?: boolean;
+                } & ({
+                    /** @description Page number (1-based) */
+                    page: number;
+                    /** @description Number of entries per page */
+                    pageSize: number;
+                } | {
+                    /** @description Number of entries to skip */
+                    start: number;
+                    /** @description Maximum number of entries to return */
+                    limit: number;
+                });
+                sort?: ("name" | "role" | "quote" | "createdAt" | "updatedAt" | "publishedAt") | ("name" | "role" | "quote" | "createdAt" | "updatedAt" | "publishedAt")[] | {
+                    [key: string]: "asc" | "desc";
+                } | {
+                    [key: string]: "asc" | "desc";
+                }[];
+                populate?: "*" | "avatar" | "avatar"[];
+                status?: "draft" | "published";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            /**
+                             * Format: uuid
+                             * @description The document ID, represented by a UUID
+                             */
+                            documentId: string;
+                            id: string | number;
+                            /** @description A string field */
+                            name: string;
+                            /** @description A string field */
+                            role: string;
+                            /** @description A text field */
+                            quote: string;
+                            /** @description A datetime field */
+                            createdAt?: string;
+                            /** @description A datetime field */
+                            updatedAt?: string;
+                            /**
+                             * @description A datetime field
+                             * @default 2026-01-09T16:25:59.649Z
+                             */
+                            publishedAt: string;
+                            /** @description A media field */
+                            avatar: components["schemas"]["PluginUploadFileDocument"];
+                        }[];
+                    };
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "testimonial/post/testimonials": {
+        parameters: {
+            query?: {
+                fields?: ("name" | "role" | "quote" | "createdAt" | "updatedAt" | "publishedAt")[];
+                populate?: "*" | "avatar" | "avatar"[];
+                status?: "draft" | "published";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    data: {
+                        /** @description A string field */
+                        name: string;
+                        /** @description A string field */
+                        role: string;
+                        /** @description A text field */
+                        quote: string;
+                        /**
+                         * @description A datetime field
+                         * @default 2026-01-09T16:25:59.658Z
+                         */
+                        publishedAt: string;
+                        /** @description A media field */
+                        avatar: unknown;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            /**
+                             * Format: uuid
+                             * @description The document ID, represented by a UUID
+                             */
+                            documentId: string;
+                            id: string | number;
+                            /** @description A string field */
+                            name: string;
+                            /** @description A string field */
+                            role: string;
+                            /** @description A text field */
+                            quote: string;
+                            /** @description A datetime field */
+                            createdAt?: string;
+                            /** @description A datetime field */
+                            updatedAt?: string;
+                            /**
+                             * @description A datetime field
+                             * @default 2026-01-09T16:25:59.659Z
+                             */
+                            publishedAt: string;
+                            /** @description A media field */
+                            avatar: components["schemas"]["PluginUploadFileDocument"];
+                        };
+                    };
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "testimonial/get/testimonials_by_id": {
+        parameters: {
+            query?: {
+                fields?: ("name" | "role" | "quote" | "createdAt" | "updatedAt" | "publishedAt")[];
+                populate?: "*" | "avatar" | "avatar"[];
+                filters?: {
+                    [key: string]: unknown;
+                };
+                sort?: ("name" | "role" | "quote" | "createdAt" | "updatedAt" | "publishedAt") | ("name" | "role" | "quote" | "createdAt" | "updatedAt" | "publishedAt")[] | {
+                    [key: string]: "asc" | "desc";
+                } | {
+                    [key: string]: "asc" | "desc";
+                }[];
+                status?: "draft" | "published";
+            };
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            /**
+                             * Format: uuid
+                             * @description The document ID, represented by a UUID
+                             */
+                            documentId: string;
+                            id: string | number;
+                            /** @description A string field */
+                            name: string;
+                            /** @description A string field */
+                            role: string;
+                            /** @description A text field */
+                            quote: string;
+                            /** @description A datetime field */
+                            createdAt?: string;
+                            /** @description A datetime field */
+                            updatedAt?: string;
+                            /**
+                             * @description A datetime field
+                             * @default 2026-01-09T16:25:59.656Z
+                             */
+                            publishedAt: string;
+                            /** @description A media field */
+                            avatar: components["schemas"]["PluginUploadFileDocument"];
+                        };
+                    };
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "testimonial/put/testimonials_by_id": {
+        parameters: {
+            query?: {
+                fields?: ("name" | "role" | "quote" | "createdAt" | "updatedAt" | "publishedAt")[];
+                populate?: "*" | "avatar" | "avatar"[];
+                status?: "draft" | "published";
+            };
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    data: {
+                        /** @description A string field */
+                        name?: string;
+                        /** @description A string field */
+                        role?: string;
+                        /** @description A text field */
+                        quote?: string;
+                        /**
+                         * @description A datetime field
+                         * @default 2026-01-09T16:25:59.661Z
+                         */
+                        publishedAt?: string;
+                        /** @description A media field */
+                        avatar?: unknown;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            /**
+                             * Format: uuid
+                             * @description The document ID, represented by a UUID
+                             */
+                            documentId: string;
+                            id: string | number;
+                            /** @description A string field */
+                            name: string;
+                            /** @description A string field */
+                            role: string;
+                            /** @description A text field */
+                            quote: string;
+                            /** @description A datetime field */
+                            createdAt?: string;
+                            /** @description A datetime field */
+                            updatedAt?: string;
+                            /**
+                             * @description A datetime field
+                             * @default 2026-01-09T16:25:59.662Z
+                             */
+                            publishedAt: string;
+                            /** @description A media field */
+                            avatar: components["schemas"]["PluginUploadFileDocument"];
+                        };
+                    };
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "testimonial/delete/testimonials_by_id": {
+        parameters: {
+            query?: {
+                fields?: ("name" | "role" | "quote" | "createdAt" | "updatedAt" | "publishedAt")[];
+                populate?: "*" | "avatar" | "avatar"[];
+                filters?: {
+                    [key: string]: unknown;
+                };
+                status?: "draft" | "published";
+            };
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            /**
+                             * Format: uuid
+                             * @description The document ID, represented by a UUID
+                             */
+                            documentId: string;
+                            id: string | number;
+                            /** @description A string field */
+                            name: string;
+                            /** @description A string field */
+                            role: string;
+                            /** @description A text field */
+                            quote: string;
+                            /** @description A datetime field */
+                            createdAt?: string;
+                            /** @description A datetime field */
+                            updatedAt?: string;
+                            /**
+                             * @description A datetime field
+                             * @default 2026-01-09T16:25:59.664Z
+                             */
+                            publishedAt: string;
+                            /** @description A media field */
+                            avatar: components["schemas"]["PluginUploadFileDocument"];
                         };
                     };
                 };
