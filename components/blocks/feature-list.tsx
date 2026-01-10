@@ -9,6 +9,7 @@ type FeatureListProps = {
   subtitle?: string;
   image?: StrapiImage;
   features: { title: string; description: string }[];
+  background?: "transparent" | "secondary";
 };
 
 export function FeatureList({
@@ -16,9 +17,10 @@ export function FeatureList({
   subtitle,
   image,
   features,
+  background,
 }: FeatureListProps) {
   return (
-    <section id="method" className="bg-secondary">
+    <section className={cn(background === "secondary" && "bg-secondary")}>
       <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y) flex flex-col gap-(--section-padding-y)">
         <div>
           <h2
