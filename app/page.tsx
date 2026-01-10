@@ -6,8 +6,6 @@ import { getHomepageData } from "@/lib/strapi/queries";
 export default async function Home() {
   const { data } = await getHomepageData();
 
-  console.log("blocks: ", data?.data.blocks);
-
   return (
     <>
       <BlocksRenderer blocks={data?.data.blocks ?? []} />
