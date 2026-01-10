@@ -519,54 +519,7 @@ export interface paths {
 }
 export type webhooks = Record<string, never>;
 export interface components {
-    schemas: {
-        PluginUploadFileDocument: {
-            /**
-             * Format: uuid
-             * @description The document ID, represented by a UUID
-             */
-            documentId: string;
-            id: string | number;
-            /** @description A string field */
-            name: string;
-            /** @description A text field */
-            alternativeText?: string;
-            /** @description A text field */
-            caption?: string;
-            /** @description An integer field */
-            width?: number;
-            /** @description An integer field */
-            height?: number;
-            /** @description A JSON field */
-            formats?: unknown;
-            /** @description A string field */
-            hash: string;
-            /** @description A string field */
-            ext?: string;
-            /** @description A string field */
-            mime: string;
-            /** @description A decimal field */
-            size: number;
-            /** @description A text field */
-            url: string;
-            /** @description A text field */
-            previewUrl?: string;
-            /** @description A string field */
-            provider: string;
-            /** @description A JSON field */
-            provider_metadata?: unknown;
-            /** @description A datetime field */
-            createdAt?: string;
-            /** @description A datetime field */
-            updatedAt?: string;
-            /**
-             * @description A datetime field
-             * @default 2026-01-09T16:25:59.653Z
-             */
-            publishedAt: string;
-            related: unknown;
-        };
-    };
+    schemas: never;
     responses: never;
     parameters: never;
     requestBodies: never;
@@ -599,22 +552,13 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.620Z
-                             */
+                            /** @default 2026-01-10T13:24:23.184Z */
                             publishedAt: string;
-                            /** @description A dynamic zone field */
                             blocks: unknown[];
                         };
                     };
@@ -672,12 +616,8 @@ export interface operations {
             content: {
                 "application/json": {
                     data: {
-                        /**
-                         * @description A datetime field
-                         * @default 2026-01-09T16:25:59.624Z
-                         */
+                        /** @default 2026-01-10T13:24:23.188Z */
                         publishedAt?: string;
-                        /** @description A dynamic zone field */
                         blocks?: unknown[];
                     };
                 };
@@ -692,22 +632,13 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.625Z
-                             */
+                            /** @default 2026-01-10T13:24:23.190Z */
                             publishedAt: string;
-                            /** @description A dynamic zone field */
                             blocks: unknown[];
                         };
                     };
@@ -771,22 +702,13 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.627Z
-                             */
+                            /** @default 2026-01-10T13:24:23.192Z */
                             publishedAt: string;
-                            /** @description A dynamic zone field */
                             blocks: unknown[];
                         };
                     };
@@ -838,17 +760,12 @@ export interface operations {
                 };
                 _q?: string;
                 pagination?: {
-                    /** @description Include total count in response */
                     withCount?: boolean;
                 } & ({
-                    /** @description Page number (1-based) */
                     page: number;
-                    /** @description Number of entries per page */
                     pageSize: number;
                 } | {
-                    /** @description Number of entries to skip */
                     start: number;
-                    /** @description Maximum number of entries to return */
                     limit: number;
                 });
                 sort?: ("title" | "slug" | "createdAt" | "updatedAt" | "publishedAt") | ("title" | "slug" | "createdAt" | "updatedAt" | "publishedAt")[] | {
@@ -873,24 +790,14 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A string field */
                             title: string;
-                            /** @description A UID field */
                             slug: string;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.632Z
-                             */
+                            /** @default 2026-01-10T13:24:23.197Z */
                             publishedAt: string;
                         }[];
                     };
@@ -948,14 +855,9 @@ export interface operations {
             content: {
                 "application/json": {
                     data: {
-                        /** @description A string field */
                         title: string;
-                        /** @description A UID field */
                         slug: string;
-                        /**
-                         * @description A datetime field
-                         * @default 2026-01-09T16:26:00.026Z
-                         */
+                        /** @default 2026-01-10T13:24:23.613Z */
                         publishedAt: string;
                     };
                 };
@@ -970,24 +872,14 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A string field */
                             title: string;
-                            /** @description A UID field */
                             slug: string;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.638Z
-                             */
+                            /** @default 2026-01-10T13:24:23.204Z */
                             publishedAt: string;
                         };
                     };
@@ -1061,24 +953,14 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A string field */
                             title: string;
-                            /** @description A UID field */
                             slug: string;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.635Z
-                             */
+                            /** @default 2026-01-10T13:24:23.201Z */
                             publishedAt: string;
                         };
                     };
@@ -1138,14 +1020,9 @@ export interface operations {
             content: {
                 "application/json": {
                     data: {
-                        /** @description A string field */
                         title?: string;
-                        /** @description A UID field */
                         slug?: string;
-                        /**
-                         * @description A datetime field
-                         * @default 2026-01-09T16:25:59.639Z
-                         */
+                        /** @default 2026-01-10T13:24:23.205Z */
                         publishedAt?: string;
                     };
                 };
@@ -1160,24 +1037,14 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A string field */
                             title: string;
-                            /** @description A UID field */
                             slug: string;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.640Z
-                             */
+                            /** @default 2026-01-10T13:24:23.208Z */
                             publishedAt: string;
                         };
                     };
@@ -1246,24 +1113,14 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A string field */
                             title: string;
-                            /** @description A UID field */
                             slug: string;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.642Z
-                             */
+                            /** @default 2026-01-10T13:24:23.211Z */
                             publishedAt: string;
                         };
                     };
@@ -1315,17 +1172,12 @@ export interface operations {
                 };
                 _q?: string;
                 pagination?: {
-                    /** @description Include total count in response */
                     withCount?: boolean;
                 } & ({
-                    /** @description Page number (1-based) */
                     page: number;
-                    /** @description Number of entries per page */
                     pageSize: number;
                 } | {
-                    /** @description Number of entries to skip */
                     start: number;
-                    /** @description Maximum number of entries to return */
                     limit: number;
                 });
                 sort?: ("name" | "role" | "quote" | "createdAt" | "updatedAt" | "publishedAt") | ("name" | "role" | "quote" | "createdAt" | "updatedAt" | "publishedAt")[] | {
@@ -1350,29 +1202,40 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A string field */
                             name: string;
-                            /** @description A string field */
                             role: string;
-                            /** @description A text field */
                             quote: string;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.649Z
-                             */
+                            /** @default 2026-01-10T13:24:23.215Z */
                             publishedAt: string;
-                            /** @description A media field */
-                            avatar: components["schemas"]["PluginUploadFileDocument"];
+                            avatar: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-10T13:24:23.220Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
                         }[];
                     };
                 };
@@ -1429,18 +1292,11 @@ export interface operations {
             content: {
                 "application/json": {
                     data: {
-                        /** @description A string field */
                         name: string;
-                        /** @description A string field */
                         role: string;
-                        /** @description A text field */
                         quote: string;
-                        /**
-                         * @description A datetime field
-                         * @default 2026-01-09T16:25:59.658Z
-                         */
+                        /** @default 2026-01-10T13:24:23.226Z */
                         publishedAt: string;
-                        /** @description A media field */
                         avatar: unknown;
                     };
                 };
@@ -1455,29 +1311,40 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A string field */
                             name: string;
-                            /** @description A string field */
                             role: string;
-                            /** @description A text field */
                             quote: string;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.659Z
-                             */
+                            /** @default 2026-01-10T13:24:23.226Z */
                             publishedAt: string;
-                            /** @description A media field */
-                            avatar: components["schemas"]["PluginUploadFileDocument"];
+                            avatar: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-10T13:24:23.220Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
                         };
                     };
                 };
@@ -1550,29 +1417,40 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A string field */
                             name: string;
-                            /** @description A string field */
                             role: string;
-                            /** @description A text field */
                             quote: string;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.656Z
-                             */
+                            /** @default 2026-01-10T13:24:23.224Z */
                             publishedAt: string;
-                            /** @description A media field */
-                            avatar: components["schemas"]["PluginUploadFileDocument"];
+                            avatar: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-10T13:24:23.220Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
                         };
                     };
                 };
@@ -1631,18 +1509,11 @@ export interface operations {
             content: {
                 "application/json": {
                     data: {
-                        /** @description A string field */
                         name?: string;
-                        /** @description A string field */
                         role?: string;
-                        /** @description A text field */
                         quote?: string;
-                        /**
-                         * @description A datetime field
-                         * @default 2026-01-09T16:25:59.661Z
-                         */
+                        /** @default 2026-01-10T13:24:23.229Z */
                         publishedAt?: string;
-                        /** @description A media field */
                         avatar?: unknown;
                     };
                 };
@@ -1657,29 +1528,40 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A string field */
                             name: string;
-                            /** @description A string field */
                             role: string;
-                            /** @description A text field */
                             quote: string;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.662Z
-                             */
+                            /** @default 2026-01-10T13:24:23.230Z */
                             publishedAt: string;
-                            /** @description A media field */
-                            avatar: components["schemas"]["PluginUploadFileDocument"];
+                            avatar: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-10T13:24:23.220Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
                         };
                     };
                 };
@@ -1747,29 +1629,40 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /**
-                             * Format: uuid
-                             * @description The document ID, represented by a UUID
-                             */
+                            /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            /** @description A string field */
                             name: string;
-                            /** @description A string field */
                             role: string;
-                            /** @description A text field */
                             quote: string;
-                            /** @description A datetime field */
                             createdAt?: string;
-                            /** @description A datetime field */
                             updatedAt?: string;
-                            /**
-                             * @description A datetime field
-                             * @default 2026-01-09T16:25:59.664Z
-                             */
+                            /** @default 2026-01-10T13:24:23.232Z */
                             publishedAt: string;
-                            /** @description A media field */
-                            avatar: components["schemas"]["PluginUploadFileDocument"];
+                            avatar: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-10T13:24:23.220Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
                         };
                     };
                 };
@@ -2583,17 +2476,12 @@ export interface operations {
                     [key: string]: "asc" | "desc";
                 }[];
                 pagination?: {
-                    /** @description Include total count in response */
                     withCount?: boolean;
                 } & ({
-                    /** @description Page number (1-based) */
                     page: number;
-                    /** @description Number of entries per page */
                     pageSize: number;
                 } | {
-                    /** @description Number of entries to skip */
                     start: number;
-                    /** @description Maximum number of entries to return */
                     limit: number;
                 });
                 filters?: {
@@ -3750,17 +3638,12 @@ export interface operations {
                     [key: string]: "asc" | "desc";
                 }[];
                 pagination?: {
-                    /** @description Include total count in response */
                     withCount?: boolean;
                 } & ({
-                    /** @description Page number (1-based) */
                     page: number;
-                    /** @description Number of entries per page */
                     pageSize: number;
                 } | {
-                    /** @description Number of entries to skip */
                     start: number;
-                    /** @description Maximum number of entries to return */
                     limit: number;
                 });
                 filters?: {

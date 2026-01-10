@@ -35,6 +35,12 @@ export async function getHomepageData() {
                 },
               },
               "blocks.testimonials": true,
+              "blocks.feature-list": {
+                populate: {
+                  image: true,
+                  features: true,
+                },
+              },
             },
           },
         },

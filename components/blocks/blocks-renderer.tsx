@@ -1,5 +1,6 @@
 import { Hero } from "@/components/blocks/hero";
 import { ContentWithImage } from "./content-with-image";
+import { FeatureList } from "./feature-list";
 import { IconCards } from "./icon-cards";
 import { Testimonials } from "./testimonials";
 
@@ -9,6 +10,7 @@ const componentsMap: Record<string, React.ComponentType<any>> = {
   "blocks.icon-cards": IconCards,
   "blocks.content-with-image": ContentWithImage,
   "blocks.testimonials": Testimonials,
+  "blocks.feature-list": FeatureList,
 };
 
 type BlockData = {
