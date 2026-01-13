@@ -2,6 +2,7 @@ import { Hero } from "@/components/blocks/hero";
 import { ContentWithImage } from "./content-with-image";
 import { FeatureList } from "./feature-list";
 import { IconCards } from "./icon-cards";
+import { LearningPaths } from "./learning-paths";
 import { Testimonials } from "./testimonials";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -11,6 +12,7 @@ const componentsMap: Record<string, React.ComponentType<any>> = {
   "blocks.content-with-image": ContentWithImage,
   "blocks.testimonials": Testimonials,
   "blocks.feature-list": FeatureList,
+  "blocks.learning-paths": LearningPaths,
 };
 
 type BlockData = {

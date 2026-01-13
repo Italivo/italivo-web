@@ -19,7 +19,17 @@ export const client = createClient<paths>({
 
 const draftPreviewMiddleware: Middleware = {
   async onRequest({ request }) {
-    const { isEnabled: isDraftMode } = await draftMode();
+    // draftMode cannot be invoked at build time
+    // add try/catch to avoid throwing error
+    let isDraftMode = false;
+
+    try {
+      const { isEnabled } = await draftMode();
+      isDraftMode = isEnabled;
+    } catch {
+      isDraftMode = false;
+    }
+
     if (isDraftMode) {
       const url = new URL(request.url);
       url.searchParams.set("status", "draft");
