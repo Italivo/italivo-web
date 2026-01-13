@@ -1,3 +1,4 @@
+import { StrapiImage } from "@/lib/strapi/field-types";
 import { getStrapiMedia } from "@/lib/strapi/utils";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
@@ -9,10 +10,7 @@ export type IconCardProps = {
   className?: string;
   title: string;
   description?: string;
-  icon: {
-    alternativeText: string;
-    url: string;
-  };
+  icon: StrapiImage;
   link?: LinkProps;
 };
 

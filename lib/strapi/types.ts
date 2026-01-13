@@ -20,6 +20,38 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/learning-paths": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["learning-path/get/learning_paths"];
+        put?: never;
+        post: operations["learning-path/post/learning_paths"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/learning-paths/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["learning-path/get/learning_paths_by_id"];
+        put: operations["learning-path/put/learning_paths_by_id"];
+        post?: never;
+        delete: operations["learning-path/delete/learning_paths_by_id"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/pages": {
         parameters: {
             query?: never;
@@ -557,7 +589,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.184Z */
+                            /** @default 2026-01-13T23:04:15.981Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -616,7 +648,7 @@ export interface operations {
             content: {
                 "application/json": {
                     data: {
-                        /** @default 2026-01-10T13:24:23.188Z */
+                        /** @default 2026-01-13T23:04:15.985Z */
                         publishedAt?: string;
                         blocks?: unknown[];
                     };
@@ -637,7 +669,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.190Z */
+                            /** @default 2026-01-13T23:04:15.986Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -707,9 +739,679 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.192Z */
+                            /** @default 2026-01-13T23:04:15.988Z */
                             publishedAt: string;
                             blocks: unknown[];
+                        };
+                    };
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "learning-path/get/learning_paths": {
+        parameters: {
+            query?: {
+                fields?: ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt")[];
+                filters?: {
+                    [key: string]: unknown;
+                };
+                _q?: string;
+                pagination?: {
+                    withCount?: boolean;
+                } & ({
+                    page: number;
+                    pageSize: number;
+                } | {
+                    start: number;
+                    limit: number;
+                });
+                sort?: ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt") | ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt")[] | {
+                    [key: string]: "asc" | "desc";
+                } | {
+                    [key: string]: "asc" | "desc";
+                }[];
+                populate?: "*" | ("icon" | "image") | ("icon" | "image")[];
+                status?: "draft" | "published";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            /** Format: uuid */
+                            documentId: string;
+                            id: string | number;
+                            title: string;
+                            slug: string;
+                            tagline: string;
+                            content: string;
+                            createdAt?: string;
+                            updatedAt?: string;
+                            /** @default 2026-01-13T23:04:15.994Z */
+                            publishedAt: string;
+                            icon: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-13T23:04:15.999Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
+                            image: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-13T23:04:15.999Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
+                        }[];
+                    };
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "learning-path/post/learning_paths": {
+        parameters: {
+            query?: {
+                fields?: ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt")[];
+                populate?: "*" | ("icon" | "image") | ("icon" | "image")[];
+                status?: "draft" | "published";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    data: {
+                        title: string;
+                        slug: string;
+                        tagline: string;
+                        content: string;
+                        /** @default 2026-01-13T23:04:16.009Z */
+                        publishedAt: string;
+                        icon: unknown;
+                        image: unknown;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            /** Format: uuid */
+                            documentId: string;
+                            id: string | number;
+                            title: string;
+                            slug: string;
+                            tagline: string;
+                            content: string;
+                            createdAt?: string;
+                            updatedAt?: string;
+                            /** @default 2026-01-13T23:04:16.010Z */
+                            publishedAt: string;
+                            icon: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-13T23:04:15.999Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
+                            image: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-13T23:04:15.999Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
+                        };
+                    };
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "learning-path/get/learning_paths_by_id": {
+        parameters: {
+            query?: {
+                fields?: ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt")[];
+                populate?: "*" | ("icon" | "image") | ("icon" | "image")[];
+                filters?: {
+                    [key: string]: unknown;
+                };
+                sort?: ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt") | ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt")[] | {
+                    [key: string]: "asc" | "desc";
+                } | {
+                    [key: string]: "asc" | "desc";
+                }[];
+                status?: "draft" | "published";
+            };
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            /** Format: uuid */
+                            documentId: string;
+                            id: string | number;
+                            title: string;
+                            slug: string;
+                            tagline: string;
+                            content: string;
+                            createdAt?: string;
+                            updatedAt?: string;
+                            /** @default 2026-01-13T23:04:16.006Z */
+                            publishedAt: string;
+                            icon: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-13T23:04:15.999Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
+                            image: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-13T23:04:15.999Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
+                        };
+                    };
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "learning-path/put/learning_paths_by_id": {
+        parameters: {
+            query?: {
+                fields?: ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt")[];
+                populate?: "*" | ("icon" | "image") | ("icon" | "image")[];
+                status?: "draft" | "published";
+            };
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    data: {
+                        title?: string;
+                        slug?: string;
+                        tagline?: string;
+                        content?: string;
+                        /** @default 2026-01-13T23:04:16.013Z */
+                        publishedAt?: string;
+                        icon?: unknown;
+                        image?: unknown;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            /** Format: uuid */
+                            documentId: string;
+                            id: string | number;
+                            title: string;
+                            slug: string;
+                            tagline: string;
+                            content: string;
+                            createdAt?: string;
+                            updatedAt?: string;
+                            /** @default 2026-01-13T23:04:16.015Z */
+                            publishedAt: string;
+                            icon: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-13T23:04:15.999Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
+                            image: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-13T23:04:15.999Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
+                        };
+                    };
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "learning-path/delete/learning_paths_by_id": {
+        parameters: {
+            query?: {
+                fields?: ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt")[];
+                populate?: "*" | ("icon" | "image") | ("icon" | "image")[];
+                filters?: {
+                    [key: string]: unknown;
+                };
+                status?: "draft" | "published";
+            };
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: {
+                            /** Format: uuid */
+                            documentId: string;
+                            id: string | number;
+                            title: string;
+                            slug: string;
+                            tagline: string;
+                            content: string;
+                            createdAt?: string;
+                            updatedAt?: string;
+                            /** @default 2026-01-13T23:04:16.017Z */
+                            publishedAt: string;
+                            icon: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-13T23:04:15.999Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
+                            image: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                name: string;
+                                alternativeText?: string;
+                                caption?: string;
+                                width?: number;
+                                height?: number;
+                                formats?: unknown;
+                                hash: string;
+                                ext?: string;
+                                mime: string;
+                                size: number;
+                                url: string;
+                                previewUrl?: string;
+                                provider: string;
+                                provider_metadata?: unknown;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-01-13T23:04:15.999Z */
+                                publishedAt: string;
+                                related: unknown;
+                            };
                         };
                     };
                 };
@@ -797,7 +1499,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.197Z */
+                            /** @default 2026-01-13T23:04:16.022Z */
                             publishedAt: string;
                         }[];
                     };
@@ -857,7 +1559,7 @@ export interface operations {
                     data: {
                         title: string;
                         slug: string;
-                        /** @default 2026-01-10T13:24:23.613Z */
+                        /** @default 2026-01-13T23:04:16.445Z */
                         publishedAt: string;
                     };
                 };
@@ -879,7 +1581,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.204Z */
+                            /** @default 2026-01-13T23:04:16.030Z */
                             publishedAt: string;
                         };
                     };
@@ -960,7 +1662,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.201Z */
+                            /** @default 2026-01-13T23:04:16.025Z */
                             publishedAt: string;
                         };
                     };
@@ -1022,7 +1724,7 @@ export interface operations {
                     data: {
                         title?: string;
                         slug?: string;
-                        /** @default 2026-01-10T13:24:23.205Z */
+                        /** @default 2026-01-13T23:04:16.031Z */
                         publishedAt?: string;
                     };
                 };
@@ -1044,7 +1746,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.208Z */
+                            /** @default 2026-01-13T23:04:16.032Z */
                             publishedAt: string;
                         };
                     };
@@ -1120,7 +1822,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.211Z */
+                            /** @default 2026-01-13T23:04:16.034Z */
                             publishedAt: string;
                         };
                     };
@@ -1210,7 +1912,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.215Z */
+                            /** @default 2026-01-13T23:04:16.038Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -1232,7 +1934,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-10T13:24:23.220Z */
+                                /** @default 2026-01-13T23:04:15.999Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1295,7 +1997,7 @@ export interface operations {
                         name: string;
                         role: string;
                         quote: string;
-                        /** @default 2026-01-10T13:24:23.226Z */
+                        /** @default 2026-01-13T23:04:16.043Z */
                         publishedAt: string;
                         avatar: unknown;
                     };
@@ -1319,7 +2021,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.226Z */
+                            /** @default 2026-01-13T23:04:16.044Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -1341,7 +2043,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-10T13:24:23.220Z */
+                                /** @default 2026-01-13T23:04:15.999Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1425,7 +2127,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.224Z */
+                            /** @default 2026-01-13T23:04:16.041Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -1447,7 +2149,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-10T13:24:23.220Z */
+                                /** @default 2026-01-13T23:04:15.999Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1512,7 +2214,7 @@ export interface operations {
                         name?: string;
                         role?: string;
                         quote?: string;
-                        /** @default 2026-01-10T13:24:23.229Z */
+                        /** @default 2026-01-13T23:04:16.046Z */
                         publishedAt?: string;
                         avatar?: unknown;
                     };
@@ -1536,7 +2238,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.230Z */
+                            /** @default 2026-01-13T23:04:16.047Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -1558,7 +2260,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-10T13:24:23.220Z */
+                                /** @default 2026-01-13T23:04:15.999Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1637,7 +2339,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-10T13:24:23.232Z */
+                            /** @default 2026-01-13T23:04:16.049Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -1659,7 +2361,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-10T13:24:23.220Z */
+                                /** @default 2026-01-13T23:04:15.999Z */
                                 publishedAt: string;
                                 related: unknown;
                             };

@@ -41,6 +41,7 @@ export async function getHomepageData() {
                   features: true,
                 },
               },
+              "blocks.learning-paths": true,
             },
           },
         },
@@ -54,6 +55,31 @@ export async function getTestimonials() {
     params: {
       query: {
         populate: ["avatar"],
+      },
+    },
+  });
+}
+
+export async function getLearningPaths() {
+  return await client.GET("/learning-paths", {
+    params: {
+      query: {
+        populate: ["icon", "image"],
+      },
+    },
+  });
+}
+
+export async function getLearningPathBySlug(slug: string) {
+  return await client.GET("/learning-paths", {
+    params: {
+      query: {
+        filters: {
+          slug: {
+            $eq: slug,
+          },
+        },
+        populate: ["icon", "image"],
       },
     },
   });
