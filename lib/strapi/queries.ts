@@ -42,6 +42,7 @@ export async function getHomepageData() {
                 },
               },
               "blocks.learning-paths": true,
+              "blocks.packages": true,
             },
           },
         },

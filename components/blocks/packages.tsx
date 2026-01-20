@@ -64,7 +64,7 @@ const packages: Package[] = [
 export function Packages() {
   return (
     <section id="packages" className="py-32 bg-white">
-      <div className="container mx-auto px-6 max-w-[1200px]">
+      <div className="container mx-auto px-6 max-w-300">
         <h2 className={cn(typography({ variant: "h2" }), "text-center mb-20")}>
           Packages
         </h2>
@@ -77,7 +77,7 @@ export function Packages() {
                 "hover:shadow-lg",
                 pkg.variant === "premium"
                   ? "border-2 border-gold bg-cream"
-                  : "border-gray-200"
+                  : "border-gray-200",
               )}
             >
               {pkg.badge && (
@@ -91,7 +91,7 @@ export function Packages() {
                   className={cn(
                     typography({ variant: "h3" }),
                     "text-[1.75rem]",
-                    pkg.variant === "vip" && "text-rust"
+                    pkg.variant === "vip" && "text-rust",
                   )}
                 >
                   {pkg.name}
@@ -125,7 +125,7 @@ export function Packages() {
                   pkg.variant === "light" &&
                     "bg-transparent text-green border-2 border-green hover:bg-green hover:text-white",
                   (pkg.variant === "premium" || pkg.variant === "vip") &&
-                    "bg-rust text-white hover:bg-rust-dark"
+                    "bg-rust text-white hover:bg-rust-dark",
                 )}
               >
                 {pkg.ctaLabel}

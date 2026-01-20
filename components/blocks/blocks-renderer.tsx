@@ -3,6 +3,7 @@ import { ContentWithImage } from "./content-with-image";
 import { FeatureList } from "./feature-list";
 import { IconCards } from "./icon-cards";
 import { LearningPaths } from "./learning-paths";
+import { Packages } from "./packages";
 import { Testimonials } from "./testimonials";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -13,6 +14,7 @@ const componentsMap: Record<string, React.ComponentType<any>> = {
   "blocks.testimonials": Testimonials,
   "blocks.feature-list": FeatureList,
   "blocks.learning-paths": LearningPaths,
+  "blocks.packages": Packages,
 };
 
 type BlockData = {
@@ -54,7 +56,7 @@ export function BlocksRenderer({ blocks }: { blocks: unknown[] }) {
         if (!Component) {
           if (process.env.NODE_ENV === "development") {
             console.warn(
-              `Block type "${component}" not found in componentsMap`
+              `Block type "${component}" not found in componentsMap`,
             );
           }
           return null;
