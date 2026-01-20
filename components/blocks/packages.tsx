@@ -1,3 +1,10 @@
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
 
@@ -61,22 +68,26 @@ const packages: Package[] = [
   },
 ];
 
-export function Packages() {
+type PackagesProps = {
+  title: string;
+  background: "transparent" | "secondary";
+};
+
+export function Packages({ title, background }: PackagesProps) {
   return (
-    <section id="packages" className="py-32 bg-white">
-      <div className="container mx-auto px-6 max-w-300">
+    <section className={cn(background === "secondary" && "bg-secondary")}>
+      <div className="container-fluid max-w-300 mx-auto px-(--section-padding-x) py-(--section-padding-y)">
         <h2 className={cn(typography({ variant: "h2" }), "text-center mb-20")}>
-          Packages
+          {title}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {packages.map((pkg) => (
-            <div
+            <Card
               key={pkg.id}
               className={cn(
-                "relative bg-white border rounded-2xl p-12 transition-all duration-250",
-                "hover:shadow-lg",
+                "relative bg-beige-50 transition-all duration-250 hover:shadow-lg h-full gap-4",
                 pkg.variant === "premium"
-                  ? "border-2 border-gold bg-cream"
+                  ? "border-2 border-gold scale-105"
                   : "border-gray-200",
               )}
             >
@@ -86,51 +97,39 @@ export function Packages() {
                 </div>
               )}
 
-              <div className="mb-6">
-                <h3
+              <CardHeader className="pb-0 mb-0 gap-0">
+                <CardTitle
                   className={cn(
-                    typography({ variant: "h3" }),
+                    typography({ variant: "h3", margin: false }),
                     "text-[1.75rem]",
                     pkg.variant === "vip" && "text-rust",
                   )}
                 >
                   {pkg.name}
-                </h3>
-              </div>
+                </CardTitle>
+              </CardHeader>
 
-              <ul className="mb-8">
-                {pkg.features.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="py-2 border-b border-gray-100 text-[0.9375rem] text-muted-foreground last:border-b-0"
-                  >
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              <CardContent className="grow">
+                <ul>
+                  {pkg.features.map((feature, index) => (
+                    <li
+                      key={index}
+                      className="py-2 border-b border-gray-100 text-[0.9375rem] text-muted-foreground last:border-b-0"
+                    >
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
 
-              <div className="mb-6">
-                <span className="font-serif text-[1.75rem] font-bold text-foreground">
-                  {pkg.priceRange}
-                </span>
-                <span className="text-[0.9375rem] text-muted-foreground">
-                  /month
-                </span>
-              </div>
-
-              <a
-                href={pkg.ctaHref}
-                className={cn(
-                  "w-full inline-flex items-center justify-center px-7 py-3.5 rounded-lg font-sans font-semibold text-sm transition-all duration-250",
-                  pkg.variant === "light" &&
-                    "bg-transparent text-green border-2 border-green hover:bg-green hover:text-white",
-                  (pkg.variant === "premium" || pkg.variant === "vip") &&
-                    "bg-rust text-white hover:bg-rust-dark",
-                )}
-              >
-                {pkg.ctaLabel}
-              </a>
-            </div>
+              <CardFooter>
+                <div className="text-center">
+                  <span className="font-serif text-[1.75rem] font-bold text-foreground">
+                    {pkg.priceRange}
+                  </span>
+                </div>
+              </CardFooter>
+            </Card>
           ))}
         </div>
       </div>

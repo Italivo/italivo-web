@@ -589,7 +589,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:15.981Z */
+                            /** @default 2026-01-20T11:41:42.686Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -648,7 +648,7 @@ export interface operations {
             content: {
                 "application/json": {
                     data: {
-                        /** @default 2026-01-13T23:04:15.985Z */
+                        /** @default 2026-01-20T11:41:42.690Z */
                         publishedAt?: string;
                         blocks?: unknown[];
                     };
@@ -669,7 +669,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:15.986Z */
+                            /** @default 2026-01-20T11:41:42.692Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -739,7 +739,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:15.988Z */
+                            /** @default 2026-01-20T11:41:42.694Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -831,7 +831,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:15.994Z */
+                            /** @default 2026-01-20T11:41:42.700Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -853,7 +853,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -877,7 +877,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -941,7 +941,7 @@ export interface operations {
                         slug: string;
                         tagline: string;
                         content: string;
-                        /** @default 2026-01-13T23:04:16.009Z */
+                        /** @default 2026-01-20T11:41:42.715Z */
                         publishedAt: string;
                         icon: unknown;
                         image: unknown;
@@ -967,7 +967,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.010Z */
+                            /** @default 2026-01-20T11:41:42.716Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -989,7 +989,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1013,7 +1013,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1098,7 +1098,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.006Z */
+                            /** @default 2026-01-20T11:41:42.712Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -1120,7 +1120,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1144,7 +1144,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1210,7 +1210,7 @@ export interface operations {
                         slug?: string;
                         tagline?: string;
                         content?: string;
-                        /** @default 2026-01-13T23:04:16.013Z */
+                        /** @default 2026-01-20T11:41:42.718Z */
                         publishedAt?: string;
                         icon?: unknown;
                         image?: unknown;
@@ -1236,7 +1236,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.015Z */
+                            /** @default 2026-01-20T11:41:42.720Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -1258,7 +1258,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1282,7 +1282,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1362,7 +1362,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.017Z */
+                            /** @default 2026-01-20T11:41:42.722Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -1384,7 +1384,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1408,7 +1408,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1499,7 +1499,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.022Z */
+                            /** @default 2026-01-20T11:41:42.726Z */
                             publishedAt: string;
                         }[];
                     };
@@ -1559,7 +1559,7 @@ export interface operations {
                     data: {
                         title: string;
                         slug: string;
-                        /** @default 2026-01-13T23:04:16.445Z */
+                        /** @default 2026-01-20T11:41:43.128Z */
                         publishedAt: string;
                     };
                 };
@@ -1581,7 +1581,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.030Z */
+                            /** @default 2026-01-20T11:41:42.734Z */
                             publishedAt: string;
                         };
                     };
@@ -1662,7 +1662,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.025Z */
+                            /** @default 2026-01-20T11:41:42.729Z */
                             publishedAt: string;
                         };
                     };
@@ -1724,7 +1724,7 @@ export interface operations {
                     data: {
                         title?: string;
                         slug?: string;
-                        /** @default 2026-01-13T23:04:16.031Z */
+                        /** @default 2026-01-20T11:41:42.735Z */
                         publishedAt?: string;
                     };
                 };
@@ -1746,7 +1746,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.032Z */
+                            /** @default 2026-01-20T11:41:42.736Z */
                             publishedAt: string;
                         };
                     };
@@ -1822,7 +1822,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.034Z */
+                            /** @default 2026-01-20T11:41:42.738Z */
                             publishedAt: string;
                         };
                     };
@@ -1912,7 +1912,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.038Z */
+                            /** @default 2026-01-20T11:41:42.742Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -1934,7 +1934,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1997,7 +1997,7 @@ export interface operations {
                         name: string;
                         role: string;
                         quote: string;
-                        /** @default 2026-01-13T23:04:16.043Z */
+                        /** @default 2026-01-20T11:41:42.747Z */
                         publishedAt: string;
                         avatar: unknown;
                     };
@@ -2021,7 +2021,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.044Z */
+                            /** @default 2026-01-20T11:41:42.747Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -2043,7 +2043,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -2127,7 +2127,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.041Z */
+                            /** @default 2026-01-20T11:41:42.745Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -2149,7 +2149,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -2214,7 +2214,7 @@ export interface operations {
                         name?: string;
                         role?: string;
                         quote?: string;
-                        /** @default 2026-01-13T23:04:16.046Z */
+                        /** @default 2026-01-20T11:41:42.750Z */
                         publishedAt?: string;
                         avatar?: unknown;
                     };
@@ -2238,7 +2238,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.047Z */
+                            /** @default 2026-01-20T11:41:42.751Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -2260,7 +2260,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -2339,7 +2339,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-01-13T23:04:16.049Z */
+                            /** @default 2026-01-20T11:41:42.754Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -2361,7 +2361,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-01-13T23:04:15.999Z */
+                                /** @default 2026-01-20T11:41:42.706Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
