@@ -1,5 +1,5 @@
 import { BlocksRenderer } from "@/components/blocks/blocks-renderer";
-import { CTASection } from "@/components/blocks/cta-section";
+import { FreeCallCta } from "@/components/blocks/free-call-cta";
 import { getHomepageData } from "@/lib/strapi/queries";
 
 export default async function Home() {
@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <>
       <BlocksRenderer blocks={data?.data.blocks ?? []} />
-      <CTASection />
+      <FreeCallCta />
     </>
   );
 }
