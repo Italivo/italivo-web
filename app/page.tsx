@@ -1,6 +1,6 @@
 import { BlocksRenderer } from "@/components/blocks/blocks-renderer";
 import { FreeCallCta } from "@/components/blocks/free-call-cta";
-import { getHomepageData } from "@/lib/strapi/queries";
+import { getHomepageData } from "@/data/queries";
 
 export default async function Home() {
   const { data } = await getHomepageData();

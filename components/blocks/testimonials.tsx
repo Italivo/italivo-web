@@ -1,4 +1,4 @@
-import { getTestimonials } from "@/lib/strapi/queries";
+import { getTestimonials } from "@/data/queries";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
 import { TestimonialCard } from "../shared/testimonial-card";

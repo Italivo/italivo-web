@@ -1,5 +1,5 @@
 import { MarkdownRenderer } from "@/components/shared/markdown-renderer";
-import { getLearningPathBySlug, getLearningPaths } from "@/lib/strapi/queries";
+import { getLearningPathBySlug, getLearningPaths } from "@/data/queries";
 import { getStrapiMedia } from "@/lib/strapi/utils";
 import { typography } from "@/lib/variants";
 import Image from "next/image";

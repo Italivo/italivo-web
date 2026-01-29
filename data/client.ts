@@ -1,8 +1,8 @@
 import { env } from "@/env";
+import type { paths } from "@/lib/strapi/types";
 import { draftMode } from "next/headers";
 import createClient, { Middleware } from "openapi-fetch";
 import qs from "qs";
-import type { paths } from "./types";
 
 export const client = createClient<paths>({
   baseUrl: new URL("/api", env.STRAPI_URL).href,

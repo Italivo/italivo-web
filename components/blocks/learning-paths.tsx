@@ -1,4 +1,4 @@
-import { getLearningPaths } from "@/lib/strapi/queries";
+import { getLearningPaths } from "@/data/queries";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
 import { IconCard } from "../shared/icon-card";
