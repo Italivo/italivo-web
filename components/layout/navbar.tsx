@@ -1,14 +1,16 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { SigninButton } from "@/features/auth/components/signin-button";
+import { SignupButton } from "@/features/auth/components/signup-button";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { useIsMobile } from "@/hooks/use-is-mobile";
 import { useScrollLock } from "@/hooks/use-scroll-lock";
+import { routes } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
 import { MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
-import { Link } from "../shared/link";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -38,7 +40,7 @@ export function Navbar() {
       {/* B */}
       <div className="flex justify-between items-center max-md:w-full">
         <a
-          href="#"
+          href={routes.home}
           className={cn(
             typography({ variant: "h2", margin: false }),
             "font-bold text-primary py-2 px-4 -ml-4 not-italic",
@@ -84,12 +86,8 @@ export function Navbar() {
           ))}
         </ul>
         <div className="flex gap-2">
-          <Button asChild variant="outline">
-            <Link type="internal" page="/signin" label="Log in" />
-          </Button>
-          <Button asChild>
-            <Link type="internal" page="/signup" label="Sign up" />
-          </Button>
+          <SigninButton />
+          <SignupButton />
         </div>
       </div>
     </nav>

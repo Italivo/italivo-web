@@ -1,4 +1,5 @@
 import { getLearningPaths } from "@/data/queries";
+import { routes } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
 import { IconCard } from "../shared/icon-card";
@@ -33,7 +34,7 @@ export async function LearningPaths({ title, background }: LearningPathsProps) {
                 link={{
                   type: "internal",
                   label: `Read more about the learning path ${lp.title}`,
-                  page: `learning-paths/${lp.slug}`,
+                  page: routes.learningPaths.bySlug(lp.slug),
                 }}
               />
             ))}
