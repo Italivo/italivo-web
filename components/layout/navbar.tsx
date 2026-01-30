@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
 import { MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
+import { Link } from "../shared/link";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -31,9 +32,7 @@ export function Navbar() {
       ref={trapRef}
       className={cn(
         "sticky top-0 z-10 bg-background shadow-sm md:flex md:flex-row md:justify-between md:items-center md:px-4",
-        open &&
-          isMobile &&
-          "fixed inset-0 h-screen flex flex-col justify-start items-center"
+        open && isMobile && "fixed inset-0 h-screen flex flex-col items-center",
       )}
     >
       {/* B */}
@@ -42,7 +41,7 @@ export function Navbar() {
           href="#"
           className={cn(
             typography({ variant: "h2", margin: false }),
-            "font-bold text-primary py-2 px-4 -ml-4 not-italic"
+            "font-bold text-primary py-2 px-4 -ml-4 not-italic",
           )}
         >
           Italivo
@@ -59,35 +58,40 @@ export function Navbar() {
           <ToggleIcon className="size-6" />
         </Button>
       </div>
-      <ul
-        id="navbarSupportedContent"
+      <div
         className={cn(
-          "hidden flex-col items-center md:flex md:flex-row md:absolute md:left-1/2 md:-translate-x-1/2",
-          open && "max-md:flex max-md:mt-auto max-md:mb-4"
+          "hidden md:contents",
+          open &&
+            "max-md:flex max-md:flex-col max-md:items-center max-md:justify-center max-md:flex-1 max-md:gap-8",
         )}
       >
-        {navLinks.map((link) => (
-          <li key={link.href}>
-            <a
-              href={link.href}
-              className={cn(
-                typography({ variant: "small", margin: false }),
-                "inline-block p-2 transition-colors duration-150 ease-in-out hover:text-rust"
-              )}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <Button
-        className={cn(
-          "max-md:hidden",
-          open && "max-md:inline-flex max-md:mb-auto"
-        )}
-      >
-        Book your free trial Session
-      </Button>
+        <ul
+          id="navbarSupportedContent"
+          className="flex flex-col items-center md:flex-row md:absolute md:left-1/2 md:-translate-x-1/2"
+        >
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className={cn(
+                  typography({ variant: "small", margin: false }),
+                  "inline-block p-2 transition-colors duration-150 ease-in-out hover:text-rust",
+                )}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div className="flex gap-2">
+          <Button asChild variant="outline">
+            <Link type="internal" page="/signin" label="Log in" />
+          </Button>
+          <Button asChild>
+            <Link type="internal" page="/signup" label="Sign up" />
+          </Button>
+        </div>
+      </div>
     </nav>
   );
 }
