@@ -33,9 +33,67 @@ const learningPaths = [
   },
 ];
 
+// Icon components for Personalized Lessons section
+function ChartIcon() {
+  return (
+    <svg
+      className="w-6 h-6"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 3v18h18" />
+      <path d="M18 17V9" />
+      <path d="M13 17V5" />
+      <path d="M8 17v-3" />
+    </svg>
+  );
+}
+
+function TargetIcon() {
+  return (
+    <svg
+      className="w-6 h-6"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>
+  );
+}
+
+function HeartIcon() {
+  return (
+    <svg
+      className="w-6 h-6"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+    </svg>
+  );
+}
+
 export default function MethodPage() {
   // Duplicate learning paths for seamless infinite scroll
-  const duplicatedPaths = [...learningPaths, ...learningPaths, ...learningPaths];
+  const duplicatedPaths = [
+    ...learningPaths,
+    ...learningPaths,
+    ...learningPaths,
+  ];
 
   return (
     <main>
@@ -91,9 +149,10 @@ export default function MethodPage() {
               Learn Italian in the context that matters to you.
             </h3>
             <p className={cn(typography({ variant: "body" }))}>
-              Whether you&apos;re passionate about art, exploring Italian cuisine,
-              navigating healthcare, or handling daily bureaucracy—we create
-              personalized learning paths tailored to your specific needs.
+              Whether you&apos;re passionate about art, exploring Italian
+              cuisine, navigating healthcare, or handling daily bureaucracy—we
+              create personalized learning paths tailored to your specific
+              needs.
             </p>
             <p className={cn(typography({ variant: "body", margin: false }))}>
               Language and real-life context learned together, making every
@@ -119,7 +178,12 @@ export default function MethodPage() {
                       aria-hidden
                     />
                   </div>
-                  <p className={cn(typography({ variant: "small", margin: false }), "text-center font-semibold")}>
+                  <p
+                    className={cn(
+                      typography({ variant: "small", margin: false }),
+                      "text-center font-semibold",
+                    )}
+                  >
                     {item.title}
                   </p>
                 </div>
@@ -136,7 +200,7 @@ export default function MethodPage() {
             <h2
               className={cn(
                 typography({ variant: "h2", margin: true }),
-                "text-center"
+                "text-center",
               )}
             >
               Personalized Lessons, Not Standard Courses
@@ -144,7 +208,7 @@ export default function MethodPage() {
             <p
               className={cn(
                 typography({ variant: "lead", margin: false }),
-                "max-w-4xl mx-auto text-center"
+                "max-w-4xl mx-auto text-center",
               )}
             >
               We tailor every lesson to match your unique learning profile
@@ -153,14 +217,14 @@ export default function MethodPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex gap-4">
-              <span className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base text-white bg-accent">
-                1
+              <span className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full text-white bg-accent p-2">
+                <ChartIcon />
               </span>
               <div>
                 <h3
                   className={cn(
                     typography({ variant: "h3", margin: false }),
-                    "text-olive-700 mb-2"
+                    "text-olive-700 mb-2",
                   )}
                 >
                   Your Level
@@ -168,23 +232,24 @@ export default function MethodPage() {
                 <p
                   className={cn(
                     typography({ variant: "small", margin: false }),
-                    "text-muted-foreground"
+                    "text-muted-foreground",
                   )}
                 >
-                  We assess your current proficiency and build from there, ensuring you&apos;re always challenged but never overwhelmed.
+                  We assess your current proficiency and build from there,
+                  ensuring you&apos;re always challenged but never overwhelmed.
                 </p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <span className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base text-white bg-accent">
-                2
+              <span className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full text-white bg-accent p-2">
+                <TargetIcon />
               </span>
               <div>
                 <h3
                   className={cn(
                     typography({ variant: "h3", margin: false }),
-                    "text-olive-700 mb-2"
+                    "text-olive-700 mb-2",
                   )}
                 >
                   Your Goals
@@ -192,23 +257,25 @@ export default function MethodPage() {
                 <p
                   className={cn(
                     typography({ variant: "small", margin: false }),
-                    "text-muted-foreground"
+                    "text-muted-foreground",
                   )}
                 >
-                  Whether you&apos;re preparing for a trip, advancing your career, or exploring Italian culture—your objectives shape the curriculum.
+                  Whether you&apos;re preparing for a trip, advancing your
+                  career, or exploring Italian culture—your objectives shape the
+                  curriculum.
                 </p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <span className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base text-white bg-accent">
-                3
+              <span className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full text-white bg-accent p-2">
+                <HeartIcon />
               </span>
               <div>
                 <h3
                   className={cn(
                     typography({ variant: "h3", margin: false }),
-                    "text-olive-700 mb-2"
+                    "text-olive-700 mb-2",
                   )}
                 >
                   Your Interests
@@ -216,10 +283,11 @@ export default function MethodPage() {
                 <p
                   className={cn(
                     typography({ variant: "small", margin: false }),
-                    "text-muted-foreground"
+                    "text-muted-foreground",
                   )}
                 >
-                  Learn through topics you love—art, food, cinema, music, or whatever ignites your passion for Italian culture.
+                  Learn through topics you love—art, food, cinema, music, or
+                  whatever ignites your passion for Italian culture.
                 </p>
               </div>
             </div>
@@ -234,7 +302,7 @@ export default function MethodPage() {
             <h2
               className={cn(
                 typography({ variant: "h2", margin: true }),
-                "text-center italic"
+                "text-center italic",
               )}
             >
               HOW TO GET STARTED
@@ -242,7 +310,7 @@ export default function MethodPage() {
             <p
               className={cn(
                 typography({ variant: "lead", margin: false }),
-                "max-w-3xl mx-auto text-center text-muted-foreground"
+                "max-w-3xl mx-auto text-center text-muted-foreground",
               )}
             >
               Five simple steps from first call to confident Italian speaker
@@ -257,14 +325,14 @@ export default function MethodPage() {
             <div className="space-y-8">
               {/* Step 1 */}
               <div className="relative flex gap-6">
-                <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base bg-accent text-white relative z-10">
+                <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base bg-accent text-white">
                   1
                 </div>
                 <div className="flex-1">
                   <h3
                     className={cn(
                       typography({ variant: "h3", margin: false }),
-                      "text-olive-700 mb-2"
+                      "text-olive-700 mb-2",
                     )}
                   >
                     Book Your Free Call
@@ -272,7 +340,7 @@ export default function MethodPage() {
                   <p
                     className={cn(
                       typography({ variant: "small", margin: false }),
-                      "text-muted-foreground"
+                      "text-muted-foreground",
                     )}
                   >
                     Schedule a no-obligation 30-minute conversation with one of
@@ -283,14 +351,14 @@ export default function MethodPage() {
 
               {/* Step 2 */}
               <div className="relative flex gap-6">
-                <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base bg-accent text-white relative z-10">
+                <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base bg-accent text-white">
                   2
                 </div>
                 <div className="flex-1">
                   <h3
                     className={cn(
                       typography({ variant: "h3", margin: false }),
-                      "text-olive-700 mb-2"
+                      "text-olive-700 mb-2",
                     )}
                   >
                     Discuss Your Goals & Level
@@ -298,26 +366,26 @@ export default function MethodPage() {
                   <p
                     className={cn(
                       typography({ variant: "small", margin: false }),
-                      "text-muted-foreground"
+                      "text-muted-foreground",
                     )}
                   >
-                    Share your objectives and we&apos;ll assess your current Italian
-                    proficiency to understand where you are and where you want to
-                    go.
+                    Share your objectives and we&apos;ll assess your current
+                    Italian proficiency to understand where you are and where
+                    you want to go.
                   </p>
                 </div>
               </div>
 
               {/* Step 3 */}
               <div className="relative flex gap-6">
-                <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base bg-accent text-white relative z-10">
+                <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base bg-accent text-white">
                   3
                 </div>
                 <div className="flex-1">
                   <h3
                     className={cn(
                       typography({ variant: "h3", margin: false }),
-                      "text-olive-700 mb-2"
+                      "text-olive-700 mb-2",
                     )}
                   >
                     Choose Your Learning Path
@@ -325,25 +393,26 @@ export default function MethodPage() {
                   <p
                     className={cn(
                       typography({ variant: "small", margin: false }),
-                      "text-muted-foreground"
+                      "text-muted-foreground",
                     )}
                   >
                     Select the personalized program that fits your schedule,
-                    budget, and learning style—whether it&apos;s intensive or casual.
+                    budget, and learning style—whether it&apos;s intensive or
+                    casual.
                   </p>
                 </div>
               </div>
 
               {/* Step 4 */}
               <div className="relative flex gap-6">
-                <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base bg-accent text-white relative z-10">
+                <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base bg-accent text-white">
                   4
                 </div>
                 <div className="flex-1">
                   <h3
                     className={cn(
                       typography({ variant: "h3", margin: false }),
-                      "text-olive-700 mb-2"
+                      "text-olive-700 mb-2",
                     )}
                   >
                     Create Your Custom Plan
@@ -351,25 +420,25 @@ export default function MethodPage() {
                   <p
                     className={cn(
                       typography({ variant: "small", margin: false }),
-                      "text-muted-foreground"
+                      "text-muted-foreground",
                     )}
                   >
-                    We&apos;ll design a tailored curriculum based on your interests,
-                    goals, and the real-life contexts you care about.
+                    We&apos;ll design a tailored curriculum based on your
+                    interests, goals, and the real-life contexts you care about.
                   </p>
                 </div>
               </div>
 
               {/* Step 5 */}
               <div className="relative flex gap-6">
-                <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base bg-accent text-white relative z-10">
+                <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full font-sans font-semibold text-base bg-accent text-white">
                   5
                 </div>
                 <div className="flex-1">
                   <h3
                     className={cn(
                       typography({ variant: "h3", margin: false }),
-                      "text-olive-700 mb-2"
+                      "text-olive-700 mb-2",
                     )}
                   >
                     Start Learning
@@ -377,7 +446,7 @@ export default function MethodPage() {
                   <p
                     className={cn(
                       typography({ variant: "small", margin: false }),
-                      "text-muted-foreground"
+                      "text-muted-foreground",
                     )}
                   >
                     Begin your journey with engaging, context-based lessons that
