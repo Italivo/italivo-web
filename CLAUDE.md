@@ -28,6 +28,7 @@ npm run strapi:types
 ## Environment Variables
 
 Required env vars (see `.env.example`):
+
 - `STRAPI_URL` - Strapi backend URL
 - `STRAPI_MEDIA_URL` - Strapi media CDN URL
 - `PREVIEW_SECRET` - Secret token for draft preview mode
@@ -41,16 +42,19 @@ Environment validation uses `@t3-oss/env-nextjs` with Zod schemas in `env.ts`.
 **Type Generation**: Run `npm run strapi:types` to generate TypeScript types from Strapi's OpenAPI spec at `lib/strapi/types.ts`.
 
 **API Client** (`lib/strapi/client.ts`):
+
 - Uses `openapi-fetch` for type-safe requests
 - Custom `qs` query serializer for Strapi's array format
 - Draft mode middleware: automatically adds `?status=draft` to requests when Next.js draft mode enabled
 
 **Data Fetching** (`lib/strapi/queries.ts`):
+
 - Server-only queries (uses `server-only` package)
 - Populate parameters must specify deeply nested relations
 - Complex populate params have TypeScript ignore comments due to OpenAPI/Strapi type mismatches
 
 **Preview Mode** (`app/api/preview/route.ts`):
+
 - GET endpoint at `/api/preview?secret=XXX&url=/path&status=published|draft`
 - Enables/disables Next.js draft mode based on status param
 - Middleware in client automatically adds `?status=draft` query param for draft requests
@@ -58,12 +62,14 @@ Environment validation uses `@t3-oss/env-nextjs` with Zod schemas in `env.ts`.
 ### Dynamic Block System
 
 **Block Renderer** (`components/blocks/blocks-renderer.tsx`):
+
 - Maps Strapi `__component` strings to React components via `componentsMap`
 - Each block must be registered in `componentsMap` object
 - Validates blocks have `id` and `__component` properties
 - Falls back gracefully for unknown block types (dev warning only)
 
 **Adding New Blocks**:
+
 1. Create component in `components/blocks/`
 2. Register in `componentsMap` with Strapi component name (e.g., `"blocks.hero"`)
 3. Update populate params in `lib/strapi/queries.ts` for nested data

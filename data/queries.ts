@@ -110,6 +110,7 @@ export async function getPackageBySlug(slug: string) {
             $eq: slug,
           },
         },
+        populate: ["package_category"],
       },
     },
   });
