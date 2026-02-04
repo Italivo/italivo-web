@@ -4,25 +4,37 @@ import { CalMeetingButton } from "../shared/cal-meeting-button";
 
 type CTASectionProps = {
   background?: "transparent" | "secondary";
+  title: string;
+  subtitle?: string;
+  buttonText: string;
+  disclaimer?: string;
 };
 
-export function FreeCallCta({ background }: CTASectionProps) {
+export function FreeCallCta({
+  background,
+  title,
+  subtitle,
+  buttonText,
+  disclaimer,
+}: CTASectionProps) {
   return (
     <section className={cn(background === "secondary" && "bg-secondary")}>
       <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y) flex flex-col items-center gap-4">
         <h2 className={cn(typography({ variant: "h2", margin: false }))}>
-          Ready to learn Italian in a different way?
+          {title}
         </h2>
-        <p
-          className={cn(
-            typography({ variant: "lead", margin: false }),
-            "max-w-4xl",
-          )}
-        >
-          Book your free call and start your journey today
-        </p>
+        {subtitle && (
+          <p
+            className={cn(
+              typography({ variant: "lead", margin: false }),
+              "max-w-4xl",
+            )}
+          >
+            {subtitle}
+          </p>
+        )}
         <CalMeetingButton calMeetingLink="https://cal.eu/italivointernational/free-intro-call">
-          Schedule your free call now
+          {buttonText}
         </CalMeetingButton>
         <p
           className={cn(
@@ -30,7 +42,7 @@ export function FreeCallCta({ background }: CTASectionProps) {
             "max-w-4xl",
           )}
         >
-          No commitment just a conversation
+          {disclaimer}
         </p>
       </div>
     </section>

@@ -85,3 +85,32 @@ export async function getLearningPathBySlug(slug: string) {
     },
   });
 }
+
+export async function getPackageCategories() {
+  return await client.GET("/package-categories", {
+    params: {
+      query: {
+        populate: ["packages"],
+        sort: ["order"],
+      },
+    },
+  });
+}
+
+export async function getPackages() {
+  return await client.GET("/packages");
+}
+
+export async function getPackageBySlug(slug: string) {
+  return await client.GET("/packages", {
+    params: {
+      query: {
+        filters: {
+          slug: {
+            $eq: slug,
+          },
+        },
+      },
+    },
+  });
+}
