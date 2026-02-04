@@ -1,3 +1,4 @@
+import { FreeCallCta } from "@/components/blocks-wip/free-call-cta";
 import { Badge } from "@/components/ui/badge";
 import { getPackageBySlug, getPackages } from "@/data/queries";
 import { cn } from "@/lib/utils";
@@ -25,24 +26,33 @@ export default async function PackagePage({
   }
 
   return (
-    <section className="bg-secondary">
-      <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y)">
-        <header className="relative w-fit pr-2">
-          <h2
-            className={cn(
-              typography({ variant: "h1", margin: true }),
-              "relative",
-            )}
-          >
-            {packageData.title}
-          </h2>
-          <Badge className="absolute top-0 left-full">
-            {packageData.package_category?.title}
-          </Badge>
-        </header>
-        <MarkdownRenderer markdown={packageData.content} />
+    <>
+      <section>
+        <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y)">
+          <header className="relative w-fit pr-2">
+            <h2
+              className={cn(
+                typography({ variant: "h1", margin: true }),
+                "relative",
+              )}
+            >
+              {packageData.title}
+            </h2>
+            <Badge className="absolute top-0 left-full">
+              {packageData.package_category?.title}
+            </Badge>
+          </header>
+          <MarkdownRenderer markdown={packageData.content} />
+        </div>
+      </section>
+      <div className="bg-secondary">
+        <FreeCallCta
+          title="Not sure which option fits your goals?"
+          subtitle="Book a free call to personalize this package"
+          buttonText="BOOK YOUR FREE CALL"
+        />
       </div>
-    </section>
+    </>
   );
 }
 
