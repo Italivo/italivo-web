@@ -11,19 +11,19 @@ export async function getHomepageData() {
             on: {
               "blocks.hero": {
                 populate: {
-                  backgroundImage: true,
-                  cta: {
+                  imageMobile: true,
+                  imageDesktop: true,
+                  buttonLink: {
                     populate: {
                       link: true,
                     },
                   },
                 },
               },
-              "blocks.icon-cards": {
+              "blocks.content": {
                 populate: {
-                  iconCards: {
+                  buttonLink: {
                     populate: {
-                      icon: true,
                       link: true,
                     },
                   },

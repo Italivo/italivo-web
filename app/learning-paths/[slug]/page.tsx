@@ -1,4 +1,4 @@
-import { MarkdownRenderer } from "@/components/shared/markdown-renderer";
+import { Markdown } from "@/components/strapi/fields/markdown";
 import { getLearningPathBySlug, getLearningPaths } from "@/data/queries";
 import { getStrapiMedia } from "@/lib/strapi/utils";
 import { typography } from "@/lib/variants";
@@ -46,7 +46,7 @@ export default async function LearningPathPage({
             <p className={typography({ variant: "lead", margin: true })}>
               {learningPath.tagline}
             </p>
-            <MarkdownRenderer markdown={learningPath.content} />
+            <Markdown markdown={learningPath.content} />
           </div>
         </div>
       </div>

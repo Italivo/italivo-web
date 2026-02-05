@@ -1,4 +1,3 @@
-import { FreeCallCta } from "@/components/blocks-wip/free-call-cta";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -126,10 +125,6 @@ export default async function PackagesPage({
           ))}
         </Tabs>
       </section>
-      <FreeCallCta
-        title="Not Sure which option fits you?"
-        buttonText="Book A free call"
-      />
     </div>
   );
 }

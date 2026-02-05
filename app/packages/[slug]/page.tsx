@@ -1,4 +1,3 @@
-import { FreeCallCta } from "@/components/blocks-wip/free-call-cta";
 import { Badge } from "@/components/ui/badge";
 import { getPackageBySlug, getPackages } from "@/data/queries";
 import { cn } from "@/lib/utils";
@@ -45,13 +44,6 @@ export default async function PackagePage({
           <MarkdownRenderer markdown={packageData.content} />
         </div>
       </section>
-      <div className="bg-secondary">
-        <FreeCallCta
-          title="Not sure which option fits your goals?"
-          subtitle="Book a free call to personalize this package"
-          buttonText="BOOK YOUR FREE CALL"
-        />
-      </div>
     </>
   );
 }

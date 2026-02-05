@@ -1,9 +1,45 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { getTestimonials } from "@/data/queries";
 import { StrapiImage } from "@/lib/strapi/field-types";
 import { getStrapiMedia } from "@/lib/strapi/utils";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
 import Image from "next/image";
+
+interface TestimonialsProps {
+  title?: string;
+  background?: "transparent" | "secondary";
+}
+
+export async function Testimonials({
+  title,
+  background = "transparent",
+}: TestimonialsProps) {
+  const { data: testimonialsData } = await getTestimonials();
+  const testimonials = testimonialsData?.data;
+
+  return (
+    <section className={cn(background === "secondary" && "bg-secondary")}>
+      <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y)">
+        {title && (
+          <h2
+            className={cn(typography({ variant: "h2" }), "text-center mb-20")}
+          >
+            {title}
+          </h2>
+        )}
+
+        {testimonials && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard key={index} {...testimonial} />
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
 
 export type TestimonialCardProps = {
   quote: string;

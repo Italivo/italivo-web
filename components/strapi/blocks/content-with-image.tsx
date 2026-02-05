@@ -3,24 +3,31 @@ import { getStrapiMedia } from "@/lib/strapi/utils";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
 import Image from "next/image";
-import { MarkdownRenderer } from "../shared/markdown-renderer";
+import { Markdown } from "../fields/markdown";
+import { ButtonLink, ButtonLinkProps } from "../shared/button-link";
 
 type ContentWithImageProps = {
-  background?: "transparent" | "secondary";
-  imagePositionMobile: "top" | "bottom";
-  imagePositionDesktop: "left" | "right";
   title: string;
-  content: string;
+  subtitle?: string;
+  content?: string;
+  buttonLink: ButtonLinkProps;
+  disclaimer?: string;
   image: StrapiImage;
+  imagePositionMobile?: "top" | "bottom";
+  imagePositionDesktop?: "left" | "right";
+  background?: "transparent" | "secondary";
 };
 
 export function ContentWithImage({
-  background = "transparent",
-  imagePositionMobile,
-  imagePositionDesktop,
   title,
+  subtitle,
   content,
+  buttonLink,
+  disclaimer,
   image,
+  imagePositionMobile = "top",
+  imagePositionDesktop = "right",
+  background = "transparent",
 }: ContentWithImageProps) {
   return (
     <section className={cn(background === "secondary" && "bg-secondary")}>
@@ -30,7 +37,7 @@ export function ContentWithImage({
           <div
             className={cn(
               imagePositionMobile === "top" ? "order-1" : "order-2",
-              imagePositionDesktop === "left" ? "md:order-1" : "md:order-2"
+              imagePositionDesktop === "left" ? "md:order-1" : "md:order-2",
             )}
           >
             {/* image goes here */}
@@ -47,11 +54,22 @@ export function ContentWithImage({
           <div
             className={cn(
               imagePositionMobile === "top" ? "order-2" : "order-1",
-              imagePositionDesktop === "left" ? "md:order-2" : "md:order-1"
+              imagePositionDesktop === "left" ? "md:order-2" : "md:order-1",
             )}
           >
             <h2 className={cn(typography({ variant: "h2" }))}>{title}</h2>
-            <MarkdownRenderer markdown={content} />
+            {subtitle && (
+              <p className={cn(typography({ variant: "lead", margin: false }))}>
+                {subtitle}
+              </p>
+            )}
+            {content && <Markdown markdown={content} />}
+            {buttonLink && <ButtonLink {...buttonLink} />}
+            {disclaimer && (
+              <p className={cn(typography({ variant: "small", margin: false }))}>
+                {disclaimer}
+              </p>
+            )}
           </div>
         </div>
       </div>

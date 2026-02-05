@@ -669,7 +669,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.305Z */
+                            /** @default 2026-02-05T21:56:14.439Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -728,7 +728,7 @@ export interface operations {
             content: {
                 "application/json": {
                     data: {
-                        /** @default 2026-02-04T14:12:53.309Z */
+                        /** @default 2026-02-05T21:56:14.443Z */
                         publishedAt?: string;
                         blocks?: unknown[];
                     };
@@ -749,7 +749,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.310Z */
+                            /** @default 2026-02-05T21:56:14.444Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -819,7 +819,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.312Z */
+                            /** @default 2026-02-05T21:56:14.446Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -885,7 +885,7 @@ export interface operations {
                 } | {
                     [key: string]: "asc" | "desc";
                 }[];
-                populate?: "*" | ("icon" | "image") | ("icon" | "image")[];
+                populate?: "*" | ("icon" | "image" | "package_category") | ("icon" | "image" | "package_category")[];
                 status?: "draft" | "published";
             };
             header?: never;
@@ -911,7 +911,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.318Z */
+                            /** @default 2026-02-05T21:56:14.453Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -933,7 +933,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -957,9 +957,100 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
+                            };
+                            package_category?: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                title: string;
+                                /** @default 1 */
+                                order: number;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-02-05T21:56:14.458Z */
+                                publishedAt: string;
+                                packages?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    summary: string;
+                                    price: number;
+                                    content: string;
+                                    /** @default 1 */
+                                    order: number;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.460Z */
+                                    publishedAt: string;
+                                    package_category?: unknown;
+                                }[];
+                                learning_paths?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    tagline: string;
+                                    content: string;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.465Z */
+                                    publishedAt: string;
+                                    icon: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    image: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    package_category?: unknown;
+                                }[];
                             };
                         }[];
                     };
@@ -1006,7 +1097,7 @@ export interface operations {
         parameters: {
             query?: {
                 fields?: ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt")[];
-                populate?: "*" | ("icon" | "image") | ("icon" | "image")[];
+                populate?: "*" | ("icon" | "image" | "package_category") | ("icon" | "image" | "package_category")[];
                 status?: "draft" | "published";
             };
             header?: never;
@@ -1021,10 +1112,12 @@ export interface operations {
                         slug: string;
                         tagline: string;
                         content: string;
-                        /** @default 2026-02-04T14:12:53.332Z */
+                        /** @default 2026-02-05T21:56:14.472Z */
                         publishedAt: string;
                         icon: unknown;
                         image: unknown;
+                        /** Format: uuid */
+                        package_category?: string;
                     };
                 };
             };
@@ -1047,7 +1140,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.333Z */
+                            /** @default 2026-02-05T21:56:14.473Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -1069,7 +1162,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1093,9 +1186,100 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
+                            };
+                            package_category?: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                title: string;
+                                /** @default 1 */
+                                order: number;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-02-05T21:56:14.458Z */
+                                publishedAt: string;
+                                packages?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    summary: string;
+                                    price: number;
+                                    content: string;
+                                    /** @default 1 */
+                                    order: number;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.460Z */
+                                    publishedAt: string;
+                                    package_category?: unknown;
+                                }[];
+                                learning_paths?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    tagline: string;
+                                    content: string;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.465Z */
+                                    publishedAt: string;
+                                    icon: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    image: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    package_category?: unknown;
+                                }[];
                             };
                         };
                     };
@@ -1142,7 +1326,7 @@ export interface operations {
         parameters: {
             query?: {
                 fields?: ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt")[];
-                populate?: "*" | ("icon" | "image") | ("icon" | "image")[];
+                populate?: "*" | ("icon" | "image" | "package_category") | ("icon" | "image" | "package_category")[];
                 filters?: {
                     [key: string]: unknown;
                 };
@@ -1178,7 +1362,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.329Z */
+                            /** @default 2026-02-05T21:56:14.469Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -1200,7 +1384,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1224,9 +1408,100 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
+                            };
+                            package_category?: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                title: string;
+                                /** @default 1 */
+                                order: number;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-02-05T21:56:14.458Z */
+                                publishedAt: string;
+                                packages?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    summary: string;
+                                    price: number;
+                                    content: string;
+                                    /** @default 1 */
+                                    order: number;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.460Z */
+                                    publishedAt: string;
+                                    package_category?: unknown;
+                                }[];
+                                learning_paths?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    tagline: string;
+                                    content: string;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.465Z */
+                                    publishedAt: string;
+                                    icon: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    image: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    package_category?: unknown;
+                                }[];
                             };
                         };
                     };
@@ -1273,7 +1548,7 @@ export interface operations {
         parameters: {
             query?: {
                 fields?: ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt")[];
-                populate?: "*" | ("icon" | "image") | ("icon" | "image")[];
+                populate?: "*" | ("icon" | "image" | "package_category") | ("icon" | "image" | "package_category")[];
                 status?: "draft" | "published";
             };
             header?: never;
@@ -1290,10 +1565,12 @@ export interface operations {
                         slug?: string;
                         tagline?: string;
                         content?: string;
-                        /** @default 2026-02-04T14:12:53.335Z */
+                        /** @default 2026-02-05T21:56:14.476Z */
                         publishedAt?: string;
                         icon?: unknown;
                         image?: unknown;
+                        /** Format: uuid */
+                        package_category?: string;
                     };
                 };
             };
@@ -1316,7 +1593,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.337Z */
+                            /** @default 2026-02-05T21:56:14.477Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -1338,7 +1615,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1362,9 +1639,100 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
+                            };
+                            package_category?: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                title: string;
+                                /** @default 1 */
+                                order: number;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-02-05T21:56:14.458Z */
+                                publishedAt: string;
+                                packages?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    summary: string;
+                                    price: number;
+                                    content: string;
+                                    /** @default 1 */
+                                    order: number;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.460Z */
+                                    publishedAt: string;
+                                    package_category?: unknown;
+                                }[];
+                                learning_paths?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    tagline: string;
+                                    content: string;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.465Z */
+                                    publishedAt: string;
+                                    icon: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    image: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    package_category?: unknown;
+                                }[];
                             };
                         };
                     };
@@ -1411,7 +1779,7 @@ export interface operations {
         parameters: {
             query?: {
                 fields?: ("title" | "slug" | "tagline" | "content" | "createdAt" | "updatedAt" | "publishedAt")[];
-                populate?: "*" | ("icon" | "image") | ("icon" | "image")[];
+                populate?: "*" | ("icon" | "image" | "package_category") | ("icon" | "image" | "package_category")[];
                 filters?: {
                     [key: string]: unknown;
                 };
@@ -1442,7 +1810,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.340Z */
+                            /** @default 2026-02-05T21:56:14.480Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -1464,7 +1832,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1488,9 +1856,100 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
+                            };
+                            package_category?: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                title: string;
+                                /** @default 1 */
+                                order: number;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-02-05T21:56:14.458Z */
+                                publishedAt: string;
+                                packages?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    summary: string;
+                                    price: number;
+                                    content: string;
+                                    /** @default 1 */
+                                    order: number;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.460Z */
+                                    publishedAt: string;
+                                    package_category?: unknown;
+                                }[];
+                                learning_paths?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    tagline: string;
+                                    content: string;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.465Z */
+                                    publishedAt: string;
+                                    icon: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    image: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    package_category?: unknown;
+                                }[];
                             };
                         };
                     };
@@ -1584,7 +2043,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.347Z */
+                            /** @default 2026-02-05T21:56:14.486Z */
                             publishedAt: string;
                             package_category?: {
                                 /** Format: uuid */
@@ -1595,7 +2054,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.348Z */
+                                /** @default 2026-02-05T21:56:14.458Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -1610,8 +2069,70 @@ export interface operations {
                                     order: number;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-04T14:12:53.350Z */
+                                    /** @default 2026-02-05T21:56:14.460Z */
                                     publishedAt: string;
+                                    package_category?: unknown;
+                                }[];
+                                learning_paths?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    tagline: string;
+                                    content: string;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.465Z */
+                                    publishedAt: string;
+                                    icon: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    image: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
                                     package_category?: unknown;
                                 }[];
                             };
@@ -1678,7 +2199,7 @@ export interface operations {
                         content: string;
                         /** @default 1 */
                         order: number;
-                        /** @default 2026-02-04T14:12:53.362Z */
+                        /** @default 2026-02-05T21:56:14.495Z */
                         publishedAt: string;
                         /** Format: uuid */
                         package_category?: string;
@@ -1707,7 +2228,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.364Z */
+                            /** @default 2026-02-05T21:56:14.496Z */
                             publishedAt: string;
                             package_category?: {
                                 /** Format: uuid */
@@ -1718,7 +2239,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.348Z */
+                                /** @default 2026-02-05T21:56:14.458Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -1733,8 +2254,70 @@ export interface operations {
                                     order: number;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-04T14:12:53.350Z */
+                                    /** @default 2026-02-05T21:56:14.460Z */
                                     publishedAt: string;
+                                    package_category?: unknown;
+                                }[];
+                                learning_paths?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    tagline: string;
+                                    content: string;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.465Z */
+                                    publishedAt: string;
+                                    icon: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    image: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
                                     package_category?: unknown;
                                 }[];
                             };
@@ -1822,7 +2405,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.356Z */
+                            /** @default 2026-02-05T21:56:14.493Z */
                             publishedAt: string;
                             package_category?: {
                                 /** Format: uuid */
@@ -1833,7 +2416,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.348Z */
+                                /** @default 2026-02-05T21:56:14.458Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -1848,8 +2431,70 @@ export interface operations {
                                     order: number;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-04T14:12:53.350Z */
+                                    /** @default 2026-02-05T21:56:14.460Z */
                                     publishedAt: string;
+                                    package_category?: unknown;
+                                }[];
+                                learning_paths?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    tagline: string;
+                                    content: string;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.465Z */
+                                    publishedAt: string;
+                                    icon: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    image: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
                                     package_category?: unknown;
                                 }[];
                             };
@@ -1918,7 +2563,7 @@ export interface operations {
                         content?: string;
                         /** @default 1 */
                         order?: number;
-                        /** @default 2026-02-04T14:12:53.367Z */
+                        /** @default 2026-02-05T21:56:14.499Z */
                         publishedAt?: string;
                         /** Format: uuid */
                         package_category?: string;
@@ -1947,7 +2592,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.369Z */
+                            /** @default 2026-02-05T21:56:14.500Z */
                             publishedAt: string;
                             package_category?: {
                                 /** Format: uuid */
@@ -1958,7 +2603,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.348Z */
+                                /** @default 2026-02-05T21:56:14.458Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -1973,8 +2618,70 @@ export interface operations {
                                     order: number;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-04T14:12:53.350Z */
+                                    /** @default 2026-02-05T21:56:14.460Z */
                                     publishedAt: string;
+                                    package_category?: unknown;
+                                }[];
+                                learning_paths?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    tagline: string;
+                                    content: string;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.465Z */
+                                    publishedAt: string;
+                                    icon: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    image: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
                                     package_category?: unknown;
                                 }[];
                             };
@@ -2057,7 +2764,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.372Z */
+                            /** @default 2026-02-05T21:56:14.503Z */
                             publishedAt: string;
                             package_category?: {
                                 /** Format: uuid */
@@ -2068,7 +2775,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.348Z */
+                                /** @default 2026-02-05T21:56:14.458Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -2083,8 +2790,70 @@ export interface operations {
                                     order: number;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-04T14:12:53.350Z */
+                                    /** @default 2026-02-05T21:56:14.460Z */
                                     publishedAt: string;
+                                    package_category?: unknown;
+                                }[];
+                                learning_paths?: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    title: string;
+                                    slug: string;
+                                    tagline: string;
+                                    content: string;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.465Z */
+                                    publishedAt: string;
+                                    icon: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
+                                    image: {
+                                        /** Format: uuid */
+                                        documentId: string;
+                                        id: string | number;
+                                        name: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash: string;
+                                        ext?: string;
+                                        mime: string;
+                                        size: number;
+                                        url: string;
+                                        previewUrl?: string;
+                                        provider: string;
+                                        provider_metadata?: unknown;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        /** @default 2026-02-05T21:56:14.457Z */
+                                        publishedAt: string;
+                                        related: unknown;
+                                    };
                                     package_category?: unknown;
                                 }[];
                             };
@@ -2151,7 +2920,7 @@ export interface operations {
                 } | {
                     [key: string]: "asc" | "desc";
                 }[];
-                populate?: "*" | "packages" | "packages"[];
+                populate?: "*" | ("packages" | "learning_paths") | ("packages" | "learning_paths")[];
                 status?: "draft" | "published";
             };
             header?: never;
@@ -2176,7 +2945,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.376Z */
+                            /** @default 2026-02-05T21:56:14.507Z */
                             publishedAt: string;
                             packages?: {
                                 /** Format: uuid */
@@ -2191,8 +2960,70 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.350Z */
+                                /** @default 2026-02-05T21:56:14.460Z */
                                 publishedAt: string;
+                                package_category?: unknown;
+                            }[];
+                            learning_paths?: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                title: string;
+                                slug: string;
+                                tagline: string;
+                                content: string;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-02-05T21:56:14.465Z */
+                                publishedAt: string;
+                                icon: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    name: string;
+                                    alternativeText?: string;
+                                    caption?: string;
+                                    width?: number;
+                                    height?: number;
+                                    formats?: unknown;
+                                    hash: string;
+                                    ext?: string;
+                                    mime: string;
+                                    size: number;
+                                    url: string;
+                                    previewUrl?: string;
+                                    provider: string;
+                                    provider_metadata?: unknown;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.457Z */
+                                    publishedAt: string;
+                                    related: unknown;
+                                };
+                                image: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    name: string;
+                                    alternativeText?: string;
+                                    caption?: string;
+                                    width?: number;
+                                    height?: number;
+                                    formats?: unknown;
+                                    hash: string;
+                                    ext?: string;
+                                    mime: string;
+                                    size: number;
+                                    url: string;
+                                    previewUrl?: string;
+                                    provider: string;
+                                    provider_metadata?: unknown;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.457Z */
+                                    publishedAt: string;
+                                    related: unknown;
+                                };
                                 package_category?: unknown;
                             }[];
                         }[];
@@ -2240,7 +3071,7 @@ export interface operations {
         parameters: {
             query?: {
                 fields?: ("title" | "order" | "createdAt" | "updatedAt" | "publishedAt")[];
-                populate?: "*" | "packages" | "packages"[];
+                populate?: "*" | ("packages" | "learning_paths") | ("packages" | "learning_paths")[];
                 status?: "draft" | "published";
             };
             header?: never;
@@ -2254,9 +3085,10 @@ export interface operations {
                         title: string;
                         /** @default 1 */
                         order: number;
-                        /** @default 2026-02-04T14:12:53.381Z */
+                        /** @default 2026-02-05T21:56:14.515Z */
                         publishedAt: string;
                         packages?: string[];
+                        learning_paths?: string[];
                     };
                 };
             };
@@ -2278,7 +3110,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.382Z */
+                            /** @default 2026-02-05T21:56:14.516Z */
                             publishedAt: string;
                             packages?: {
                                 /** Format: uuid */
@@ -2293,8 +3125,70 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.350Z */
+                                /** @default 2026-02-05T21:56:14.460Z */
                                 publishedAt: string;
+                                package_category?: unknown;
+                            }[];
+                            learning_paths?: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                title: string;
+                                slug: string;
+                                tagline: string;
+                                content: string;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-02-05T21:56:14.465Z */
+                                publishedAt: string;
+                                icon: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    name: string;
+                                    alternativeText?: string;
+                                    caption?: string;
+                                    width?: number;
+                                    height?: number;
+                                    formats?: unknown;
+                                    hash: string;
+                                    ext?: string;
+                                    mime: string;
+                                    size: number;
+                                    url: string;
+                                    previewUrl?: string;
+                                    provider: string;
+                                    provider_metadata?: unknown;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.457Z */
+                                    publishedAt: string;
+                                    related: unknown;
+                                };
+                                image: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    name: string;
+                                    alternativeText?: string;
+                                    caption?: string;
+                                    width?: number;
+                                    height?: number;
+                                    formats?: unknown;
+                                    hash: string;
+                                    ext?: string;
+                                    mime: string;
+                                    size: number;
+                                    url: string;
+                                    previewUrl?: string;
+                                    provider: string;
+                                    provider_metadata?: unknown;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.457Z */
+                                    publishedAt: string;
+                                    related: unknown;
+                                };
                                 package_category?: unknown;
                             }[];
                         };
@@ -2342,7 +3236,7 @@ export interface operations {
         parameters: {
             query?: {
                 fields?: ("title" | "order" | "createdAt" | "updatedAt" | "publishedAt")[];
-                populate?: "*" | "packages" | "packages"[];
+                populate?: "*" | ("packages" | "learning_paths") | ("packages" | "learning_paths")[];
                 filters?: {
                     [key: string]: unknown;
                 };
@@ -2377,7 +3271,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.380Z */
+                            /** @default 2026-02-05T21:56:14.511Z */
                             publishedAt: string;
                             packages?: {
                                 /** Format: uuid */
@@ -2392,8 +3286,70 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.350Z */
+                                /** @default 2026-02-05T21:56:14.460Z */
                                 publishedAt: string;
+                                package_category?: unknown;
+                            }[];
+                            learning_paths?: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                title: string;
+                                slug: string;
+                                tagline: string;
+                                content: string;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-02-05T21:56:14.465Z */
+                                publishedAt: string;
+                                icon: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    name: string;
+                                    alternativeText?: string;
+                                    caption?: string;
+                                    width?: number;
+                                    height?: number;
+                                    formats?: unknown;
+                                    hash: string;
+                                    ext?: string;
+                                    mime: string;
+                                    size: number;
+                                    url: string;
+                                    previewUrl?: string;
+                                    provider: string;
+                                    provider_metadata?: unknown;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.457Z */
+                                    publishedAt: string;
+                                    related: unknown;
+                                };
+                                image: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    name: string;
+                                    alternativeText?: string;
+                                    caption?: string;
+                                    width?: number;
+                                    height?: number;
+                                    formats?: unknown;
+                                    hash: string;
+                                    ext?: string;
+                                    mime: string;
+                                    size: number;
+                                    url: string;
+                                    previewUrl?: string;
+                                    provider: string;
+                                    provider_metadata?: unknown;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.457Z */
+                                    publishedAt: string;
+                                    related: unknown;
+                                };
                                 package_category?: unknown;
                             }[];
                         };
@@ -2441,7 +3397,7 @@ export interface operations {
         parameters: {
             query?: {
                 fields?: ("title" | "order" | "createdAt" | "updatedAt" | "publishedAt")[];
-                populate?: "*" | "packages" | "packages"[];
+                populate?: "*" | ("packages" | "learning_paths") | ("packages" | "learning_paths")[];
                 status?: "draft" | "published";
             };
             header?: never;
@@ -2457,9 +3413,10 @@ export interface operations {
                         title?: string;
                         /** @default 1 */
                         order?: number;
-                        /** @default 2026-02-04T14:12:53.387Z */
+                        /** @default 2026-02-05T21:56:14.518Z */
                         publishedAt?: string;
                         packages?: string[];
+                        learning_paths?: string[];
                     };
                 };
             };
@@ -2481,7 +3438,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.388Z */
+                            /** @default 2026-02-05T21:56:14.519Z */
                             publishedAt: string;
                             packages?: {
                                 /** Format: uuid */
@@ -2496,8 +3453,70 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.350Z */
+                                /** @default 2026-02-05T21:56:14.460Z */
                                 publishedAt: string;
+                                package_category?: unknown;
+                            }[];
+                            learning_paths?: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                title: string;
+                                slug: string;
+                                tagline: string;
+                                content: string;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-02-05T21:56:14.465Z */
+                                publishedAt: string;
+                                icon: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    name: string;
+                                    alternativeText?: string;
+                                    caption?: string;
+                                    width?: number;
+                                    height?: number;
+                                    formats?: unknown;
+                                    hash: string;
+                                    ext?: string;
+                                    mime: string;
+                                    size: number;
+                                    url: string;
+                                    previewUrl?: string;
+                                    provider: string;
+                                    provider_metadata?: unknown;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.457Z */
+                                    publishedAt: string;
+                                    related: unknown;
+                                };
+                                image: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    name: string;
+                                    alternativeText?: string;
+                                    caption?: string;
+                                    width?: number;
+                                    height?: number;
+                                    formats?: unknown;
+                                    hash: string;
+                                    ext?: string;
+                                    mime: string;
+                                    size: number;
+                                    url: string;
+                                    previewUrl?: string;
+                                    provider: string;
+                                    provider_metadata?: unknown;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.457Z */
+                                    publishedAt: string;
+                                    related: unknown;
+                                };
                                 package_category?: unknown;
                             }[];
                         };
@@ -2545,7 +3564,7 @@ export interface operations {
         parameters: {
             query?: {
                 fields?: ("title" | "order" | "createdAt" | "updatedAt" | "publishedAt")[];
-                populate?: "*" | "packages" | "packages"[];
+                populate?: "*" | ("packages" | "learning_paths") | ("packages" | "learning_paths")[];
                 filters?: {
                     [key: string]: unknown;
                 };
@@ -2575,7 +3594,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.391Z */
+                            /** @default 2026-02-05T21:56:14.522Z */
                             publishedAt: string;
                             packages?: {
                                 /** Format: uuid */
@@ -2590,8 +3609,70 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.350Z */
+                                /** @default 2026-02-05T21:56:14.460Z */
                                 publishedAt: string;
+                                package_category?: unknown;
+                            }[];
+                            learning_paths?: {
+                                /** Format: uuid */
+                                documentId: string;
+                                id: string | number;
+                                title: string;
+                                slug: string;
+                                tagline: string;
+                                content: string;
+                                createdAt?: string;
+                                updatedAt?: string;
+                                /** @default 2026-02-05T21:56:14.465Z */
+                                publishedAt: string;
+                                icon: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    name: string;
+                                    alternativeText?: string;
+                                    caption?: string;
+                                    width?: number;
+                                    height?: number;
+                                    formats?: unknown;
+                                    hash: string;
+                                    ext?: string;
+                                    mime: string;
+                                    size: number;
+                                    url: string;
+                                    previewUrl?: string;
+                                    provider: string;
+                                    provider_metadata?: unknown;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.457Z */
+                                    publishedAt: string;
+                                    related: unknown;
+                                };
+                                image: {
+                                    /** Format: uuid */
+                                    documentId: string;
+                                    id: string | number;
+                                    name: string;
+                                    alternativeText?: string;
+                                    caption?: string;
+                                    width?: number;
+                                    height?: number;
+                                    formats?: unknown;
+                                    hash: string;
+                                    ext?: string;
+                                    mime: string;
+                                    size: number;
+                                    url: string;
+                                    previewUrl?: string;
+                                    provider: string;
+                                    provider_metadata?: unknown;
+                                    createdAt?: string;
+                                    updatedAt?: string;
+                                    /** @default 2026-02-05T21:56:14.457Z */
+                                    publishedAt: string;
+                                    related: unknown;
+                                };
                                 package_category?: unknown;
                             }[];
                         };
@@ -2638,8 +3719,8 @@ export interface operations {
     "packages-page/get/packages_page": {
         parameters: {
             query?: {
-                fields?: ("title" | "createdAt" | "updatedAt" | "publishedAt")[];
-                populate?: "*" | never | never[];
+                fields?: ("createdAt" | "updatedAt" | "publishedAt")[];
+                populate?: "*" | "blocks" | "blocks"[];
                 filters?: {
                     [key: string]: unknown;
                 };
@@ -2662,11 +3743,11 @@ export interface operations {
                             /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            title?: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.394Z */
+                            /** @default 2026-02-05T21:56:14.524Z */
                             publishedAt: string;
+                            blocks: unknown[];
                         };
                     };
                 };
@@ -2711,8 +3792,8 @@ export interface operations {
     "packages-page/put/packages_page": {
         parameters: {
             query?: {
-                fields?: ("title" | "createdAt" | "updatedAt" | "publishedAt")[];
-                populate?: "*" | never | never[];
+                fields?: ("createdAt" | "updatedAt" | "publishedAt")[];
+                populate?: "*" | "blocks" | "blocks"[];
                 status?: "draft" | "published";
             };
             header?: never;
@@ -2723,9 +3804,9 @@ export interface operations {
             content: {
                 "application/json": {
                     data: {
-                        title?: string;
-                        /** @default 2026-02-04T14:12:53.395Z */
+                        /** @default 2026-02-05T21:56:14.526Z */
                         publishedAt?: string;
+                        blocks?: unknown[];
                     };
                 };
             };
@@ -2742,11 +3823,11 @@ export interface operations {
                             /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            title?: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.396Z */
+                            /** @default 2026-02-05T21:56:14.526Z */
                             publishedAt: string;
+                            blocks: unknown[];
                         };
                     };
                 };
@@ -2791,8 +3872,8 @@ export interface operations {
     "packages-page/delete/packages_page": {
         parameters: {
             query?: {
-                fields?: ("title" | "createdAt" | "updatedAt" | "publishedAt")[];
-                populate?: "*" | never | never[];
+                fields?: ("createdAt" | "updatedAt" | "publishedAt")[];
+                populate?: "*" | "blocks" | "blocks"[];
                 status?: "draft" | "published";
             };
             header?: never;
@@ -2812,11 +3893,11 @@ export interface operations {
                             /** Format: uuid */
                             documentId: string;
                             id: string | number;
-                            title?: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.398Z */
+                            /** @default 2026-02-05T21:56:14.528Z */
                             publishedAt: string;
+                            blocks: unknown[];
                         };
                     };
                 };
@@ -2904,7 +3985,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.402Z */
+                            /** @default 2026-02-05T21:56:14.531Z */
                             publishedAt: string;
                         }[];
                     };
@@ -2964,7 +4045,7 @@ export interface operations {
                     data: {
                         title: string;
                         slug: string;
-                        /** @default 2026-02-04T14:12:53.873Z */
+                        /** @default 2026-02-05T21:56:14.981Z */
                         publishedAt: string;
                     };
                 };
@@ -2986,7 +4067,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.408Z */
+                            /** @default 2026-02-05T21:56:14.536Z */
                             publishedAt: string;
                         };
                     };
@@ -3067,7 +4148,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.405Z */
+                            /** @default 2026-02-05T21:56:14.534Z */
                             publishedAt: string;
                         };
                     };
@@ -3129,7 +4210,7 @@ export interface operations {
                     data: {
                         title?: string;
                         slug?: string;
-                        /** @default 2026-02-04T14:12:53.410Z */
+                        /** @default 2026-02-05T21:56:14.540Z */
                         publishedAt?: string;
                     };
                 };
@@ -3151,7 +4232,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.411Z */
+                            /** @default 2026-02-05T21:56:14.541Z */
                             publishedAt: string;
                         };
                     };
@@ -3227,7 +4308,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.417Z */
+                            /** @default 2026-02-05T21:56:14.543Z */
                             publishedAt: string;
                         };
                     };
@@ -3317,7 +4398,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.422Z */
+                            /** @default 2026-02-05T21:56:14.547Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -3339,7 +4420,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -3402,7 +4483,7 @@ export interface operations {
                         name: string;
                         role: string;
                         quote: string;
-                        /** @default 2026-02-04T14:12:53.428Z */
+                        /** @default 2026-02-05T21:56:14.552Z */
                         publishedAt: string;
                         avatar: unknown;
                     };
@@ -3426,7 +4507,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.430Z */
+                            /** @default 2026-02-05T21:56:14.553Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -3448,7 +4529,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -3532,7 +4613,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.426Z */
+                            /** @default 2026-02-05T21:56:14.550Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -3554,7 +4635,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -3619,7 +4700,7 @@ export interface operations {
                         name?: string;
                         role?: string;
                         quote?: string;
-                        /** @default 2026-02-04T14:12:53.432Z */
+                        /** @default 2026-02-05T21:56:14.554Z */
                         publishedAt?: string;
                         avatar?: unknown;
                     };
@@ -3643,7 +4724,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.433Z */
+                            /** @default 2026-02-05T21:56:14.555Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -3665,7 +4746,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -3744,7 +4825,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-04T14:12:53.436Z */
+                            /** @default 2026-02-05T21:56:14.557Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -3766,7 +4847,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-04T14:12:53.322Z */
+                                /** @default 2026-02-05T21:56:14.457Z */
                                 publishedAt: string;
                                 related: unknown;
                             };

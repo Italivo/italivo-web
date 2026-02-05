@@ -21,7 +21,7 @@ const components: Record<
   ),
 };
 
-export function MarkdownRenderer({ markdown }: { markdown?: string }) {
+export function Markdown({ markdown }: { markdown?: string }) {
   if (!markdown) return null;
   return (
     <ReactMarkdown allowedElements={allowedElements} components={components}>
