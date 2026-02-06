@@ -85,7 +85,9 @@ export async function Packages({
               className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
             >
               {pc.packages &&
-                pc.packages.map((pkg) => (
+                pc.packages
+                  .sort((a, b) => a.order - b.order)
+                  .map((pkg) => (
                   <Card
                     key={pkg.id}
                     className={cn(
