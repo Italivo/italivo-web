@@ -1,8 +1,7 @@
+import { StrapiImage } from "@/components/strapi-image";
 import { Markdown } from "@/components/strapi/fields/markdown";
 import { getLearningPathBySlug, getLearningPaths } from "@/data/queries";
-import { getStrapiMedia } from "@/lib/strapi/utils";
 import { typography } from "@/lib/variants";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -29,13 +28,15 @@ export default async function LearningPathPage({
       <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y)">
         <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-6 md:gap-12">
           <div className="order-1 md:order-2">
-            <Image
-              src={getStrapiMedia(learningPath.image.url)}
-              alt={learningPath.image.alternativeText ?? ""}
-              aria-hidden={learningPath.image.alternativeText ? false : true}
-              width={learningPath.image.width}
-              height={learningPath.image.height}
-              className="rounded-2xl shadow-md w-full h-auto"
+            <StrapiImage
+              image={learningPath.image}
+              format="medium"
+              className="rounded-2xl shadow-md w-full h-auto md:hidden"
+            />
+            <StrapiImage
+              image={learningPath.image}
+              format="large"
+              className="rounded-2xl shadow-md w-full h-auto max-md:hidden"
             />
           </div>
 
