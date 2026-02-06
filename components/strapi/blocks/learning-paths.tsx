@@ -1,12 +1,12 @@
+import { StrapiImage } from "@/components/strapi-image";
 import { getLearningPaths } from "@/data/queries";
 import { routes } from "@/lib/routes";
-import { StrapiImage } from "@/lib/strapi/field-types";
-import { getStrapiMedia } from "@/lib/strapi/utils";
+import { StrapiImage as StrapiImageType } from "@/lib/strapi/media";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
-import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardHeader } from "../../ui/card";
+
 type LearningPathsProps = {
   title: string;
   background?: "transparent" | "secondary";
@@ -51,7 +51,7 @@ export type IconCardProps = {
   className?: string;
   title: string;
   description?: string;
-  icon: StrapiImage;
+  icon: StrapiImageType;
   link: {
     href: string;
     label: string;
@@ -74,13 +74,12 @@ export function IconCard({
       <Card className="h-full gap-0 ">
         <CardHeader>
           <div className="w-12 h-12 mx-auto relative">
-            <Image
-              src={getStrapiMedia(icon.url)}
+            <StrapiImage
+              image={icon}
+              format="small"
               alt=""
               fill
-              sizes="48px"
               className="object-contain"
-              aria-hidden="true"
             />
           </div>
         </CardHeader>

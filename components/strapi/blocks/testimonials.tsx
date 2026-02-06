@@ -1,10 +1,9 @@
+import { StrapiImage } from "@/components/strapi-image";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { getTestimonials } from "@/data/queries";
-import { StrapiImage } from "@/lib/strapi/field-types";
-import { getStrapiMedia } from "@/lib/strapi/utils";
+import { StrapiImage as StrapiImageType } from "@/lib/strapi/media";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
-import Image from "next/image";
 
 interface TestimonialsProps {
   title?: string;
@@ -44,7 +43,7 @@ export async function Testimonials({
 export type TestimonialCardProps = {
   quote: string;
   name: string;
-  avatar: StrapiImage;
+  avatar: StrapiImageType;
   role: string;
 };
 
@@ -62,13 +61,11 @@ export function TestimonialCard({
         </p>
       </CardContent>
       <CardFooter className="flex items-center gap-4">
-        <Image
+        <StrapiImage
+          image={avatar}
+          format="small"
           className="w-12 h-12 rounded-full object-cover"
           alt=""
-          aria-hidden
-          src={getStrapiMedia(avatar.url)}
-          width={48}
-          height={48}
         />
         <p>
           <strong className="block text-[0.9375rem] font-bold">{name}</strong>

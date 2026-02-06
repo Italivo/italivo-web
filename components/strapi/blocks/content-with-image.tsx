@@ -1,8 +1,7 @@
-import { StrapiImage } from "@/lib/strapi/field-types";
-import { getStrapiMedia } from "@/lib/strapi/utils";
+import { StrapiImage } from "@/components/strapi-image";
+import { StrapiImage as StrapiImageType } from "@/lib/strapi/media";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
-import Image from "next/image";
 import { Markdown } from "../fields/markdown";
 import { ButtonLink, ButtonLinkProps } from "../shared/button-link";
 
@@ -12,7 +11,7 @@ type ContentWithImageProps = {
   content?: string;
   buttonLink: ButtonLinkProps;
   disclaimer?: string;
-  image: StrapiImage;
+  image: StrapiImageType;
   imagePositionMobile?: "top" | "bottom";
   imagePositionDesktop?: "left" | "right";
   background?: "transparent" | "secondary";
@@ -40,14 +39,15 @@ export function ContentWithImage({
               imagePositionDesktop === "left" ? "md:order-1" : "md:order-2",
             )}
           >
-            {/* image goes here */}
-            <Image
-              alt=""
-              aria-hidden
-              src={getStrapiMedia(image.url)}
-              width={image.width}
-              height={image.height}
-              className="rounded-2xl shadow-md"
+            <StrapiImage
+              image={image}
+              format="medium"
+              className="rounded-2xl shadow-md md:hidden"
+            />
+            <StrapiImage
+              image={image}
+              format="large"
+              className="rounded-2xl shadow-md max-md:hidden"
             />
           </div>
           {/* Title & Content */}
@@ -66,7 +66,9 @@ export function ContentWithImage({
             {content && <Markdown markdown={content} />}
             {buttonLink && <ButtonLink {...buttonLink} />}
             {disclaimer && (
-              <p className={cn(typography({ variant: "small", margin: false }))}>
+              <p
+                className={cn(typography({ variant: "small", margin: false }))}
+              >
                 {disclaimer}
               </p>
             )}

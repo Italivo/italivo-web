@@ -1,13 +1,12 @@
-import { StrapiImage } from "@/lib/strapi/field-types";
-import { getStrapiMedia } from "@/lib/strapi/utils";
+import { StrapiImage } from "@/components/strapi-image";
+import { StrapiImage as StrapiImageType } from "@/lib/strapi/media";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
-import Image from "next/image";
 
 type FeatureListProps = {
   title: string;
   subtitle?: string;
-  image?: StrapiImage;
+  image?: StrapiImageType;
   features: { title: string; description: string }[];
   background?: "transparent" | "secondary";
 };
@@ -26,7 +25,7 @@ export function FeatureList({
           <h2
             className={cn(
               typography({ variant: "h2", margin: !!subtitle }),
-              "text-center"
+              "text-center",
             )}
           >
             {title}
@@ -35,7 +34,7 @@ export function FeatureList({
             <p
               className={cn(
                 typography({ variant: "lead", margin: false }),
-                "max-w-4xl mx-auto text-center"
+                "max-w-4xl mx-auto text-center",
               )}
             >
               {subtitle}
@@ -53,7 +52,7 @@ export function FeatureList({
                 <h3
                   className={cn(
                     typography({ variant: "h3", margin: false }),
-                    "text-olive-700 mb-2"
+                    "text-olive-700 mb-2",
                   )}
                 >
                   {feature.title}
@@ -61,7 +60,7 @@ export function FeatureList({
                 <p
                   className={cn(
                     typography({ variant: "small", margin: false }),
-                    "text-muted-foreground"
+                    "text-muted-foreground",
                   )}
                 >
                   {feature.description}
@@ -72,14 +71,15 @@ export function FeatureList({
         </div>
         {image && (
           <div className="w-full max-w-150 mx-auto">
-            <Image
-              className="rounded-2xl shadow-lg object-contain w-full h-auto"
-              src={getStrapiMedia(image.url)}
-              alt={image.alternativeText ?? ""}
-              aria-hidden={Boolean(image.alternativeText)}
-              width={image.width}
-              height={image.height}
-              sizes="(max-width: 600px) 100vw, 600px"
+            <StrapiImage
+              image={image}
+              format="medium"
+              className="rounded-2xl shadow-lg object-contain w-full h-auto md:hidden"
+            />
+            <StrapiImage
+              image={image}
+              format="large"
+              className="rounded-2xl shadow-lg object-contain w-full h-auto max-md:hidden"
             />
           </div>
         )}
