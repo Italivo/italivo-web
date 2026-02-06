@@ -38,8 +38,8 @@ export function Content({
             </p>
           )}
         </header>
+        <div>{content && <Markdown markdown={content} />}</div>
 
-        {content && <Markdown markdown={content} />}
         {buttonLink && <ButtonLink {...buttonLink} />}
         {disclaimer && (
           <p

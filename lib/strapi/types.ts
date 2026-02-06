@@ -685,7 +685,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.294Z */
+                            /** @default 2026-02-06T16:14:50.100Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -744,7 +744,7 @@ export interface operations {
             content: {
                 "application/json": {
                     data: {
-                        /** @default 2026-02-06T14:47:31.299Z */
+                        /** @default 2026-02-06T16:14:50.105Z */
                         publishedAt?: string;
                         blocks?: unknown[];
                     };
@@ -765,7 +765,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.301Z */
+                            /** @default 2026-02-06T16:14:50.107Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -835,7 +835,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.303Z */
+                            /** @default 2026-02-06T16:14:50.109Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -927,7 +927,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.311Z */
+                            /** @default 2026-02-06T16:14:50.118Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -949,7 +949,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -973,7 +973,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -986,7 +986,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.318Z */
+                                /** @default 2026-02-06T16:14:50.125Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -999,9 +999,12 @@ export interface operations {
                                     content: string;
                                     /** @default 1 */
                                     order: number;
+                                    /** @default false */
+                                    hasBadge: boolean | null;
+                                    badgeLabel?: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.320Z */
+                                    /** @default 2026-02-06T16:14:50.129Z */
                                     publishedAt: string;
                                     package_category?: unknown;
                                 }[];
@@ -1015,7 +1018,7 @@ export interface operations {
                                     content: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.322Z */
+                                    /** @default 2026-02-06T16:14:50.131Z */
                                     publishedAt: string;
                                     icon: {
                                         /** Format: uuid */
@@ -1037,7 +1040,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -1061,7 +1064,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -1128,7 +1131,7 @@ export interface operations {
                         slug: string;
                         tagline: string;
                         content: string;
-                        /** @default 2026-02-06T14:47:31.333Z */
+                        /** @default 2026-02-06T16:14:50.143Z */
                         publishedAt: string;
                         icon: unknown;
                         image: unknown;
@@ -1156,7 +1159,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.334Z */
+                            /** @default 2026-02-06T16:14:50.144Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -1178,7 +1181,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1202,7 +1205,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1215,7 +1218,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.318Z */
+                                /** @default 2026-02-06T16:14:50.125Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -1228,9 +1231,12 @@ export interface operations {
                                     content: string;
                                     /** @default 1 */
                                     order: number;
+                                    /** @default false */
+                                    hasBadge: boolean | null;
+                                    badgeLabel?: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.320Z */
+                                    /** @default 2026-02-06T16:14:50.129Z */
                                     publishedAt: string;
                                     package_category?: unknown;
                                 }[];
@@ -1244,7 +1250,7 @@ export interface operations {
                                     content: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.322Z */
+                                    /** @default 2026-02-06T16:14:50.131Z */
                                     publishedAt: string;
                                     icon: {
                                         /** Format: uuid */
@@ -1266,7 +1272,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -1290,7 +1296,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -1378,7 +1384,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.329Z */
+                            /** @default 2026-02-06T16:14:50.139Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -1400,7 +1406,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1424,7 +1430,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1437,7 +1443,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.318Z */
+                                /** @default 2026-02-06T16:14:50.125Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -1450,9 +1456,12 @@ export interface operations {
                                     content: string;
                                     /** @default 1 */
                                     order: number;
+                                    /** @default false */
+                                    hasBadge: boolean | null;
+                                    badgeLabel?: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.320Z */
+                                    /** @default 2026-02-06T16:14:50.129Z */
                                     publishedAt: string;
                                     package_category?: unknown;
                                 }[];
@@ -1466,7 +1475,7 @@ export interface operations {
                                     content: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.322Z */
+                                    /** @default 2026-02-06T16:14:50.131Z */
                                     publishedAt: string;
                                     icon: {
                                         /** Format: uuid */
@@ -1488,7 +1497,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -1512,7 +1521,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -1581,7 +1590,7 @@ export interface operations {
                         slug?: string;
                         tagline?: string;
                         content?: string;
-                        /** @default 2026-02-06T14:47:31.337Z */
+                        /** @default 2026-02-06T16:14:50.148Z */
                         publishedAt?: string;
                         icon?: unknown;
                         image?: unknown;
@@ -1609,7 +1618,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.339Z */
+                            /** @default 2026-02-06T16:14:50.149Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -1631,7 +1640,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1655,7 +1664,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1668,7 +1677,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.318Z */
+                                /** @default 2026-02-06T16:14:50.125Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -1681,9 +1690,12 @@ export interface operations {
                                     content: string;
                                     /** @default 1 */
                                     order: number;
+                                    /** @default false */
+                                    hasBadge: boolean | null;
+                                    badgeLabel?: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.320Z */
+                                    /** @default 2026-02-06T16:14:50.129Z */
                                     publishedAt: string;
                                     package_category?: unknown;
                                 }[];
@@ -1697,7 +1709,7 @@ export interface operations {
                                     content: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.322Z */
+                                    /** @default 2026-02-06T16:14:50.131Z */
                                     publishedAt: string;
                                     icon: {
                                         /** Format: uuid */
@@ -1719,7 +1731,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -1743,7 +1755,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -1826,7 +1838,7 @@ export interface operations {
                             content: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.342Z */
+                            /** @default 2026-02-06T16:14:50.152Z */
                             publishedAt: string;
                             icon: {
                                 /** Format: uuid */
@@ -1848,7 +1860,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1872,7 +1884,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -1885,7 +1897,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.318Z */
+                                /** @default 2026-02-06T16:14:50.125Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -1898,9 +1910,12 @@ export interface operations {
                                     content: string;
                                     /** @default 1 */
                                     order: number;
+                                    /** @default false */
+                                    hasBadge: boolean | null;
+                                    badgeLabel?: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.320Z */
+                                    /** @default 2026-02-06T16:14:50.129Z */
                                     publishedAt: string;
                                     package_category?: unknown;
                                 }[];
@@ -1914,7 +1929,7 @@ export interface operations {
                                     content: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.322Z */
+                                    /** @default 2026-02-06T16:14:50.131Z */
                                     publishedAt: string;
                                     icon: {
                                         /** Format: uuid */
@@ -1936,7 +1951,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -1960,7 +1975,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -2037,7 +2052,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.345Z */
+                            /** @default 2026-02-06T16:14:50.157Z */
                             publishedAt: string;
                             blocks?: unknown[];
                         };
@@ -2096,7 +2111,7 @@ export interface operations {
             content: {
                 "application/json": {
                     data: {
-                        /** @default 2026-02-06T14:47:31.346Z */
+                        /** @default 2026-02-06T16:14:50.158Z */
                         publishedAt?: string;
                         blocks?: unknown[];
                     };
@@ -2117,7 +2132,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.347Z */
+                            /** @default 2026-02-06T16:14:50.159Z */
                             publishedAt: string;
                             blocks?: unknown[];
                         };
@@ -2187,7 +2202,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.349Z */
+                            /** @default 2026-02-06T16:14:50.161Z */
                             publishedAt: string;
                             blocks?: unknown[];
                         };
@@ -2234,7 +2249,7 @@ export interface operations {
     "package/get/packages": {
         parameters: {
             query?: {
-                fields?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "createdAt" | "updatedAt" | "publishedAt")[];
+                fields?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "hasBadge" | "badgeLabel" | "createdAt" | "updatedAt" | "publishedAt")[];
                 filters?: {
                     [key: string]: unknown;
                 };
@@ -2248,7 +2263,7 @@ export interface operations {
                     start: number;
                     limit: number;
                 });
-                sort?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "createdAt" | "updatedAt" | "publishedAt") | ("title" | "slug" | "summary" | "price" | "content" | "order" | "createdAt" | "updatedAt" | "publishedAt")[] | {
+                sort?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "hasBadge" | "badgeLabel" | "createdAt" | "updatedAt" | "publishedAt") | ("title" | "slug" | "summary" | "price" | "content" | "order" | "hasBadge" | "badgeLabel" | "createdAt" | "updatedAt" | "publishedAt")[] | {
                     [key: string]: "asc" | "desc";
                 } | {
                     [key: string]: "asc" | "desc";
@@ -2280,9 +2295,12 @@ export interface operations {
                             content: string;
                             /** @default 1 */
                             order: number;
+                            /** @default false */
+                            hasBadge: boolean | null;
+                            badgeLabel?: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.357Z */
+                            /** @default 2026-02-06T16:14:50.171Z */
                             publishedAt: string;
                             package_category?: {
                                 /** Format: uuid */
@@ -2293,7 +2311,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.318Z */
+                                /** @default 2026-02-06T16:14:50.125Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -2306,9 +2324,12 @@ export interface operations {
                                     content: string;
                                     /** @default 1 */
                                     order: number;
+                                    /** @default false */
+                                    hasBadge: boolean | null;
+                                    badgeLabel?: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.320Z */
+                                    /** @default 2026-02-06T16:14:50.129Z */
                                     publishedAt: string;
                                     package_category?: unknown;
                                 }[];
@@ -2322,7 +2343,7 @@ export interface operations {
                                     content: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.322Z */
+                                    /** @default 2026-02-06T16:14:50.131Z */
                                     publishedAt: string;
                                     icon: {
                                         /** Format: uuid */
@@ -2344,7 +2365,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -2368,7 +2389,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -2419,7 +2440,7 @@ export interface operations {
     "package/post/packages": {
         parameters: {
             query?: {
-                fields?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "createdAt" | "updatedAt" | "publishedAt")[];
+                fields?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "hasBadge" | "badgeLabel" | "createdAt" | "updatedAt" | "publishedAt")[];
                 populate?: "*" | "package_category" | "package_category"[];
                 status?: "draft" | "published";
             };
@@ -2438,7 +2459,10 @@ export interface operations {
                         content: string;
                         /** @default 1 */
                         order: number;
-                        /** @default 2026-02-06T14:47:31.364Z */
+                        /** @default false */
+                        hasBadge: ("0" | "1" | "t" | "true" | "f" | "false") | null;
+                        badgeLabel?: string;
+                        /** @default 2026-02-06T16:14:50.180Z */
                         publishedAt: string;
                         /** Format: uuid */
                         package_category?: string;
@@ -2465,9 +2489,12 @@ export interface operations {
                             content: string;
                             /** @default 1 */
                             order: number;
+                            /** @default false */
+                            hasBadge: boolean | null;
+                            badgeLabel?: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.365Z */
+                            /** @default 2026-02-06T16:14:50.182Z */
                             publishedAt: string;
                             package_category?: {
                                 /** Format: uuid */
@@ -2478,7 +2505,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.318Z */
+                                /** @default 2026-02-06T16:14:50.125Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -2491,9 +2518,12 @@ export interface operations {
                                     content: string;
                                     /** @default 1 */
                                     order: number;
+                                    /** @default false */
+                                    hasBadge: boolean | null;
+                                    badgeLabel?: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.320Z */
+                                    /** @default 2026-02-06T16:14:50.129Z */
                                     publishedAt: string;
                                     package_category?: unknown;
                                 }[];
@@ -2507,7 +2537,7 @@ export interface operations {
                                     content: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.322Z */
+                                    /** @default 2026-02-06T16:14:50.131Z */
                                     publishedAt: string;
                                     icon: {
                                         /** Format: uuid */
@@ -2529,7 +2559,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -2553,7 +2583,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -2604,12 +2634,12 @@ export interface operations {
     "package/get/packages_by_id": {
         parameters: {
             query?: {
-                fields?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "createdAt" | "updatedAt" | "publishedAt")[];
+                fields?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "hasBadge" | "badgeLabel" | "createdAt" | "updatedAt" | "publishedAt")[];
                 populate?: "*" | "package_category" | "package_category"[];
                 filters?: {
                     [key: string]: unknown;
                 };
-                sort?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "createdAt" | "updatedAt" | "publishedAt") | ("title" | "slug" | "summary" | "price" | "content" | "order" | "createdAt" | "updatedAt" | "publishedAt")[] | {
+                sort?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "hasBadge" | "badgeLabel" | "createdAt" | "updatedAt" | "publishedAt") | ("title" | "slug" | "summary" | "price" | "content" | "order" | "hasBadge" | "badgeLabel" | "createdAt" | "updatedAt" | "publishedAt")[] | {
                     [key: string]: "asc" | "desc";
                 } | {
                     [key: string]: "asc" | "desc";
@@ -2642,9 +2672,12 @@ export interface operations {
                             content: string;
                             /** @default 1 */
                             order: number;
+                            /** @default false */
+                            hasBadge: boolean | null;
+                            badgeLabel?: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.361Z */
+                            /** @default 2026-02-06T16:14:50.176Z */
                             publishedAt: string;
                             package_category?: {
                                 /** Format: uuid */
@@ -2655,7 +2688,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.318Z */
+                                /** @default 2026-02-06T16:14:50.125Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -2668,9 +2701,12 @@ export interface operations {
                                     content: string;
                                     /** @default 1 */
                                     order: number;
+                                    /** @default false */
+                                    hasBadge: boolean | null;
+                                    badgeLabel?: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.320Z */
+                                    /** @default 2026-02-06T16:14:50.129Z */
                                     publishedAt: string;
                                     package_category?: unknown;
                                 }[];
@@ -2684,7 +2720,7 @@ export interface operations {
                                     content: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.322Z */
+                                    /** @default 2026-02-06T16:14:50.131Z */
                                     publishedAt: string;
                                     icon: {
                                         /** Format: uuid */
@@ -2706,7 +2742,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -2730,7 +2766,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -2781,7 +2817,7 @@ export interface operations {
     "package/put/packages_by_id": {
         parameters: {
             query?: {
-                fields?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "createdAt" | "updatedAt" | "publishedAt")[];
+                fields?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "hasBadge" | "badgeLabel" | "createdAt" | "updatedAt" | "publishedAt")[];
                 populate?: "*" | "package_category" | "package_category"[];
                 status?: "draft" | "published";
             };
@@ -2802,7 +2838,10 @@ export interface operations {
                         content?: string;
                         /** @default 1 */
                         order?: number;
-                        /** @default 2026-02-06T14:47:31.368Z */
+                        /** @default false */
+                        hasBadge?: ("0" | "1" | "t" | "true" | "f" | "false") | null;
+                        badgeLabel?: string;
+                        /** @default 2026-02-06T16:14:50.185Z */
                         publishedAt?: string;
                         /** Format: uuid */
                         package_category?: string;
@@ -2829,9 +2868,12 @@ export interface operations {
                             content: string;
                             /** @default 1 */
                             order: number;
+                            /** @default false */
+                            hasBadge: boolean | null;
+                            badgeLabel?: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.369Z */
+                            /** @default 2026-02-06T16:14:50.187Z */
                             publishedAt: string;
                             package_category?: {
                                 /** Format: uuid */
@@ -2842,7 +2884,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.318Z */
+                                /** @default 2026-02-06T16:14:50.125Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -2855,9 +2897,12 @@ export interface operations {
                                     content: string;
                                     /** @default 1 */
                                     order: number;
+                                    /** @default false */
+                                    hasBadge: boolean | null;
+                                    badgeLabel?: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.320Z */
+                                    /** @default 2026-02-06T16:14:50.129Z */
                                     publishedAt: string;
                                     package_category?: unknown;
                                 }[];
@@ -2871,7 +2916,7 @@ export interface operations {
                                     content: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.322Z */
+                                    /** @default 2026-02-06T16:14:50.131Z */
                                     publishedAt: string;
                                     icon: {
                                         /** Format: uuid */
@@ -2893,7 +2938,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -2917,7 +2962,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -2968,7 +3013,7 @@ export interface operations {
     "package/delete/packages_by_id": {
         parameters: {
             query?: {
-                fields?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "createdAt" | "updatedAt" | "publishedAt")[];
+                fields?: ("title" | "slug" | "summary" | "price" | "content" | "order" | "hasBadge" | "badgeLabel" | "createdAt" | "updatedAt" | "publishedAt")[];
                 populate?: "*" | "package_category" | "package_category"[];
                 filters?: {
                     [key: string]: unknown;
@@ -3001,9 +3046,12 @@ export interface operations {
                             content: string;
                             /** @default 1 */
                             order: number;
+                            /** @default false */
+                            hasBadge: boolean | null;
+                            badgeLabel?: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.372Z */
+                            /** @default 2026-02-06T16:14:50.190Z */
                             publishedAt: string;
                             package_category?: {
                                 /** Format: uuid */
@@ -3014,7 +3062,7 @@ export interface operations {
                                 order: number;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.318Z */
+                                /** @default 2026-02-06T16:14:50.125Z */
                                 publishedAt: string;
                                 packages?: {
                                     /** Format: uuid */
@@ -3027,9 +3075,12 @@ export interface operations {
                                     content: string;
                                     /** @default 1 */
                                     order: number;
+                                    /** @default false */
+                                    hasBadge: boolean | null;
+                                    badgeLabel?: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.320Z */
+                                    /** @default 2026-02-06T16:14:50.129Z */
                                     publishedAt: string;
                                     package_category?: unknown;
                                 }[];
@@ -3043,7 +3094,7 @@ export interface operations {
                                     content: string;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.322Z */
+                                    /** @default 2026-02-06T16:14:50.131Z */
                                     publishedAt: string;
                                     icon: {
                                         /** Format: uuid */
@@ -3065,7 +3116,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -3089,7 +3140,7 @@ export interface operations {
                                         provider_metadata?: unknown;
                                         createdAt?: string;
                                         updatedAt?: string;
-                                        /** @default 2026-02-06T14:47:31.315Z */
+                                        /** @default 2026-02-06T16:14:50.122Z */
                                         publishedAt: string;
                                         related: unknown;
                                     };
@@ -3184,7 +3235,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.377Z */
+                            /** @default 2026-02-06T16:14:50.198Z */
                             publishedAt: string;
                             packages?: {
                                 /** Format: uuid */
@@ -3197,9 +3248,12 @@ export interface operations {
                                 content: string;
                                 /** @default 1 */
                                 order: number;
+                                /** @default false */
+                                hasBadge: boolean | null;
+                                badgeLabel?: string;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.320Z */
+                                /** @default 2026-02-06T16:14:50.129Z */
                                 publishedAt: string;
                                 package_category?: unknown;
                             }[];
@@ -3213,7 +3267,7 @@ export interface operations {
                                 content: string;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.322Z */
+                                /** @default 2026-02-06T16:14:50.131Z */
                                 publishedAt: string;
                                 icon: {
                                     /** Format: uuid */
@@ -3235,7 +3289,7 @@ export interface operations {
                                     provider_metadata?: unknown;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.315Z */
+                                    /** @default 2026-02-06T16:14:50.122Z */
                                     publishedAt: string;
                                     related: unknown;
                                 };
@@ -3259,7 +3313,7 @@ export interface operations {
                                     provider_metadata?: unknown;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.315Z */
+                                    /** @default 2026-02-06T16:14:50.122Z */
                                     publishedAt: string;
                                     related: unknown;
                                 };
@@ -3324,7 +3378,7 @@ export interface operations {
                         title: string;
                         /** @default 1 */
                         order: number;
-                        /** @default 2026-02-06T14:47:31.385Z */
+                        /** @default 2026-02-06T16:14:50.204Z */
                         publishedAt: string;
                         packages?: string[];
                         learning_paths?: string[];
@@ -3349,7 +3403,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.386Z */
+                            /** @default 2026-02-06T16:14:50.205Z */
                             publishedAt: string;
                             packages?: {
                                 /** Format: uuid */
@@ -3362,9 +3416,12 @@ export interface operations {
                                 content: string;
                                 /** @default 1 */
                                 order: number;
+                                /** @default false */
+                                hasBadge: boolean | null;
+                                badgeLabel?: string;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.320Z */
+                                /** @default 2026-02-06T16:14:50.129Z */
                                 publishedAt: string;
                                 package_category?: unknown;
                             }[];
@@ -3378,7 +3435,7 @@ export interface operations {
                                 content: string;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.322Z */
+                                /** @default 2026-02-06T16:14:50.131Z */
                                 publishedAt: string;
                                 icon: {
                                     /** Format: uuid */
@@ -3400,7 +3457,7 @@ export interface operations {
                                     provider_metadata?: unknown;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.315Z */
+                                    /** @default 2026-02-06T16:14:50.122Z */
                                     publishedAt: string;
                                     related: unknown;
                                 };
@@ -3424,7 +3481,7 @@ export interface operations {
                                     provider_metadata?: unknown;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.315Z */
+                                    /** @default 2026-02-06T16:14:50.122Z */
                                     publishedAt: string;
                                     related: unknown;
                                 };
@@ -3510,7 +3567,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.383Z */
+                            /** @default 2026-02-06T16:14:50.201Z */
                             publishedAt: string;
                             packages?: {
                                 /** Format: uuid */
@@ -3523,9 +3580,12 @@ export interface operations {
                                 content: string;
                                 /** @default 1 */
                                 order: number;
+                                /** @default false */
+                                hasBadge: boolean | null;
+                                badgeLabel?: string;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.320Z */
+                                /** @default 2026-02-06T16:14:50.129Z */
                                 publishedAt: string;
                                 package_category?: unknown;
                             }[];
@@ -3539,7 +3599,7 @@ export interface operations {
                                 content: string;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.322Z */
+                                /** @default 2026-02-06T16:14:50.131Z */
                                 publishedAt: string;
                                 icon: {
                                     /** Format: uuid */
@@ -3561,7 +3621,7 @@ export interface operations {
                                     provider_metadata?: unknown;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.315Z */
+                                    /** @default 2026-02-06T16:14:50.122Z */
                                     publishedAt: string;
                                     related: unknown;
                                 };
@@ -3585,7 +3645,7 @@ export interface operations {
                                     provider_metadata?: unknown;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.315Z */
+                                    /** @default 2026-02-06T16:14:50.122Z */
                                     publishedAt: string;
                                     related: unknown;
                                 };
@@ -3652,7 +3712,7 @@ export interface operations {
                         title?: string;
                         /** @default 1 */
                         order?: number;
-                        /** @default 2026-02-06T14:47:31.388Z */
+                        /** @default 2026-02-06T16:14:50.207Z */
                         publishedAt?: string;
                         packages?: string[];
                         learning_paths?: string[];
@@ -3677,7 +3737,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.389Z */
+                            /** @default 2026-02-06T16:14:50.208Z */
                             publishedAt: string;
                             packages?: {
                                 /** Format: uuid */
@@ -3690,9 +3750,12 @@ export interface operations {
                                 content: string;
                                 /** @default 1 */
                                 order: number;
+                                /** @default false */
+                                hasBadge: boolean | null;
+                                badgeLabel?: string;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.320Z */
+                                /** @default 2026-02-06T16:14:50.129Z */
                                 publishedAt: string;
                                 package_category?: unknown;
                             }[];
@@ -3706,7 +3769,7 @@ export interface operations {
                                 content: string;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.322Z */
+                                /** @default 2026-02-06T16:14:50.131Z */
                                 publishedAt: string;
                                 icon: {
                                     /** Format: uuid */
@@ -3728,7 +3791,7 @@ export interface operations {
                                     provider_metadata?: unknown;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.315Z */
+                                    /** @default 2026-02-06T16:14:50.122Z */
                                     publishedAt: string;
                                     related: unknown;
                                 };
@@ -3752,7 +3815,7 @@ export interface operations {
                                     provider_metadata?: unknown;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.315Z */
+                                    /** @default 2026-02-06T16:14:50.122Z */
                                     publishedAt: string;
                                     related: unknown;
                                 };
@@ -3833,7 +3896,7 @@ export interface operations {
                             order: number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.391Z */
+                            /** @default 2026-02-06T16:14:50.211Z */
                             publishedAt: string;
                             packages?: {
                                 /** Format: uuid */
@@ -3846,9 +3909,12 @@ export interface operations {
                                 content: string;
                                 /** @default 1 */
                                 order: number;
+                                /** @default false */
+                                hasBadge: boolean | null;
+                                badgeLabel?: string;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.320Z */
+                                /** @default 2026-02-06T16:14:50.129Z */
                                 publishedAt: string;
                                 package_category?: unknown;
                             }[];
@@ -3862,7 +3928,7 @@ export interface operations {
                                 content: string;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.322Z */
+                                /** @default 2026-02-06T16:14:50.131Z */
                                 publishedAt: string;
                                 icon: {
                                     /** Format: uuid */
@@ -3884,7 +3950,7 @@ export interface operations {
                                     provider_metadata?: unknown;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.315Z */
+                                    /** @default 2026-02-06T16:14:50.122Z */
                                     publishedAt: string;
                                     related: unknown;
                                 };
@@ -3908,7 +3974,7 @@ export interface operations {
                                     provider_metadata?: unknown;
                                     createdAt?: string;
                                     updatedAt?: string;
-                                    /** @default 2026-02-06T14:47:31.315Z */
+                                    /** @default 2026-02-06T16:14:50.122Z */
                                     publishedAt: string;
                                     related: unknown;
                                 };
@@ -3984,7 +4050,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.394Z */
+                            /** @default 2026-02-06T16:14:50.214Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -4043,7 +4109,7 @@ export interface operations {
             content: {
                 "application/json": {
                     data: {
-                        /** @default 2026-02-06T14:47:31.396Z */
+                        /** @default 2026-02-06T16:14:50.216Z */
                         publishedAt?: string;
                         blocks?: unknown[];
                     };
@@ -4064,7 +4130,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.396Z */
+                            /** @default 2026-02-06T16:14:50.217Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -4134,7 +4200,7 @@ export interface operations {
                             id: string | number;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.398Z */
+                            /** @default 2026-02-06T16:14:50.218Z */
                             publishedAt: string;
                             blocks: unknown[];
                         };
@@ -4224,7 +4290,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.402Z */
+                            /** @default 2026-02-06T16:14:50.225Z */
                             publishedAt: string;
                         }[];
                     };
@@ -4284,7 +4350,7 @@ export interface operations {
                     data: {
                         title: string;
                         slug: string;
-                        /** @default 2026-02-06T14:47:31.817Z */
+                        /** @default 2026-02-06T16:14:50.768Z */
                         publishedAt: string;
                     };
                 };
@@ -4306,7 +4372,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.409Z */
+                            /** @default 2026-02-06T16:14:50.231Z */
                             publishedAt: string;
                         };
                     };
@@ -4387,7 +4453,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.407Z */
+                            /** @default 2026-02-06T16:14:50.228Z */
                             publishedAt: string;
                         };
                     };
@@ -4449,7 +4515,7 @@ export interface operations {
                     data: {
                         title?: string;
                         slug?: string;
-                        /** @default 2026-02-06T14:47:31.411Z */
+                        /** @default 2026-02-06T16:14:50.233Z */
                         publishedAt?: string;
                     };
                 };
@@ -4471,7 +4537,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.412Z */
+                            /** @default 2026-02-06T16:14:50.234Z */
                             publishedAt: string;
                         };
                     };
@@ -4547,7 +4613,7 @@ export interface operations {
                             slug: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.414Z */
+                            /** @default 2026-02-06T16:14:50.236Z */
                             publishedAt: string;
                         };
                     };
@@ -4637,7 +4703,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.418Z */
+                            /** @default 2026-02-06T16:14:50.241Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -4659,7 +4725,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -4722,7 +4788,7 @@ export interface operations {
                         name: string;
                         role: string;
                         quote: string;
-                        /** @default 2026-02-06T14:47:31.422Z */
+                        /** @default 2026-02-06T16:14:50.247Z */
                         publishedAt: string;
                         avatar: unknown;
                     };
@@ -4746,7 +4812,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.423Z */
+                            /** @default 2026-02-06T16:14:50.248Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -4768,7 +4834,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -4852,7 +4918,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.421Z */
+                            /** @default 2026-02-06T16:14:50.245Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -4874,7 +4940,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -4939,7 +5005,7 @@ export interface operations {
                         name?: string;
                         role?: string;
                         quote?: string;
-                        /** @default 2026-02-06T14:47:31.425Z */
+                        /** @default 2026-02-06T16:14:50.253Z */
                         publishedAt?: string;
                         avatar?: unknown;
                     };
@@ -4963,7 +5029,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.426Z */
+                            /** @default 2026-02-06T16:14:50.255Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -4985,7 +5051,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
@@ -5064,7 +5130,7 @@ export interface operations {
                             quote: string;
                             createdAt?: string;
                             updatedAt?: string;
-                            /** @default 2026-02-06T14:47:31.431Z */
+                            /** @default 2026-02-06T16:14:50.257Z */
                             publishedAt: string;
                             avatar: {
                                 /** Format: uuid */
@@ -5086,7 +5152,7 @@ export interface operations {
                                 provider_metadata?: unknown;
                                 createdAt?: string;
                                 updatedAt?: string;
-                                /** @default 2026-02-06T14:47:31.315Z */
+                                /** @default 2026-02-06T16:14:50.122Z */
                                 publishedAt: string;
                                 related: unknown;
                             };
