@@ -1,50 +1,59 @@
 import "server-only";
 import { client } from "./client";
 
+const BLOCKS_POPULATE = {
+  blocks: {
+    on: {
+      "blocks.hero": {
+        populate: {
+          imageMobile: true,
+          imageDesktop: true,
+          buttonLink: {
+            populate: {
+              link: true,
+            },
+          },
+        },
+      },
+      "blocks.content": {
+        populate: {
+          buttonLink: {
+            populate: {
+              link: true,
+            },
+          },
+        },
+      },
+      "blocks.content-with-image": {
+        populate: {
+          image: true,
+        },
+      },
+      "blocks.testimonials": true,
+      "blocks.feature-list": {
+        populate: {
+          image: true,
+          features: true,
+        },
+      },
+      "blocks.process-steps": {
+        populate: {
+          steps: true,
+        },
+      },
+      "blocks.learning-paths": true,
+      "blocks.packages": true,
+    },
+  },
+} as const;
+
 export async function getHomepageData() {
   return await client.GET("/home-page", {
     params: {
       query: {
+        //@ts-expect-error Strapi typing mismatch for blocks.populate
         populate: {
-          //@ts-expect-error Strapi typing mismatch for blocks.populate
-          blocks: {
-            on: {
-              "blocks.hero": {
-                populate: {
-                  imageMobile: true,
-                  imageDesktop: true,
-                  buttonLink: {
-                    populate: {
-                      link: true,
-                    },
-                  },
-                },
-              },
-              "blocks.content": {
-                populate: {
-                  buttonLink: {
-                    populate: {
-                      link: true,
-                    },
-                  },
-                },
-              },
-              "blocks.content-with-image": {
-                populate: {
-                  image: true,
-                },
-              },
-              "blocks.testimonials": true,
-              "blocks.feature-list": {
-                populate: {
-                  image: true,
-                  features: true,
-                },
-              },
-              "blocks.learning-paths": true,
-              "blocks.packages": true,
-            },
-          },
+          ...BLOCKS_POPULATE,
         },
       },
     },
@@ -55,46 +64,9 @@ export async function getPackagesPageData() {
   return await client.GET("/packages-page", {
     params: {
       query: {
+        //@ts-expect-error Strapi typing mismatch for blocks.populate
         populate: {
-          //@ts-expect-error Strapi typing mismatch for blocks.populate
-          blocks: {
-            on: {
-              "blocks.hero": {
-                populate: {
-                  imageMobile: true,
-                  imageDesktop: true,
-                  buttonLink: {
-                    populate: {
-                      link: true,
-                    },
-                  },
-                },
-              },
-              "blocks.content": {
-                populate: {
-                  buttonLink: {
-                    populate: {
-                      link: true,
-                    },
-                  },
-                },
-              },
-              "blocks.content-with-image": {
-                populate: {
-                  image: true,
-                },
-              },
-              "blocks.testimonials": true,
-              "blocks.feature-list": {
-                populate: {
-                  image: true,
-                  features: true,
-                },
-              },
-              "blocks.learning-paths": true,
-              "blocks.packages": true,
-            },
-          },
+          ...BLOCKS_POPULATE,
         },
       },
     },
@@ -105,46 +77,9 @@ export async function getMethodPageData() {
   return await client.GET("/method-page", {
     params: {
       query: {
+        //@ts-expect-error Strapi typing mismatch for blocks.populate
         populate: {
-          //@ts-expect-error Strapi typing mismatch for blocks.populate
-          blocks: {
-            on: {
-              "blocks.hero": {
-                populate: {
-                  imageMobile: true,
-                  imageDesktop: true,
-                  buttonLink: {
-                    populate: {
-                      link: true,
-                    },
-                  },
-                },
-              },
-              "blocks.content": {
-                populate: {
-                  buttonLink: {
-                    populate: {
-                      link: true,
-                    },
-                  },
-                },
-              },
-              "blocks.content-with-image": {
-                populate: {
-                  image: true,
-                },
-              },
-              "blocks.testimonials": true,
-              "blocks.feature-list": {
-                populate: {
-                  image: true,
-                  features: true,
-                },
-              },
-              "blocks.learning-paths": true,
-              "blocks.packages": true,
-            },
-          },
+          ...BLOCKS_POPULATE,
         },
       },
     },

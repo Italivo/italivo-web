@@ -4,6 +4,7 @@ import { FeatureList } from "./feature-list";
 import { Hero } from "./hero";
 import { LearningPaths } from "./learning-paths";
 import { Packages } from "./packages";
+import { ProcessSteps } from "./process-steps";
 import { Testimonials } from "./testimonials";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -13,6 +14,7 @@ const componentsMap: Record<string, React.ComponentType<any>> = {
   "blocks.content-with-image": ContentWithImage,
   "blocks.testimonials": Testimonials,
   "blocks.feature-list": FeatureList,
+  "blocks.process-steps": ProcessSteps,
   "blocks.learning-paths": LearningPaths,
   "blocks.packages": Packages,
 };

@@ -5,8 +5,8 @@ export default async function MethodPage() {
   const { data } = await getMethodPageData();
 
   return (
-    <div>
+    <>
       <BlocksRenderer blocks={data?.data.blocks ?? []} />
-    </div>
+    </>
   );
 }
