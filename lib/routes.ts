@@ -7,6 +7,7 @@ export const routes = {
     bySlug: (slug: string) => `/learning-paths/${slug}`,
   },
   method: "/method",
+  about: "/about",
   packages: {
     index: "/packages",
     bySlug: (slug: string) => `/packages/${slug}`,

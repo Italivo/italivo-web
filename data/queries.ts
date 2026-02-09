@@ -60,6 +60,19 @@ export async function getHomepageData() {
   });
 }
 
+export async function getAboutPageData() {
+  return await client.GET("/about-page", {
+    params: {
+      query: {
+        //@ts-expect-error Strapi typing mismatch for blocks.populate
+        populate: {
+          ...BLOCKS_POPULATE,
+        },
+      },
+    },
+  });
+}
+
 export async function getPackagesPageData() {
   return await client.GET("/packages-page", {
     params: {
