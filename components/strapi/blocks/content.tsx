@@ -24,7 +24,12 @@ export function Content({
     <section className={cn(background === "secondary" && "bg-secondary")}>
       <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y) flex flex-col items-center gap-4">
         <header>
-          <h2 className={cn(typography({ variant: "h2", margin: false }))}>
+          <h2
+            className={cn(
+              typography({ variant: "h2", margin: false }),
+              "text-center",
+            )}
+          >
             {title}
           </h2>
           {subtitle && (
@@ -32,6 +37,7 @@ export function Content({
               className={cn(
                 typography({ variant: "lead", margin: false }),
                 "max-w-4xl",
+                "text-center",
               )}
             >
               {subtitle}
@@ -46,6 +52,7 @@ export function Content({
             className={cn(
               typography({ variant: "small", margin: false }),
               "max-w-4xl",
+              "text-center",
             )}
           >
             {disclaimer}
