@@ -19,7 +19,6 @@ export function Hero({
   imageDesktop,
   imageMobile,
 }: HeroProps) {
-  console.log("buttonLink: ", buttonLink);
   return (
     <header className="relative w-screen h-screen">
       <div className="relative w-full h-full">

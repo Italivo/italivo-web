@@ -1,11 +1,12 @@
 import { StrapiImage } from "@/components/strapi-image";
-import { getLearningPaths } from "@/data/queries";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getPackageCategoriesWithLearningPaths } from "@/data/queries";
 import { routes } from "@/lib/routes";
 import { StrapiImage as StrapiImageType } from "@/lib/strapi/media";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
 import Link from "next/link";
-import { Card, CardContent, CardHeader } from "../../ui/card";
 
 type LearningPathsProps = {
   title: string;
@@ -13,35 +14,58 @@ type LearningPathsProps = {
 };
 
 export async function LearningPaths({ title, background }: LearningPathsProps) {
-  const { data } = await getLearningPaths();
-  const learningPaths = data?.data ?? [];
+  const { data } = await getPackageCategoriesWithLearningPaths();
+  const packageCategories = data?.data ?? [];
 
   return (
     <section className={cn(background === "secondary" && "bg-secondary")}>
-      <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y)">
-        {title && (
-          <h2 className={cn(typography({ variant: "h2" }), "text-center")}>
-            {title}
-          </h2>
-        )}
-
-        {learningPaths && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {learningPaths.map((lp, index) => (
-              <IconCard
-                key={index}
-                className="items-stretch"
-                title={lp.title}
-                description={lp.tagline}
-                icon={lp.icon}
-                link={{
-                  label: `Read more about the learning path ${lp.title}`,
-                  href: routes.learningPaths.bySlug(lp.slug),
-                }}
-              />
+      <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y) flex flex-col">
+        <div>
+          <header className="mb-8">
+            <h2
+              className={cn(
+                typography({ variant: "h2", margin: false }),
+                "text-center",
+              )}
+            >
+              {title}
+            </h2>
+          </header>
+        </div>
+        <Tabs
+          defaultValue={packageCategories[0].id.toString()}
+          className="w-full gap-8"
+        >
+          <TabsList className="mx-auto w-fit">
+            {packageCategories.map((pc) => (
+              <TabsTrigger key={pc.id} value={pc.id.toString()}>
+                {pc.title}
+              </TabsTrigger>
             ))}
-          </div>
-        )}
+          </TabsList>
+          {packageCategories.map((pc) => (
+            <TabsContent
+              key={pc.id}
+              value={pc.id.toString()}
+              className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+            >
+              {pc.learning_paths &&
+                pc.learning_paths.map((lp) => (
+                  <IconCard
+                    key={lp.slug}
+                    className="items-stretch"
+                    title={lp.title}
+                    description={lp.tagline}
+                    icon={lp.icon}
+                    link={{
+                      label: `Read more about the learning path ${lp.title}`,
+                      href: routes.learningPaths.bySlug(lp.slug),
+                    }}
+                  />
+                ))}
+            </TabsContent>
+          ))}
+        </Tabs>
       </div>
     </section>
   );

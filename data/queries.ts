@@ -134,11 +134,29 @@ export async function getLearningPathBySlug(slug: string) {
   });
 }
 
-export async function getPackageCategories() {
+export async function getPackageCategoriesWithPackages() {
   return await client.GET("/package-categories", {
     params: {
       query: {
         populate: ["packages"],
+        sort: ["order"],
+      },
+    },
+  });
+}
+
+export async function getPackageCategoriesWithLearningPaths() {
+  return await client.GET("/package-categories", {
+    params: {
+      query: {
+        populate: {
+          // @ts-expect-error Strapi typing mismatch for nested populate
+          learning_paths: {
+            populate: {
+              icon: true,
+            },
+          },
+        },
         sort: ["order"],
       },
     },

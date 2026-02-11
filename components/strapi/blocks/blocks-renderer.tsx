@@ -64,7 +64,9 @@ export function BlocksRenderer({ blocks }: { blocks: unknown[] }) {
           return null;
         }
 
-        return <Component key={id} {...componentProps} />;
+        return (
+          <Component key={`${index}-${component}-${id}`} {...componentProps} />
+        );
       })}
     </>
   );

@@ -35,7 +35,7 @@ function toAbsoluteUrl(url?: string) {
 }
 
 export function getStrapiMediaUrl(media: StrapiMedia) {
-  return toAbsoluteUrl(media.url);
+  return toAbsoluteUrl(media?.url);
 }
 
 export function getStrapiImageUrl(
@@ -44,7 +44,7 @@ export function getStrapiImageUrl(
 ): string {
   if (!format) return getStrapiMediaUrl(image);
 
-  const formats = image.formats as Record<string, { url: string }> | undefined;
+  const formats = image?.formats as Record<string, { url: string }> | undefined;
   const formatUrl = formats?.[format]?.url;
 
   return formatUrl ? toAbsoluteUrl(formatUrl) : getStrapiMediaUrl(image);

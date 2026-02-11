@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getPackageCategories } from "@/data/queries";
+import { getPackageCategoriesWithPackages } from "@/data/queries";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/variants";
 import Link from "next/link";
@@ -32,7 +32,7 @@ export async function Packages({
   disclaimer,
   background = "transparent",
 }: PackagesProps) {
-  const { data } = await getPackageCategories();
+  const { data } = await getPackageCategoriesWithPackages();
   const packageCategories = data?.data;
 
   if (packageCategories == null) {
@@ -88,49 +88,49 @@ export async function Packages({
                 pc.packages
                   .sort((a, b) => a.order - b.order)
                   .map((pkg) => (
-                  <Card
-                    key={pkg.id}
-                    className={cn(
-                      "relative bg-beige-50 transition-all duration-250 hover:shadow-lg h-full gap-4",
-                      pkg.hasBadge
-                        ? "border-2 border-gold scale-105"
-                        : "border-gray-200",
-                    )}
-                  >
-                    {pkg.hasBadge && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-foreground px-4 py-1 rounded-sm text-xs font-semibold uppercase tracking-wider">
-                        {pkg.badgeLabel}
-                      </div>
-                    )}
-                    <CardHeader className="pb-0 mb-0 gap-0">
-                      <CardTitle
-                        className={cn(
-                          typography({ variant: "h3", margin: false }),
-                          "text-[1.75rem]",
-                        )}
-                      >
-                        {pkg.title}
-                      </CardTitle>
-                    </CardHeader>
+                    <Card
+                      key={pkg.id}
+                      className={cn(
+                        "relative bg-beige-50 transition-all duration-250 hover:shadow-lg h-full gap-4",
+                        pkg.hasBadge
+                          ? "border-2 border-gold scale-105"
+                          : "border-gray-200",
+                      )}
+                    >
+                      {pkg.hasBadge && (
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-foreground px-4 py-1 rounded-sm text-xs font-semibold uppercase tracking-wider">
+                          {pkg.badgeLabel}
+                        </div>
+                      )}
+                      <CardHeader className="pb-0 mb-0 gap-0">
+                        <CardTitle
+                          className={cn(
+                            typography({ variant: "h3", margin: false }),
+                            "text-[1.75rem]",
+                          )}
+                        >
+                          {pkg.title}
+                        </CardTitle>
+                      </CardHeader>
 
-                    <CardContent className="grow">
-                      <MarkdownRenderer markdown={pkg.summary} />
-                    </CardContent>
+                      <CardContent className="grow">
+                        <MarkdownRenderer markdown={pkg.summary} />
+                      </CardContent>
 
-                    <CardFooter className="flex flex-col gap-4">
-                      <div className="text-center">
-                        <span className="font-serif text-[1.75rem] font-bold text-foreground">
-                          &euro; {pkg.price}
-                        </span>
-                      </div>
-                      <Button variant="accent" asChild className="w-fit">
-                        <Link href={`/packages/${pkg.slug}`}>
-                          Discover Details
-                        </Link>
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                ))}
+                      <CardFooter className="flex flex-col gap-4">
+                        <div className="text-center">
+                          <span className="font-serif text-[1.75rem] font-bold text-foreground">
+                            &euro; {pkg.price}
+                          </span>
+                        </div>
+                        <Button variant="accent" asChild className="w-fit">
+                          <Link href={`/packages/${pkg.slug}`}>
+                            Discover Details
+                          </Link>
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  ))}
             </TabsContent>
           ))}
         </Tabs>
