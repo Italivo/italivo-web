@@ -1,3 +1,4 @@
+import { ContactForm } from "./contact-form";
 import { Content } from "./content";
 import { ContentWithImage } from "./content-with-image";
 import { FeatureList } from "./feature-list";
@@ -17,6 +18,7 @@ const componentsMap: Record<string, React.ComponentType<any>> = {
   "blocks.process-steps": ProcessSteps,
   "blocks.learning-paths": LearningPaths,
   "blocks.packages": Packages,
+  "blocks.contact-form": ContactForm,
 };
 
 type BlockData = {

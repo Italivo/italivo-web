@@ -12,4 +12,5 @@ export const routes = {
     index: "/packages",
     bySlug: (slug: string) => `/packages/${slug}`,
   },
+  contact: "/contact",
 } as const;

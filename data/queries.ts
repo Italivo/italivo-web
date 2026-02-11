@@ -43,12 +43,30 @@ const BLOCKS_POPULATE = {
       },
       "blocks.learning-paths": true,
       "blocks.packages": true,
+      "blocks.contact-form": {
+        populate: {
+          image: true,
+        },
+      },
     },
   },
 } as const;
 
 export async function getHomepageData() {
   return await client.GET("/home-page", {
+    params: {
+      query: {
+        //@ts-expect-error Strapi typing mismatch for blocks.populate
+        populate: {
+          ...BLOCKS_POPULATE,
+        },
+      },
+    },
+  });
+}
+
+export async function getContactPageData() {
+  return await client.GET("/contact-page", {
     params: {
       query: {
         //@ts-expect-error Strapi typing mismatch for blocks.populate

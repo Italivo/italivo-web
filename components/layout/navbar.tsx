@@ -16,7 +16,7 @@ const navLinks = [
   { href: routes.about, label: "About" },
   { href: routes.method, label: "Method" },
   { href: routes.packages.index, label: "Packages" },
-  { href: "#contact", label: "Contact" },
+  { href: routes.contact, label: "Contact" },
 ];
 
 export function Navbar() {
