@@ -244,4 +244,55 @@
     color: var(--rust);
     font-weight: bold;
   }
+
+  /* Typography utilities with margins included by default */
+  .txt-display {
+    @apply font-serif font-normal text-4xl md:text-5xl lg:text-6xl leading-tight;
+    @apply mb-8 md:mb-10 lg:mb-12;
+  }
+
+  .txt-h1 {
+    @apply font-serif font-normal text-4xl md:text-5xl leading-tight;
+    @apply mb-6 md:mb-8;
+  }
+
+  .txt-h2 {
+    @apply font-serif font-normal text-3xl md:text-4xl leading-tight italic;
+    @apply mb-6;
+  }
+
+  .txt-h3 {
+    @apply font-serif font-bold text-xl leading-tight;
+    @apply mb-4;
+  }
+
+  .txt-body {
+    @apply font-sans text-base leading-relaxed;
+    @apply mb-4;
+  }
+
+  .txt-lead {
+    @apply font-sans text-lg leading-relaxed;
+    @apply mb-6;
+  }
+
+  .txt-small {
+    @apply font-sans text-sm leading-normal;
+    @apply mb-3;
+  }
+
+  .txt-label {
+    @apply font-sans text-sm font-medium;
+    @apply mb-2;
+  }
+
+  .txt-caption {
+    @apply font-sans text-xs;
+    @apply mb-1;
+  }
+
+  .txt-overline {
+    @apply font-sans text-xs font-semibold uppercase tracking-wide;
+    @apply mb-2;
+  }
 }
