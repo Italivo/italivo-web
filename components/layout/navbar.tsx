@@ -15,6 +15,7 @@ import { useState } from "react";
 const navLinks = [
   { href: routes.about, label: "About" },
   { href: routes.method, label: "Method" },
+  { href: routes.learningPaths.index, label: "Programs" },
   { href: routes.packages.index, label: "Packages" },
   { href: routes.contact, label: "Contact" },
 ];

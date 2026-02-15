@@ -65,6 +65,19 @@ export async function getHomepageData() {
   });
 }
 
+export async function getLearningPathsPageData() {
+  return await client.GET("/learning-paths-page", {
+    params: {
+      query: {
+        //@ts-expect-error Strapi typing mismatch for blocks.populate
+        populate: {
+          ...BLOCKS_POPULATE,
+        },
+      },
+    },
+  });
+}
+
 export async function getContactPageData() {
   return await client.GET("/contact-page", {
     params: {
