@@ -39,7 +39,7 @@ Environment validation uses `@t3-oss/env-nextjs` with Zod schemas in `env.ts`.
 
 ### Strapi Integration
 
-**Type Generation**: Run `npm run strapi:types` to generate TypeScript types from Strapi's OpenAPI spec at `lib/strapi/types.ts`.
+**Type Generation**: Run `npm run strapi:types` to generate TypeScript types from Strapi's OpenAPI spec at `lib/strapi/types.generated.ts`.
 
 **API Client** (`lib/strapi/client.ts`):
 
@@ -97,8 +97,11 @@ Uses `@/*` alias mapping to project root (configured in `tsconfig.json`).
 
 ## Key Files
 
-- `lib/strapi/client.ts` - API client with draft mode middleware
-- `lib/strapi/queries.ts` - Strapi data fetching functions
+- `proxy.ts` - Next.js edge middleware (JWT cookie check, route protection)
+- `lib/strapi/client.ts` - Public API client with draft mode middleware
+- `lib/strapi/auth-client.ts` - Authenticated API client (auto-injects JWT header)
+- `lib/strapi/require-auth.ts` - Server helper: fetch user, redirect to `/signin` on failure
+- `data/queries.ts` - Strapi data fetching functions (server-only)
 - `lib/strapi/utils.ts` - `getStrapiMedia()` helper for absolute URLs
 - `components/blocks/blocks-renderer.tsx` - Dynamic block component mapper
 - `env.ts` - Environment variable validation
@@ -110,3 +113,66 @@ Uses `@/*` alias mapping to project root (configured in `tsconfig.json`).
 - Draft mode persists in cookies until explicitly disabled
 - Media URLs are transformed via `getStrapiMedia()` to handle relative/absolute/data URLs
 - TypeScript strict mode enabled
+
+## Authentication
+
+### Architecture (4-layer separation)
+
+```
+proxy.ts (middleware)  → cookie exists? fast edge check, no Strapi call
+authClient             → attach JWT header only, no redirect logic
+getUserMe() (query)    → fetch + normalize, returns { data, error }
+page/layout            → check error → redirect (one place per route group)
+```
+
+### JWT Cookie
+
+- Name: `jwt`, stored as HTTP-only cookie (`maxAge: 7 days`, `sameSite: "lax"`, `secure` in prod)
+- Set by `registerUser` server action after successful Strapi registration/login
+- Cleared by `logout` server action
+
+### Two API Clients
+
+- `lib/strapi/client.ts` — public endpoints (pages, blocks, registration). Has draft mode middleware.
+- `lib/strapi/auth-client.ts` — authenticated endpoints. Middleware reads `jwt` cookie and injects `Authorization: Bearer {token}` on every request. **No redirect logic here.**
+
+### Middleware (`proxy.ts`)
+
+- Runs at edge, protects `/profile` and `/profile/*`
+- Only checks cookie existence (`request.cookies.get("jwt")`) — no Strapi call
+- Missing cookie → redirect to `/signin`; present → `NextResponse.next()`
+- Real token validation happens at the page level
+
+### Protected Pages Pattern
+
+```ts
+// In any protected server component:
+const user = await requireAuth(); // redirects to /signin on error
+```
+
+`requireAuth()` (`lib/strapi/require-auth.ts`) calls `getUserMe()`, which uses `authClient.GET("/users/me")`. On error or missing data it calls `redirect(routes.signin)`.
+
+### Server Actions
+
+- `features/auth/actions/register-user.ts` — accepts `FormData`, validates with Zod, POSTs to Strapi `/auth/local/register`, sets cookie, redirects home
+- `features/auth/actions/logout.tsx` — deletes `jwt` cookie
+
+### Feature Folder Structure
+
+```text
+features/auth/
+  actions/
+    register-user.ts   - signup server action
+    logout.tsx         - logout server action
+  queries/
+    get-user-me.ts     - fetch current user via authClient
+  components/
+    signup-form.tsx    - client form (useActionState + react-hook-form)
+  hooks/
+    use-signup-form.ts - RHF + Zod resolver setup
+  schema.ts            - Zod validation (username 3-20, email, password 6-100)
+```
+
+### Form Pattern
+
+Client form components use both `useActionState` (for server action state) and `react-hook-form` (for client-side validation). The form manually converts field values to `FormData` before invoking the server action.

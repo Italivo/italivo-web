@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "strapi:types": "npx openapi-typescript http://localhost:1337/swagger-spec.json -o lib/strapi/types.ts"
+    "strapi:types": "npx openapi-typescript http://localhost:1337/swagger-spec.json -o lib/strapi/types.generated.ts"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-label": "^2.1.8",
     "@radix-ui/react-slot": "^1.2.4",
     "@t3-oss/env-nextjs": "^0.13.10",
@@ -22,6 +23,7 @@
     "radix-ui": "^1.4.3",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "react-hook-form": "^7.71.1",
     "react-markdown": "^10.1.0",
     "server-only": "^0.0.1",
     "tailwind-merge": "^3.4.0",

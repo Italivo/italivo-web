@@ -13,4 +13,5 @@ export const routes = {
     bySlug: (slug: string) => `/packages/${slug}`,
   },
   contact: "/contact",
+  profile: "/profile",
 } as const;

@@ -1,5 +1,5 @@
 import { env } from "@/env";
-import type { paths } from "@/lib/strapi/types";
+import type { paths } from "@/lib/strapi/types.generated";
 import { draftMode } from "next/headers";
 import createClient, { Middleware } from "openapi-fetch";
 import qs from "qs";

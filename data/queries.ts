@@ -1,5 +1,5 @@
 import "server-only";
-import { client } from "./client";
+import { client } from "../lib/strapi/client";
 
 const BLOCKS_POPULATE = {
   blocks: {
