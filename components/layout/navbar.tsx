@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { SigninButton } from "@/features/auth/components/signin-button";
 import { SignupButton } from "@/features/auth/components/signup-button";
+import { UserMenu } from "@/features/auth/components/user-menu";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { useIsMobile } from "@/hooks/use-is-mobile";
 import { useScrollLock } from "@/hooks/use-scroll-lock";
@@ -20,7 +21,11 @@ const navLinks = [
   { href: routes.contact, label: "Contact" },
 ];
 
-export function Navbar() {
+type NavbarProps = {
+  user?: { username: string; email: string } | null;
+};
+
+export function Navbar({ user }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
   const isMobile = useIsMobile();
@@ -34,61 +39,78 @@ export function Navbar() {
     <nav
       ref={trapRef}
       className={cn(
-        "sticky top-0 z-10 bg-background shadow-sm md:flex md:flex-row md:justify-between md:items-center md:px-4",
-        open && isMobile && "fixed inset-0 h-screen flex flex-col items-center",
+        "sticky top-0 z-10 bg-background shadow-sm",
+        open && isMobile && "fixed inset-0 h-screen flex flex-col",
       )}
     >
-      {/* B */}
-      <div className="flex justify-between items-center max-md:w-full">
-        <a
-          href={routes.home}
+      <div className="container-fluid mx-auto px-4 flex flex-col md:flex-row md:items-center">
+        {/* B */}
+        <div className="flex justify-between items-center">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden -ml-2"
+            onClick={() => setOpen((open) => !open)}
+            aria-controls="navbarSupportedContent"
+            aria-expanded={open}
+            aria-label="Toggle navigation"
+          >
+            <ToggleIcon className="size-6" />
+          </Button>
+          <a
+            href={routes.home}
+            className={cn(
+              typography({ variant: "h2", margin: false }),
+              "font-bold text-primary py-2 px-4 not-italic",
+            )}
+          >
+            Italivo
+          </a>
+          <div className="flex gap-2 md:hidden">
+            {user ? (
+              <UserMenu user={user} />
+            ) : (
+              <>
+                <SigninButton />
+                <SignupButton />
+              </>
+            )}
+          </div>
+        </div>
+        <div
           className={cn(
-            typography({ variant: "h2", margin: false }),
-            "font-bold text-primary py-2 px-4 -ml-4 not-italic",
+            "hidden md:contents",
+            open && "max-md:flex max-md:flex-col max-md:items-center max-md:justify-center max-md:flex-1",
           )}
         >
-          Italivo
-        </a>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          onClick={() => setOpen((open) => !open)}
-          aria-controls="navbarSupportedContent"
-          aria-expanded={open}
-          aria-label="Toggle navigation"
-        >
-          <ToggleIcon className="size-6" />
-        </Button>
-      </div>
-      <div
-        className={cn(
-          "hidden md:contents",
-          open &&
-            "max-md:flex max-md:flex-col max-md:items-center max-md:justify-center max-md:flex-1 max-md:gap-8",
-        )}
-      >
-        <ul
-          id="navbarSupportedContent"
-          className="flex flex-col items-center md:flex-row md:absolute md:left-1/2 md:-translate-x-1/2"
-        >
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className={cn(
-                  typography({ variant: "small", margin: false }),
-                  "inline-block p-2 transition-colors duration-150 ease-in-out hover:text-rust",
-                )}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div className="flex gap-2">
-          <SigninButton />
-          <SignupButton />
+          <ul
+            id="navbarSupportedContent"
+            className="flex flex-col items-center md:flex-row md:absolute md:left-1/2 md:-translate-x-1/2"
+          >
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={cn(
+                    typography({ variant: "small", margin: false }),
+                    "inline-block p-2 transition-colors duration-150 ease-in-out hover:text-rust",
+                  )}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="hidden md:flex gap-2 md:ml-auto">
+            {user ? (
+              <UserMenu user={user} />
+            ) : (
+              <>
+                <SigninButton />
+                <SignupButton />
+              </>
+            )}
+          </div>
         </div>
       </div>
     </nav>
