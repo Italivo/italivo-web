@@ -13,3 +13,15 @@ export const registerUserSchema = z.object({
 });
 
 export type RegisterUserFieldValues = z.infer<typeof registerUserSchema>;
+
+export const signinSchema = z.object({
+  identifier: z
+    .string()
+    .min(3, "Username or email must be at least 3 characters"),
+  password: z
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .max(100, "Password must be less than 100 characters"),
+});
+
+export type SigninFieldValues = z.infer<typeof signinSchema>;
