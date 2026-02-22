@@ -1,3 +1,4 @@
+import { MarkdownRenderer } from "@/components/markdown/markdown-renderer";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,10 +10,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getPackageCategoriesWithPackages } from "@/data/queries";
 import { cn } from "@/lib/utils";
-import { typography } from "@/lib/variants";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import { Markdown } from "../fields/markdown";
 import { ButtonLink, ButtonLinkProps } from "../shared/button-link";
 
 type PackagesProps = {
@@ -44,28 +42,18 @@ export async function Packages({
       <section className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y) flex flex-col gap-(--section-padding-y)">
         <div>
           <header className="mb-6">
-            <h2
-              className={cn(
-                typography({ variant: "h2", margin: false }),
-                "text-center",
-              )}
-            >
-              {title}
-            </h2>
+            <h2 className="txt-h2 m-0 text-center">{title}</h2>
             {subtitle && (
-              <p
-                className={cn(
-                  typography({ variant: "lead", margin: false }),
-                  "max-w-4xl mx-auto text-center",
-                )}
-              >
+              <p className="txt-lead m-0 max-w-4xl mx-auto text-center">
                 {subtitle}
               </p>
             )}
           </header>
-          <div className="text-center">
-            {content && <Markdown markdown={content} />}
-          </div>
+          {content && (
+            <div className="prose text-center">
+              <MarkdownRenderer>{content}</MarkdownRenderer>
+            </div>
+          )}
         </div>
         <Tabs
           defaultValue={packageCategories[0].id.toString()}
@@ -103,18 +91,13 @@ export async function Packages({
                         </div>
                       )}
                       <CardHeader className="pb-0 mb-0 gap-0">
-                        <CardTitle
-                          className={cn(
-                            typography({ variant: "h3", margin: false }),
-                            "text-[1.75rem]",
-                          )}
-                        >
+                        <CardTitle className="txt-h3 text-[1.75rem] m-0">
                           {pkg.title}
                         </CardTitle>
                       </CardHeader>
 
-                      <CardContent className="grow">
-                        <MarkdownRenderer markdown={pkg.summary} />
+                      <CardContent className="prose grow">
+                        <MarkdownRenderer>{pkg.summary}</MarkdownRenderer>
                       </CardContent>
 
                       <CardFooter className="flex flex-col gap-4">
@@ -136,40 +119,11 @@ export async function Packages({
         </Tabs>
         {buttonLink && <ButtonLink {...buttonLink} />}
         {disclaimer && (
-          <p
-            className={cn(
-              typography({ variant: "small", margin: false }),
-              "max-w-4xl mx-auto text-center",
-            )}
-          >
+          <p className="txt-small m-0 max-w-4xl mx-auto text-center">
             {disclaimer}
           </p>
         )}
       </section>
     </div>
-  );
-}
-
-const allowedElements = ["ul", "li"] as const;
-
-const components: Record<
-  (typeof allowedElements)[number],
-  React.ComponentType
-> = {
-  ul: (props: React.ComponentProps<"ul">) => <ul {...props} />,
-  li: (props: React.ComponentProps<"li">) => (
-    <li
-      className="py-2 border-b border-gray-100 text-[0.9375rem] text-muted-foreground last:border-b-0"
-      {...props}
-    />
-  ),
-};
-
-function MarkdownRenderer({ markdown }: { markdown?: string }) {
-  if (!markdown) return null;
-  return (
-    <ReactMarkdown allowedElements={allowedElements} components={components}>
-      {markdown}
-    </ReactMarkdown>
   );
 }

@@ -1,8 +1,7 @@
+import { MarkdownRenderer } from "@/components/markdown/markdown-renderer";
 import { StrapiImage } from "@/components/strapi-image";
 import { StrapiImage as StrapiImageType } from "@/lib/strapi/media";
 import { cn } from "@/lib/utils";
-import { typography } from "@/lib/variants";
-import { Markdown } from "../fields/markdown";
 import { ButtonLink, ButtonLinkProps } from "../shared/button-link";
 
 type ContentWithImageProps = {
@@ -57,21 +56,15 @@ export function ContentWithImage({
               imagePositionDesktop === "left" ? "md:order-2" : "md:order-1",
             )}
           >
-            <h2 className={cn(typography({ variant: "h2" }))}>{title}</h2>
-            {subtitle && (
-              <p className={cn(typography({ variant: "lead", margin: false }))}>
-                {subtitle}
-              </p>
+            <h2 className="txt-h2">{title}</h2>
+            {subtitle && <p className="txt-lead m-0">{subtitle}</p>}
+            {content && (
+              <div className="prose">
+                <MarkdownRenderer>{content}</MarkdownRenderer>
+              </div>
             )}
-            {content && <Markdown markdown={content} />}
             {buttonLink && <ButtonLink {...buttonLink} />}
-            {disclaimer && (
-              <p
-                className={cn(typography({ variant: "small", margin: false }))}
-              >
-                {disclaimer}
-              </p>
-            )}
+            {disclaimer && <p className="txt-small m-0">{disclaimer}</p>}
           </div>
         </div>
       </div>

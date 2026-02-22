@@ -3,7 +3,6 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { getTestimonials } from "@/data/queries";
 import { StrapiImage as StrapiImageType } from "@/lib/strapi/media";
 import { cn } from "@/lib/utils";
-import { typography } from "@/lib/variants";
 
 interface TestimonialsProps {
   title?: string;
@@ -20,13 +19,7 @@ export async function Testimonials({
   return (
     <section className={cn(background === "secondary" && "bg-secondary")}>
       <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y)">
-        {title && (
-          <h2
-            className={cn(typography({ variant: "h2" }), "text-center mb-20")}
-          >
-            {title}
-          </h2>
-        )}
+        {title && <h2 className="txt-h2 text-center mb-20">{title}</h2>}
 
         {testimonials && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -56,9 +49,7 @@ export function TestimonialCard({
   return (
     <Card className="gap-2">
       <CardContent>
-        <p className={cn(typography({ variant: "body" }), "italic")}>
-          &ldquo;{quote}&rdquo;
-        </p>
+        <p className="txt-body italic">&ldquo;{quote}&rdquo;</p>
       </CardContent>
       <CardFooter className="flex items-center gap-4">
         <StrapiImage

@@ -5,7 +5,6 @@ import { getPackageCategoriesWithLearningPaths } from "@/data/queries";
 import { routes } from "@/lib/routes";
 import { StrapiImage as StrapiImageType } from "@/lib/strapi/media";
 import { cn } from "@/lib/utils";
-import { typography } from "@/lib/variants";
 import Link from "next/link";
 
 type LearningPathsProps = {
@@ -22,14 +21,7 @@ export async function LearningPaths({ title, background }: LearningPathsProps) {
       <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y) flex flex-col">
         <div>
           <header className="mb-8">
-            <h2
-              className={cn(
-                typography({ variant: "h2", margin: false }),
-                "text-center",
-              )}
-            >
-              {title}
-            </h2>
+            <h2 className="txt-h2 m-0 text-center">{title}</h2>
           </header>
         </div>
         <Tabs
@@ -108,23 +100,9 @@ export function IconCard({
           </div>
         </CardHeader>
         <CardContent className="text-center">
-          <h3
-            className={cn(
-              typography({ variant: "h3", margin: false }),
-              "text-olive-700 mb-2",
-            )}
-          >
-            {title}
-          </h3>
+          <h3 className="txt-h3 m-0 text-olive-700 mb-2 ">{title}</h3>
           {description && (
-            <p
-              className={cn(
-                typography({ variant: "small", margin: false }),
-                "text-muted-foreground",
-              )}
-            >
-              {description}
-            </p>
+            <p className="txt-small m-0 text-muted-foreground">{description}</p>
           )}
         </CardContent>
       </Card>

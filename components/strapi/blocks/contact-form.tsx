@@ -9,7 +9,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { StrapiImage as StrapiImageType } from "@/lib/strapi/media";
 import { cn } from "@/lib/utils";
-import { typography } from "@/lib/variants";
 
 type ContactFormProps = {
   title: string;
@@ -53,12 +52,7 @@ function ContactDetailsSection({ image }: { image: StrapiImageType }) {
       <div className="absolute inset-0 flex flex-col justify-center p-8 md:p-10 text-white">
         <div className="flex flex-col gap-6">
           <div>
-            <h3
-              className={cn(
-                typography({ variant: "h3", margin: false }),
-                "text-white mb-6",
-              )}
-            >
+            <h3 className="txt-h3 m-0text-white mb-6">
               Italivo Language School
             </h3>
           </div>
@@ -86,7 +80,7 @@ function ContactDetailsSection({ image }: { image: StrapiImageType }) {
                 />
               </svg>
               <div>
-                <p className={typography({ variant: "body", margin: false })}>
+                <p className="txt-body m-0">
                   Via Roma 123
                   <br />
                   00100 Roma, Italia
@@ -111,10 +105,7 @@ function ContactDetailsSection({ image }: { image: StrapiImageType }) {
               </svg>
               <a
                 href="tel:+390612345678"
-                className={cn(
-                  typography({ variant: "body", margin: false }),
-                  "hover:text-accent transition-colors",
-                )}
+                className="txt-body m-0 hover:text-accent transition-colors"
               >
                 +39 06 1234 5678
               </a>
@@ -137,10 +128,7 @@ function ContactDetailsSection({ image }: { image: StrapiImageType }) {
               </svg>
               <a
                 href="mailto:info@italivo.it"
-                className={cn(
-                  typography({ variant: "body", margin: false }),
-                  "hover:text-accent transition-colors",
-                )}
+                className="txt-body m-0 hover:text-accent transition-colors"
               >
                 info@italivo.it
               </a>
@@ -149,14 +137,7 @@ function ContactDetailsSection({ image }: { image: StrapiImageType }) {
 
           {/* Social Media */}
           <div className="pt-4 border-t border-white/30">
-            <p
-              className={cn(
-                typography({ variant: "small", margin: false }),
-                "mb-3",
-              )}
-            >
-              Seguici sui social
-            </p>
+            <p className="txt-small m-0 mb-3">Seguici sui social</p>
             <div className="flex gap-4">
               <a
                 href="https://instagram.com"
@@ -221,19 +202,8 @@ function ContactFormSection({
   return (
     <section className="flex flex-col gap-6">
       <header>
-        <h2 className={typography({ variant: "h2", margin: false })}>
-          {title}
-        </h2>
-        {subtitle && (
-          <p
-            className={cn(
-              typography({ variant: "body", margin: false }),
-              "text-muted-foreground mt-2",
-            )}
-          >
-            {subtitle}
-          </p>
-        )}
+        <h2 className="txt-h2 m-0">{title}</h2>
+        {subtitle && <p className="txt-body m-0">{subtitle}</p>}
       </header>
 
       <form className="flex flex-col gap-6">

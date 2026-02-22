@@ -1,7 +1,5 @@
 import { StrapiImage } from "@/components/strapi-image";
 import { StrapiImage as StrapiImageType } from "@/lib/strapi/media";
-import { cn } from "@/lib/utils";
-import { typography } from "@/lib/variants";
 import { ButtonLink, ButtonLinkProps } from "../shared/button-link";
 
 type HeroProps = {
@@ -41,19 +39,8 @@ export function Hero({
       </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center px-(--section-padding-x) py-(--section-padding-y) gap-6">
         <div className="text-center text-background">
-          <h1
-            className={cn(
-              typography({ variant: "display", margin: false }),
-              "",
-            )}
-          >
-            {title}
-          </h1>
-          {subtitle && (
-            <p className={cn(typography({ variant: "lead", margin: false }))}>
-              {subtitle}
-            </p>
-          )}
+          <h1 className="txt-display m-0">{title}</h1>
+          {subtitle && <p className="txt-lead m-0">{subtitle}</p>}
         </div>
         {buttonLink && <ButtonLink {...buttonLink} />}
       </div>

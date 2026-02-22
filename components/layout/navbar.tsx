@@ -9,7 +9,6 @@ import { useIsMobile } from "@/hooks/use-is-mobile";
 import { useScrollLock } from "@/hooks/use-scroll-lock";
 import { routes } from "@/lib/routes";
 import { cn } from "@/lib/utils";
-import { typography } from "@/lib/variants";
 import { MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -59,10 +58,7 @@ export function Navbar({ user }: NavbarProps) {
           </Button>
           <a
             href={routes.home}
-            className={cn(
-              typography({ variant: "h2", margin: false }),
-              "font-bold text-primary py-2 px-4 not-italic",
-            )}
+            className="txt-h2 m-0 font-bold text-primary py-2 px-4 not-italic"
           >
             Italivo
           </a>
@@ -80,7 +76,8 @@ export function Navbar({ user }: NavbarProps) {
         <div
           className={cn(
             "hidden md:contents",
-            open && "max-md:flex max-md:flex-col max-md:items-center max-md:justify-center max-md:flex-1",
+            open &&
+              "max-md:flex max-md:flex-col max-md:items-center max-md:justify-center max-md:flex-1",
           )}
         >
           <ul
@@ -91,10 +88,7 @@ export function Navbar({ user }: NavbarProps) {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className={cn(
-                    typography({ variant: "small", margin: false }),
-                    "inline-block p-2 transition-colors duration-150 ease-in-out hover:text-rust",
-                  )}
+                  className="txt-small m-0 inline-block p-2 transition-colors duration-150 ease-in-out hover:text-rust"
                 >
                   {link.label}
                 </a>

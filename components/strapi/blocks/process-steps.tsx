@@ -1,6 +1,4 @@
-import { cn } from "@/lib/utils";
-import { typography } from "@/lib/variants";
-import { Markdown } from "../fields/markdown";
+import { MarkdownRenderer } from "@/components/markdown/markdown-renderer";
 
 type ProcessStepsProps = {
   title: string;
@@ -20,28 +18,16 @@ export function ProcessSteps({
     <section className="bg-background">
       <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y) flex flex-col gap-(--section-padding-y)">
         <header>
-          <h2
-            className={cn(
-              typography({ variant: "h2", margin: true }),
-              "text-center italic",
-            )}
-          >
-            {title}
-          </h2>
+          <h2 className="txt-h2 text-center italic">{title}</h2>
           {subtitle && (
-            <p
-              className={cn(
-                typography({ variant: "lead", margin: false }),
-                "max-w-3xl mx-auto text-center text-muted-foreground",
-              )}
-            >
+            <p className="txt-lead m-0 max-w-3xl mx-auto text-center text-muted-foreground">
               {subtitle}
             </p>
           )}
         </header>
         {content && (
-          <div>
-            <Markdown markdown={content} />
+          <div className="prose">
+            <MarkdownRenderer>{content}</MarkdownRenderer>
           </div>
         )}
 
@@ -86,23 +72,9 @@ function ProcessStep({
         {stepNum}
       </div>
       <div className="flex-1">
-        <h3
-          className={cn(
-            typography({ variant: "h3", margin: false }),
-            "text-olive-700 mb-2",
-          )}
-        >
-          {title}
-        </h3>
+        <h3 className="txt-h3 m-0 text-olive-700 mb-2">{title}</h3>
         {description && (
-          <p
-            className={cn(
-              typography({ variant: "small", margin: false }),
-              "text-muted-foreground",
-            )}
-          >
-            {description}
-          </p>
+          <p className="txt-small m-0 text-muted-foreground">{description}</p>
         )}
       </div>
     </div>

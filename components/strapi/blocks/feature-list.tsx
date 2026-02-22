@@ -1,7 +1,6 @@
 import { StrapiImage } from "@/components/strapi-image";
 import { StrapiImage as StrapiImageType } from "@/lib/strapi/media";
 import { cn } from "@/lib/utils";
-import { typography } from "@/lib/variants";
 
 type FeatureListProps = {
   title: string;
@@ -22,21 +21,11 @@ export function FeatureList({
     <section className={cn(background === "secondary" && "bg-secondary")}>
       <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y) flex flex-col gap-(--section-padding-y)">
         <div>
-          <h2
-            className={cn(
-              typography({ variant: "h2", margin: !!subtitle }),
-              "text-center",
-            )}
-          >
+          <h2 className={cn("txt-h2", !!subtitle && "m-0", "text-center")}>
             {title}
           </h2>
           {subtitle && (
-            <p
-              className={cn(
-                typography({ variant: "lead", margin: false }),
-                "max-w-4xl mx-auto text-center",
-              )}
-            >
+            <p className="txt-lead m-0 max-w-4xl mx-auto text-center">
               {subtitle}
             </p>
           )}
@@ -49,20 +38,10 @@ export function FeatureList({
                 {index + 1}
               </span>
               <div>
-                <h3
-                  className={cn(
-                    typography({ variant: "h3", margin: false }),
-                    "text-olive-700 mb-2",
-                  )}
-                >
+                <h3 className="text-h3 m-0 text-olive-700 mb-2">
                   {feature.title}
                 </h3>
-                <p
-                  className={cn(
-                    typography({ variant: "small", margin: false }),
-                    "text-muted-foreground",
-                  )}
-                >
+                <p className="txt-small m-0 text-muted-foreground">
                   {feature.description}
                 </p>
               </div>

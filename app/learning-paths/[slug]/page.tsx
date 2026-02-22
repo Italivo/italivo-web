@@ -1,7 +1,6 @@
+import { MarkdownRenderer } from "@/components/markdown/markdown-renderer";
 import { StrapiImage } from "@/components/strapi-image";
-import { Markdown } from "@/components/strapi/fields/markdown";
 import { getLearningPathBySlug, getLearningPaths } from "@/data/queries";
-import { typography } from "@/lib/variants";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -41,13 +40,13 @@ export default async function LearningPathPage({
           </div>
 
           <div className="order-2 md:order-1">
-            <h2 className={typography({ variant: "h2", margin: true })}>
-              {learningPath?.title}
-            </h2>
-            <p className={typography({ variant: "lead", margin: true })}>
-              {learningPath.tagline}
-            </p>
-            <Markdown markdown={learningPath.content} />
+            <h2 className="txt-h2">{learningPath?.title}</h2>
+            <p className="txt-lead">{learningPath.tagline}</p>
+            {learningPath.content && (
+              <div className="prose">
+                <MarkdownRenderer>{learningPath.content}</MarkdownRenderer>
+              </div>
+            )}
           </div>
         </div>
       </div>
