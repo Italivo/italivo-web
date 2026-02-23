@@ -37,10 +37,15 @@ export function Hero({
           preload
         />
       </div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.4)_0%,transparent_70%)]" />
       <div className="absolute inset-0 flex flex-col items-center justify-center px-(--section-padding-x) py-(--section-padding-y) gap-6">
         <div className="text-center text-background">
-          <h1 className="txt-display m-0">{title}</h1>
-          {subtitle && <p className="txt-lead m-0">{subtitle}</p>}
+          <h1 className="font-serif font-normal text-4xl md:text-5xl lg:text-6xl leading-tight">
+            {title}
+          </h1>
+          {subtitle && (
+            <p className="font-sans text-lg leading-relaxed">{subtitle}</p>
+          )}
         </div>
         {buttonLink && <ButtonLink {...buttonLink} />}
       </div>
