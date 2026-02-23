@@ -58,7 +58,11 @@ export function Navbar({ user }: NavbarProps) {
           </Button>
           <a
             href={routes.home}
-            className="txt-h2 m-0 font-bold text-primary py-2 px-4 not-italic"
+            className={cn(
+              "font-serif text-primary font-bold leading-tight",
+              "text-3xl md:text-4xl",
+              "py-2 px-4",
+            )}
           >
             Italivo
           </a>
@@ -88,7 +92,7 @@ export function Navbar({ user }: NavbarProps) {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="txt-small m-0 inline-block p-2 transition-colors duration-150 ease-in-out hover:text-rust"
+                  className="font-sans text-sm leading-normal inline-block p-2 transition-colors duration-150 ease-in-out hover:text-rust"
                 >
                   {link.label}
                 </a>
