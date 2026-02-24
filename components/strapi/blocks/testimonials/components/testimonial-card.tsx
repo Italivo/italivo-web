@@ -1,43 +1,14 @@
 import { StrapiImage } from "@/components/strapi-image";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { getTestimonials } from "@/data/queries";
 import { StrapiImage as StrapiImageType } from "@/lib/strapi/media";
 import { cn } from "@/lib/utils";
 
-interface TestimonialsProps {
-  title?: string;
-  background?: "transparent" | "secondary";
-}
-
-export async function Testimonials({
-  title,
-  background = "transparent",
-}: TestimonialsProps) {
-  const { data: testimonialsData } = await getTestimonials();
-  const testimonials = testimonialsData?.data;
-
-  return (
-    <section className={cn(background === "secondary" && "bg-secondary")}>
-      <div className="container-fluid mx-auto px-(--section-padding-x) py-(--section-padding-y)">
-        {title && <h2 className="txt-h2 text-center mb-20">{title}</h2>}
-
-        {testimonials && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={index} {...testimonial} />
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
-  );
-}
-
-export type TestimonialCardProps = {
+type TestimonialCardProps = {
   quote: string;
   name: string;
   avatar: StrapiImageType;
   role: string;
+  className?: string;
 };
 
 export function TestimonialCard({
@@ -45,9 +16,10 @@ export function TestimonialCard({
   name,
   avatar,
   role,
+  className,
 }: TestimonialCardProps) {
   return (
-    <Card className="gap-2">
+    <Card className={cn("justify-between gap-2", className)}>
       <CardContent>
         <p className="txt-body italic">&ldquo;{quote}&rdquo;</p>
       </CardContent>
